@@ -22,17 +22,17 @@ public class TesteGrafoMatrizAdjacencia {
                                 .constroiGrafo(Representacao.MATRIZ_ADJACENCIA);
                 Vertice a = new Vertice("a");
                 g.adicionaVertice(a);
-                g.imprime();
+                //g.imprime();
 
                 // 'a' foi adicionado ao grafo
                 assertEquals(a, g.getVertice(a.getId()));
 
                 Vertice b = new Vertice("b");
                 Vertice c = new Vertice("c");
-                g.adicionaVertice(a, b);
-                g.imprime();
-                g.adicionaVertice(a, c);
-                g.imprime();
+                //g.adicionaVertice(a, b);
+                //g.imprime();
+                //g.adicionaVertice(a, c);
+                //g.imprime();
 
                 // 'b' e 'c' foram adicionados ao grafo
                 assertEquals(b, g.getVertice(b.getId()));
@@ -57,11 +57,11 @@ public class TesteGrafoMatrizAdjacencia {
                 Vertice f = new Vertice("f");
 
                 g.adicionaVertice(b, d);
-                g.imprime();
+                //g.imprime();
                 g.adicionaVertice(b, e);
-                g.imprime();
-                g.adicionaVertice(b, f);
-                g.imprime();
+                //g.imprime();
+                //g.adicionaVertice(b, f);
+                //g.imprime();
 
                 // as arestas 'd', 'e' e 'f' tem 'b' como antecessor
                 iteratorAresta = g.getArestas();
