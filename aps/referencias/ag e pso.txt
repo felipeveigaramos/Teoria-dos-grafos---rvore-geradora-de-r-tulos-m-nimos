@@ -1,0 +1,1858 @@
+    Pontifícia Universidade Católica do Paraná
+Programa de Pós-Graduação em Informática Aplicada
+
+     Computação Evolutiva
+
+          Luiz Eduardo S. Oliveira, Ph.D.
+
+                       2005
+Sumário
+
+1 Introdução                                                                               1
+
+2 Algoritmos Genéticos                                                                     4
+  2.1   Principais Conceitos . . . . . . . . . . . . . . . . . . . . . . . . . . . .       4
+  2.2   Um Simples Exemplo . . . . . . . . . . . . . . . . . . . . . . . . . . . .         5
+  2.3   Entendendo o AG . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        9
+        2.3.1   Representação das Variáveis . . . . . . . . . . . . . . . . . . . .        9
+        2.3.2   População: Tamanho e Inicialização . . . . . . . . . . . . . . . .        10
+        2.3.3   O Operador de Cruzamento . . . . . . . . . . . . . . . . . . . .          11
+        2.3.4   O Operador de Mutação . . . . . . . . . . . . . . . . . . . . . .         11
+        2.3.5   Seleção . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   12
+        2.3.6   Como o AG Funciona . . . . . . . . . . . . . . . . . . . . . . . .        13
+  2.4   AG Multi-Objetivos . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      13
+  2.5   Aplicações . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    17
+        2.5.1   Seleção de características . . . . . . . . . . . . . . . . . . . . . .    17
+        2.5.2   Data Mining . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     18
+        2.5.3   Otimização . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      19
+
+3 Programação Evolutiva                                                                   20
+  3.1   Evolução de uma Máquina de Estado Finito . . . . . . . . . . . . . . .            20
+
+4 Estratégias Evolutivas                                                                  27
+  4.1   Mutação . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     27
+  4.2   Recombinação . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      28
+  4.3   Seleção . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   29
+                                             ii
+5 Programação Genética                                                                    31
+  5.1   Entendendo a PG . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       33
+        5.1.1   Criando um indivíduo . . . . . . . . . . . . . . . . . . . . . . .        33
+        5.1.2   Criando um População Aleatória . . . . . . . . . . . . . . . . .          34
+        5.1.3   Fitness . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   36
+        5.1.4   Operadores Genéticos . . . . . . . . . . . . . . . . . . . . . . . .      37
+        5.1.5   Métodos de Seleção . . . . . . . . . . . . . . . . . . . . . . . . .      38
+
+6 Inteligência Coletiva                                                                   40
+  6.1   Particle Swarm Intelligence . . . . . . . . . . . . . . . . . . . . . . . . .     40
+        6.1.1   O Algoritmo . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     41
+        6.1.2   Controlando os Parâmetros . . . . . . . . . . . . . . . . . . . .         44
+        6.1.3   PSO Discreto . . . . . . . . . . . . . . . . . . . . . . . . . . . .      44
+Lista de Figuras
+
+ 1.1   Terminologia utilizada em problemas de otimização. . . . . . . . . . . .           2
+
+ 2.1   Função a ser otimizada no exemplo proposto.         . . . . . . . . . . . . . .    6
+ 2.2   Roleta para exemplo proposto. . . . . . . . . . . . . . . . . . . . . . . .        7
+ 2.3   (a)População antes do cruzamento indicando os pontos de cruzamento,
+       (b) após cruzamento, (c) valores de x e (d) valores de f (x). . . . . . . .        9
+ 2.4   Ordenação por frentes não-dominadas . . . . . . . . . . . . . . . . . . .         15
+ 2.5   Ordenação da população baseado no conceito de não-dominância: (a)
+       População classicada em três frentes não dominadas e (b) Valores das
+       tness após compartilhamento.        . . . . . . . . . . . . . . . . . . . . . .   16
+
+ 3.1   Representação da máquina de estado nito de três estados. . . . . . . .            21
+ 3.2   Máquina de estado nito usada para fazer predição do próximo símbolo.              23
+ 3.3   Codicação do estado A da Figura 3.2. . . . . . . . . . . . . . . . . . .          23
+ 3.4   Uma máquina de estado nito para o jogo do dilema do prisioneiro (ex-
+       traído de [8]). . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   26
+
+ 4.1   Mutação Gaussiana de um pai (a) para formar um lho (b). . . . . . .               28
+ 4.2   Recombinação intermediária dos pais (a) e (b) para formar o lho (c). .            29
+
+ 5.1   Árvore de sintaxe abstrata de 3 × (x + 6) . . . . . . . . . . . . . . . . .       34
+ 5.2   Exemplo de cruzamento entre dois programas. . . . . . . . . . . . . . .           38
+
+ 6.1   Representação gráca da modicação de um ponto no espaço de busca.                  42
+
+                                           iv
+Lista de Tabelas
+
+ 2.1   População inicial e tness do problema exemplo. . . . . . . . . . . . . .      6
+ 2.2   População após reprodução. . . . . . . . . . . . . . . . . . . . . . . . .    8
+
+ 3.1   Tabela de estados de uma máquina de estado nito com três estados. .          21
+
+                                         v
+Cap´
+   itulo   1
+Introdução
+
+   A computação evolutiva é composta por um conjunto de técnicas de otimização
+estocástica inspiradas no processo evolutivo biológico. Tais técnicas têm recebido cres-
+cente interesse nas últimas décadas, devido principalmente a sua versatilidade para a
+resolução de problemas complexos de otimização. Neste capítulo apresentamos os con-
+ceitos básicos necessários para utilizar computação evolutiva na resolução de problemas
+reais. Cinco grandes áreas da computação evolutiva serão abordadas:
+
+   * Algoritmos genéticos.
+
+   * Programação evolutiva.
+
+   * Estratégias evolutivas.
+
+   * Programação genética.
+
+   * Inteligência Coletiva.
+
+   As técnicas tradicionais de busca e otimização geralmente utilizam regras deter-
+minísticas para se deslocarem no espaço de busca. Uma das desvantagens dessa abor-
+dagem é a alta probabilidade de car preso em um ótimo local. Já as técnicas de
+computação evolutiva, são baseadas em população de soluções, as quais são reproduzi-
+das a cada época (geração) do algoritmo. Desta maneira, vários máximos e mínimos
+podem ser explorados simultaneamente, reduzindo assim a probabilidade de car preso
+em um ótimo local, e conseqüentemente encontrando o ótimo global. Essa terminologia
+está ilustrada na Figura 1.1
+   Independentemente do paradigma implementado, as ferramentas da computação
+evolutiva seguem um procedimento similar:
+1. Introdução                                                                                    2
+
+                                                                                Valor do ótimo
+                                                                                   global
+                                    f(x)
+
+                       Vizinhança
+                       da Solução
+
+                                                   (         )
+                                                                                          x
+                                           y
+
+                                                                 Ótimo global
+                                               Ótimo local
+
+            Figura 1.1: Terminologia utilizada em problemas de otimização.
+
+   * Inicializar a população.
+
+   * Calcular a tness1 de cada indivíduo da população.
+
+   * Reproduzir os indivíduos selecionados para produzir uma nova população.
+
+   * Submeter a população à operações genéticas, tais como cruzamento e mutação.
+
+   * Voltar ao ítem 2 até que alguma condição seja satisfeita.
+
+   Como o nome sugere, a inicialização consiste em inicializar a população com valores
+aleatórios. Quando os parâmetros são representados por strings binárias, essa inicial-
+ização simplesmente atribui valores zero ou um para cada bit da string (seguindo uma
+distribuição uniforme). Um procedimento bastante utilizado consiste em inicializar um
+indivíduo da população com uma solução conhecida, a qual sabe-se que está perto de
+uma solução ótima.
+   O valor da tness é geralmente proporcional ao resultado da função que está sendo
+otimizada, podendo ainda ser uma combinação dos resultados de várias funções. Em
+muitos casos, uma pequena porção dos recursos computacionais disponíveis é usada
+para executar as operações genéticas do algoritmo, sendo a maior parte dos recursos
+usada para o cálculo da tness.
+   A seleção dos indivíduos usados para a reprodução, os quais darão origem a uma
+nova geração e geralmente baseada no valor da tness. Quanto maior for a tness de um
+  1A  tradução mais adequada de tness seria aptidão. Porém nesse texto optamos pelo uso do termo
+em inglês.
+1. Introdução                                                                                     3
+
+indivíduo, maior a sua probabilidade de ser selecionado para ser um reprodutor. Entre-
+tanto, alguns paradigmas, como por exemplo, Particle Swarm Optimization (discutido
+no Capítulo 6), mantém todos os membros da população de geração em geração.
+   O algoritmo é nalizado quando algum indivíduo alcança uma tness pré-
+determinada ou quando o número máximo de iterações é executado.
+   Em muitos casos, senão na maioria, existe um ótimo global em um ponto do espaço
+de decisão. Além disso, podem existir ruídos estocásticos bem como caóticos. Algu-
+mas vezes o ótimo global que se busca pode mudar dinamicamente em decorrência de
+inuências externas. Em outros casos, existem ótimos locais muito bons. Por esses
+e outros motivos, muitas vezes não é sensato esperar que um método de otimização
+encontre o ótimo global (mesmo que ele exista) em um tempo nito. O melhor que
+pode-se esperar é que o algoritmo encontre uma solução próxima à ótima.
+   Isso nos leva a Lei da Suciência. Se uma solução é sucientemente boa, rápida e
+barata, então dizemos que ela é suciente. Na maioria das aplicações reais, buscamos,
+e estamos satisfeitos com soluções sucientes2 . Uma pergunta feita freqüentemente é:
+Qual é o melhor algoritmo da computação evolutiva para problemas de otimização? A
+resposta pode ser encontrada no No Free Lunch Theorem [9], o qual diz que não existe
+o melhor algoritmo, mas sim que cada algoritmo é eciente para uma determinado
+domínio de aplicação. Wolpert e MacReady [26] mostram que todos os algoritmos de
+otimização tem exatamente o mesmo desempenho quando se faz a média de todas as
+possíveis funções de custo. Em particular, se o algoritmo A supera o algoritmo B
+em alguns casos, então existirão outros casos onde o algoritmo B superará A. Isso é
+conhecido com No Free Lunch Theorem.
+   Nas próximas seções revisaremos as cinco áreas da computação evolutiva: algorit-
+mos genéticos, computação evolutiva, estratégias evolutivas, programação genética e
+inteligência de enxame. Nosso foco principal serão os algoritmos genéticos, uma vez
+que os mesmos têm sido os mais citados na literatura. Entretanto, é importante salien-
+tar que estratégias híbridas combinando computação evolutiva e outras técnicas de
+inteligência computacional têm se tornado cada dia mais comuns.
+
+   2 Nestes casos, entende-se por sucientes aquelas soluções que estão de acordo com as especicações
+do usuário.
+Cap´
+   itulo   2
+Algoritmos Genéticos
+
+   Os primeiros trabalhos envolvendo algoritmos genéticos (AGs) datam da década de
+50. A. Fraser, um pesquisador Australiano, publicou um dos primeiros trabalhos sobre
+AGs em 1957 [11]. Entretanto a pessoa que pode ser considerada o pai dos AGs é
+John H. Holland da universidade de Michigan. Seu livro, Adaptation in Natural and
+Articial Systems [14] foi um dos mais importantes livros publicados sobre esse assunto.
+Outra pessoa bastante ativa ainda nos dias de hoje é David Goldberg, um ex-aluno de
+Holland. Seu livro Genetic Algorithms in Search, Optimization, and Machine Learning
+[12] é ainda hoje um dos livros texto sobre AGs mais citados na literatura. Outro autor
+de um importante livro neste campo é Lawrence Davis. Seu livro, Handbook of Genetic
+Algorithms, é dividido em duas partes: a primeira parte apresenta um compreensivo
+tutorial, enquanto a segunda parte apresenta vários estudos de casos.
+
+2.1 Principais Conceitos
+   AGs são algoritmos de busca baseado na idéia da evolução natural. Entretanto, ci-
+entistas da computação em engenheiros geralmente ignoram os fundamentos biológicos
+dos AGs e como eles podem ser usados na interpretação dos resultados. AGs fornecem
+um mecanismo de busca bastante atrativo que pode ser usado tanto em problemas de
+classicação como otimização.
+   AGs trabalham com uma população de indivíduos (também chamados de cromosso-
+mos devido a analogia com a evolução natural), os quais representam soluções potenciais
+para o problema em questão.
+   Uma vez que números reais podem ser codicados em AGs com representação (cro-
+mossomos) binária, a dimensão do problema pode ser diferente da dimensão do cromos-
+2. Algoritmos Genéticos                                                            5
+
+somo. Um elemento do cromossomo (gene) geralmente corresponde a um parâmetro ou
+dimensão do vetor numérico. Cada elemento pode ser codicado usando um ou vários
+bits, dependendo do tipo de representação de cada parâmetro. O número total de bits
+dene a dimensão do espaço de busca.
+   O pseudo-código de um AG clássico é apresentado a seguir:
+
+Algorithm 1 Algoritmo Genético Clássico
+ 1: t  0
+ 2: Inicializar População(t)
+ 3: while condição de término não for satisfeita do
+ 4:   tt+1
+ 5:   Seleciona População(t) da População(t - 1)
+ 6:   Cruzamento População(t)
+ 7:   Mutação População(t)
+ 8:   Avaliação da População(t)
+ 9: end while
+
+2.2 Um Simples Exemplo
+   A implementação de um AG clássico é bastante simples. Desta maneira, o uso de
+um problema também simples parece ser a melhor maneira de apresentar os conceitos
+básicos dos AGs. Veremos que a implementação de um AG clássico envolve basicamente
+cópias de strings, trocas de porções de strings e mudanças de bits.
+   Nosso exemplo didático consiste em encontrar os valores de x que maximizam a
+função f (x) = sin(x/256), na qual 0  x  255 e x podendo assumir somente valores
+inteiros. Essa função é ilustrada na Figura 2.1. Como pode-se observar, o valor que
+maximiza tal função é 128 ou /2. Neste problema, o valor da função e o valor da
+tness são idênticos.
+   Uma única variável está sendo considerada neste problema: x. Utilizaremos uma
+codicação binária uma vez que a variável x pode assumir valores inteiros somente.
+Sendo assim, é lógico representar os indivíduos da nossa população com uma string
+de oito bits. Portanto, a string 00000000 representará o inteiro 0 enquanto a string
+11111111 representará o inteiro 255.
+   O próximo passo consiste em estipular o número de indivíduos da população. Em
+uma aplicação real, é comum contar com uma população entre algumas dezenas e
+poucas centenas de indivíduos. Discutiremos esta questão mais adiante. Neste exemplo,
+utilizaremos uma população de oito indivíduos.
+2. Algoritmos Genéticos                                                           6
+
+                      1
+
+                     0.5
+
+                      0
+                           0                      128                     255
+
+              Figura 2.1: Função a ser otimizada no exemplo proposto.
+
+   Uma vez determinada o tamanho da população, deve-se inicializar a mesma. Isso
+é geralmente feito de maneira aleatória. De posse da primeira população, pode-se
+então calcular a tness de cada indivíduo. A Tabela 2.1 mostra a população inicial
+inicializada, o valor de x e o valor da tness, que neste caso é igual a f (x).
+
+             Tabela 2.1: População inicial e tness do problema exemplo.
+
+                               Indivíduos    x    f (x)   fnorm   facm
+                                10111101    189   0.733   0.144   0.144
+                                11011000    216   0.471   0.093   0.237
+                                01100011     99   0.937   0.184   0.421
+                                11101100    236   0.243   0.048   0.469
+                                10101110    174   0.845   0.166   0.635
+                                01001010     75   0.788   0.155   0.790
+                                00100011     35   0.416   0.082   0.872
+                                00110101     53   0.650   0.128   1.000
+
+   Após o cálculo da tness, o proximo passo é a reprodução, a qual consiste em gerar
+uma nova população com o mesmo número de indivíduos. Para isso, utiliza-se um
+processo estocástico que leva em consideração a tness normalizada de cada indivíduo
+da população. A normalização é realizada dividindo a tness de cada individuo pelo
+somatório de todas as tness dos indivíduos da população. As tness normalizadas são
+então utilizadas num processo conhecido como Roleta Russa. A roleta contém uma
+porção para cada indivíduo da população, onde o tamanho da porção reete a tness
+2. Algoritmos Genéticos                                                                7
+
+normalizada do indivíduo (Figura 2.2).
+
+                                                   0|1
+                                   1                         8
+
+                                                                 0.872
+                       0.144
+                                                                     7
+                           2
+                                                                         0.790
+                   0.237
+
+                                                                         6
+
+                           3
+
+                                                                 0.635
+
+                               0.421
+                                       4
+                                                         5
+                                           0.469
+
+                       Figura 2.2: Roleta para exemplo proposto.
+
+   Rodamos a roleta gerando oito número aleatórios entre 0 e 1. Se o número cair entre
+0 e 0.144, o primeiro indivíduo da população é selecionado para a próxima população. Se
+o número cair entre 0.144 e 0.237, o segundo indivíduo da população é selecionado para
+a próxima população, e assim por diante. A probabilidade de seleção de um indivíduo
+é então proporcional a sua tness. É possível então, embora altamente improvável, que
+um indivíduo com baixa tness seja selecionado oito vezes, compondo assim a nova
+geração (algoritmo estocástico). É muito mais provável que os indivíduos com mais
+alta tness sejam selecionados. Os oito número aleatórios gerados no nosso exemplo
+são: 0.293, 0.971, 0.160, 0.469, 0.664, 0.568, 0.371 e 0.109. Desta maneira, os seguintes
+indivíduos foram selecionados para a compor a próxima população: 3, 8, 2, 5, 6, 5, 3 e
+1 (Tabela 2.2).
+   A próxima operação é o cruzamento. Esta é a operação que troca porções de strings
+de dois indivíduos pais. Uma probabilidade (Pc ) atribuída ao processo de cruzamento
+indica, dados dois pais, se o cruzamento ocorrerá ou não. Um valor entre 0.6 e 0.8
+é geralmente utilizado como probabilidade de cruzamento. Para o nosso problema
+exemplo, utilizaremos 0.75.
+   Am de preservar alguns bons indivíduos gerados durante a reprodução, nem todos
+os indivíduos são submetidos à operação de cruzamento. Como no nosso caso estamos
+2. Algoritmos Genéticos                                                               8
+
+                          Tabela 2.2: População após reprodução.
+
+                                   Índice   Indivíduos
+                                     3       01100011
+                                     8       00110101
+                                     2       11011000
+                                     5       10101110
+                                     6       01001010
+                                     5       10101110
+                                     3       01100011
+                                     1       10111101
+
+usando Pc = 0.75, o número de indivíduos que sofrerá cruzamento é igual ao total
+de indivíduos na população ×Pc (8 × 0.75 = 6). Os indivíduos não utilizados no
+cruzamento serão simplesmente copiados para a nova população.
+   Sendo assim, seis indivíduos (três pares) são selecionados aleatoriamente para a
+realização do cruzamento. Os dois restantes serão simplesmente copiados. Por uma
+questão de simplicidade, selecionamos os seis primeiros indivíduos para o cruzamento.
+Sobre esses indivíduos aplicamos um cruzamento em dois pontos (as outras técnicas
+de cruzamento serão discutidas posteriormente), o qual consiste em trocar porções dos
+indivíduos entre os pontos de cruzamento. Esse processo está ilustrado na Figura 2.3.
+   Após a operação de cruzamento, o próximo operador é a mutação. Essa operação
+é utilizada para garantir uma maior varredura do espaço de estados e evitar que o
+algoritmo genético convirja muito cedo para mínimos locais. A mutação é efetuada
+alterando-se o valor de um gene de um indivíduo selecionado aleatoriamente com uma
+determinada probabilidade, denominada probabilidade de mutação (Pm ), ou seja, vários
+indivíduos da nova população podem ter um de seus genes alterado aleatoriamente. O
+valor de Pm pode variar de acordo com a aplicação, sendo que valores entre 0.001
+e 0.01 são freqüentemente utilizados. Isso signica uma inserção entre 0.1 e 1% de
+genes aleatórios na população. Como no nosso exemplo existem 64 genes (8 indivíduos
+× 8 genes), é bem possível que nenhum gene sofra mutação. Desta maneira, vamos
+considerar a população apresentada na Figura 2.3b como população nal (nova geração)
+após uma iteração do AG.
+   Note que essa população possui dois indivíduos com tness > 0.99. A população da
+Figura 2.3b está pronta para uma nova iteração do AG e assim por diante até que um
+critério de parada seja satisfeito. No nosso caso, o critério de parada seria f (x) = 1,
+2. Algoritmos Genéticos                                                             9
+
+                  1           2               Indivíduos          x        f(x)
+    0 1 1             0 0 0       1 1     0 1 1 1 0 1 1 1       119       0.994
+    0 0 1             1 0 1       1 1     0 0 1 0 0 0 1 1         33      0.394
+
+        1             2
+
+    1       1 0 1         1 0 0 0         1 0 1 0 1 0 0 0        168       0.882
+    1       0 1 0         1 1 1 0         1 1 0 1 1 1 1 0        222       0.405
+
+             1                    2
+
+    0 1          0 0 1 0 1            0   0 1 1 0 1 1 1 0        138       0.992
+    1 0          1 0 1 1 1            0   1 0 1 0 1 0 1 0        110       0.976
+
+    0 1 1 0 0 0 1 1                       0 1 1 0 0 0 1 1         99       0.937
+    1 0 1 1 1 1 0 1                       1 0 1 1 1 1 0 1        189       0.733
+
+Figura 2.3: (a)População antes do cruzamento indicando os pontos de cruzamento, (b)
+após cruzamento, (c) valores de x e (d) valores de f (x).
+
+porém pode-se parar o algoritmo assim que ele alcance um número pré-determinado de
+iterações.
+
+2.3 Entendendo o AG
+   Agora que uma iteração do AG para o problema exemplo foi concluída, vamos
+entender como e porque os AGs funcionam. Antes, algumas considerações sobre os
+tipos de representação, tamanho da população, operadores genéticos e seleção serão
+apresentados.
+
+2.3.1 Representação das Variáveis
+   No exemplo apresentado anteriormente, a representação dos valores da variável x
+foi feita diretamente através da escolha de um intervalo dinâmico [0,255], o qual foi
+representado por uma string binária de tamanho 8. No algoritmo genético clássico
+proposto por Holland [14], as soluções candidatas são codicadas em arranjos binários
+de tamanho xo. A motivação para o uso da codicação binária vem da teoria dos es-
+quemas (schemata theory ), a qual veremos mais adiante, utilizada com relativo sucesso
+para explicar por que os algoritmos genéticos funcionam. Na segunda edição de seu
+2. Algoritmos Genéticos                                                              10
+
+livro, Holland [15] argumenta que seria benéco para o desempenho do algoritmo max-
+imizar o paralelismo implícito inerente ao algoritmo genético, e prova que um alfabeto
+binário maximiza o paralelismo implícito. No nosso exemplo, a função seno é maxi-
+mizada quando x = 128. A representação binária de 128 é 10000000; já a representação
+de 127 é 01111111. Como podemos notar, para uma pequena variação no valor da t-
+ness, é necessário que todos os bits da string sejam alterados. Ou seja, para se ter uma
+pequena mudança de valor no espaço real, é necessário uma grande mudança no valor
+binário. Esse tipo de situação não é o ideal, pois faz com que a busca se torne mais
+lenta.
+   Um outro problema com a codicação binária é a precisão. Suponha que desejamos
+codicar uma variável real que possa assumir qualquer valor no intervalo [2.500,6.500].
+Para codicar esse valor (precisão de três casas decimais), será necessário uma string
+binária de tamanho 12, onde a string 000000000000 representará o valor 2.500. Agora,
+considere que tenhamos um problema de otimização com 100 variáveis reais. Isso
+nos leva a uma string binária de 1200 bits. Como se pode notar, quanto maior a
+precisão, maior deve ser o tamanho da string binária, o que nos leva a um tamanho
+de população maior, e conseqüentemente uma maior complexidade computacional [12].
+Por outro lado, esse tipo de codicação possibilita ao usuário enxergar a população
+de indivíduos como sendo vetores de valores reais e não strings binárias, e tornando
+assim, a implementação do AG mais simples. Teoricamente, o alfabeto utilizado na
+representação do problema pode ser qualquer alfabeto nito, entretanto, o alfabeto
+binário tem sido o mais utilizado. Mais adiante apresentaremos alguns exemplos com
+diferentes tipos de alfabetos.
+
+2.3.2 População: Tamanho e Inicialização
+   O tamanho da população tem relação direta com o espaço de busca, ou seja, quanto
+maior a população, mais completa será a busca realizada pelo algoritmo. Por outro lado,
+maior também ser a complexidade computacional envolvida. Geralmente se emprega
+populações de tamanho variando de 20 a 200 indivíduos, dependendo, como citamos
+anteriormente, do tamanho do indivíduo (espaço de busca). Pode-se armar também
+que o tamanho da população depende ainda da complexidade do problema em questão.
+   A inicialização da população é geralmente feita de maneira estocástica, embora em
+alguns casos seja interessante inserir um ou mais bons indivíduos conhecidos. Deste
+modo, o algoritmo tende a procurar em algumas regiões promissoras (onde esses indi-
+víduos estão situados).
+2. Algoritmos Genéticos                                                              11
+
+2.3.3 O Operador de Cruzamento
+   O operador de cruzamento cria novos indivíduos através da combinação de dois ou
+mais indivíduos. A idéia intuitiva por trás desta operação é a troca de informação entre
+diferentes soluções candidatas. O operador de cruzamento mais empregado é o crossover
+de um ponto, o qual seleciona dois indivíduos (pais) e a partir de seus cromossomos são
+gerados dois novos indivíduos (lhos). A idéia é a mesma vista anteriormente, porém
+somente um ponto de corte é gerado aleatoriamente.
+   Outro tipo de cruzamento é o cruzamento uniforme, onde para cada bit no primeiro
+lho é decidido (com alguma probabilidade xa p) qual pai vai contribuir com seu valor
+para aquela posição. Como o cruzamento uniforme troca bits ao invés de segmentos
+de bits, ele pode combinar características independentemente da sua posição relativa
+no cromossomo. No entanto, não há nenhum operador de crossover que claramente
+apresente um desempenho superior aos demais. Uma conclusão que se pode chegar é
+que cada operador de cruzamento é particularmente eciente para uma determinada
+classe de problemas e extremamente ineciente para outras.
+   Os operadores de cruzamento descritos até aqui também podem ser utilizados em
+cromossomos com codicação em ponto utuante. Entretanto existem operadores de
+cruzamento especialmente desenvolvidos para uso com codicação em ponto utuante.
+Um exemplo é o chamado cruzamento aritmético [21]. Este operador é denido como
+uma combinação linear de dois cromossomos: sejam x1 e x2 dois indivíduos selecionados
+para crossover, então os dois lhos resultantes serão x1 = ax1 + (1 - a)x2 e x2 =
+(1 - a)x1 + ax2 onde a é um número aleatório pertencente ao intervalo [0, 1]. Este
+operador é particularmente apropriado para problemas de otimização numérica com
+restrições, onde a região factível é convexa. Isto porque, se x1 e x2 pertencem à região
+factível, combinações convexas de x1 e x2 serão também factíveis. Desta maneira,
+garante-se que o cruzamento não gera indivíduos inválidos para o problema em questão.
+
+2.3.4 O Operador de Mutação
+   O operador de mutação modica aleatoriamente um ou mais genes de um cromos-
+somo. A probabilidade de ocorrência de mutação em um gene é denominada prob-
+abilidade de mutação. Usualmente, são atribuídos valores pequenos para a taxa de
+mutação. A idéia intuitiva por trás do operador de mutação é criar uma diversidade
+extra na população, mas sem destruir o progresso já obtido com a busca. Considerando
+uma codicação binária, o operador de mutação padrão simplesmente troca o valor de
+2. Algoritmos Genéticos                                                                           12
+
+um gene em um cromossomo. Assim, se um gene selecionado para mutação tem valor
+1, o seu valor passará a ser 0 após a aplicação da mutação, e vice-versa.
+    No caso de problemas com codicação em ponto utuante, os operadores de mutação
+mais populares são a mutação uniforme e a mutação Gaussiana [21]. O operador
+para mutação uniforme seleciona aleatoriamente um componente k  {1, 2, . . . , n} do
+cromossomo x = [x1 , x2 , . . . , xn ] e gera um indivíduo x = [x1 , x2 , . . . , xn ] , onde xk é um
+número aleatório (com distribuição de probabilidade uniforme) amostrado no intervalo
+[LB, UB] e LB e UB são, respectivamente, os limites inferior e superior para o valor
+da posição (gene) xk . Já no caso da mutação Gaussiana, todos os componentes de um
+cromossomo x = [x1 , x2 , . . . , xn ] são modicados na forma x = x + N (0,  ) onde N (0,  )
+é um vetor de variáveis aleatórias Gaussianas independentes, com média zero e desvio
+padrão  . Outro operador de mutação, especialmente desenvolvido para problemas de
+otimização com restrições e codicação em ponto utuante, é a chamada mutação não-
+uniforme, destinada a realizar a sintonia na junto aos indivíduos da população. Este
+e outros exemplos de operadores de mutação para problemas de otimização numérica
+podem ser encontrados em [21].
+
+2.3.5 Seleção
+    O método de seleção mais empregado no AG clássico é a roleta russa, o qual vimos
+no exemplo apresentado anteriormente. Esse método atribui a cada indivíduo de uma
+população uma probabilidade de passar para a próxima geração proporcional a sua
+tness medida em relação à somatória da tness de todos os indivíduos da população.
+Assim, quanto maior a tness de um indivíduo, maior a probabilidade dele passar para
+a próxima geração. Desta maneira, a seleção de indivíduos pela roleta russa pode fazer
+com que o melhor indivíduo da população seja perdido, ou seja, não passe para a próx-
+ima geração. Uma alternativa é escolher como solução o melhor indivíduo encontrado
+em todas as gerações do algoritmo. Outra opção é simplesmente manter sempre o
+melhor indivíduo da geração atual na geração seguinte, estratégia essa conhecida como
+seleção elitista [7]. Outro exemplo de mecanismo de seleção é a seleção baseada em
+ranking [1]. Esta estratégia utiliza as posições dos indivíduos quando ordenados de
+acordo com a tness para determinar a probabilidade de seleção.
+2. Algoritmos Genéticos                                                              13
+
+2.3.6 Como o AG Funciona
+   O principio de funcionamento do AG descrito até então é simples, e envolve ba-
+sicamente cópia, trocas de porções de strings e alterações de bits. De fato, é sur-
+preendente que com simples operações como essas, um poderoso algoritmo de busca
+possa ser construído. O teorema que descreve a razão do AG ser eciente para lidar
+como problemas de otimização é chamado schema theorem. A idéia de esquema per-
+mite referir-se de forma compacta às similaridades entre cromossomos. Um esquema
+(schema ; plural: schemata ) é uma estrutura de cromossomo com posições de con-
+teúdo xo e posições em aberto, tradicionalmente representadas por asteriscos. Sua
+nalidade é estabelecer famílias de cromossomos, caracterizadas originalmente pelos
+códigos binários imutáveis das posições xas e pelo comprimento (número de genes) do
+cromossomo. Os melhores esquemas tendem a perpetuarem-se através das gerações e
+conseqüentemente suas contribuições para a função objetivo. Os esquemas que servem
+como base para a construção de futuras gerações são chamados de building blocks [15].
+   Utilizando como exemplo um cromossomo de tamanho 7, pode-se visualizar que um
+esquema 1*001*1 possui quatro cromossomos 1000111, 1100111, 1000101, 1100101, o
+que nos leva a concluir que para alfabetos de cardinalidade K e strings de comprimento
+ existem (K + 1) esquemas, bem como pode-se visualizar que para uma população
+de N indivíduos podem existir até N  2 esquemas, quando se considera que cada
+string também é um membro de 2 (considerando que já se tem o cromossomo). Os
+fundamentos matemáticos a respeito de esquemas podem ser encontrados em [15, 12].
+
+2.4 AG Multi-Objetivos
+   A dominância dos cromossomos com alto valor de aptidão nas populações iniciais,
+pode fazer com que o algoritmo venha a convergir muito rapidamente para um ponto
+de máximo local no espaço de soluções. Deste fato, surge a necessidade de modicar a
+função objetivo em prol da contribuição dos indivíduos menos aptos, através de vários
+mecanismos, dentre os quais podemos citar o procedimento de escala, ranking, torneio
+e roleta russa (os três últimos vistos anteriormente). A idéia básica do procedimento de
+escala é limitar a competição entre os cromossomos nas iterações iniciais e estimulá-la
+progressivamente, através de uma mudança (linear em geral) de escala da tness.
+   Agora considere que a função a ser otimizada F (x) é composta não somente por
+um objetivo (f ), mas sim por N objetivos (fi ). Vale a pena ressaltar que é isso o
+que acontece na grande maioria dos problemas reais. Nesses casos, o procedimento
+2. Algoritmos Genéticos                                                                14
+
+de escala deveria ser aplicado a cada objetivo (fi ) independentemente. Além disso, é
+necessário utilizar um método que combine os objetivos que estão sendo otimizamos
+em um único valor de tness. Um método bastante utilizado nesses casos é a soma
+ponderada, na qual atribui-se um peso i para cada objetivo fi e então soma-se tudo
+para obter o valor da tness (Equação 2.1)
+
+                                              N
+                                    F (x) =         i fi (x)                         (2.1)
+                                              i=1
+                                                                             N
+onde x  X , X é o espaço de objetivos, i o vetor de pesos (0  i  1), e       i=1   i = 1 .
+Como podemos notar, além do problema de escala, agora temos que encontrar os pesos
+adequados a cada função objetivo. Nesses casos vem a tona um outro problema dos
+AG clássicos: a convergência prematura em função dos pesos escolhidos [4].
+   Para superar esse tipo de problema, diferentes algoritmos evolutivos baseados no
+conceito de Pareto têm sido propostos. Antes de discutirmos esses algoritmos, vamos
+introduzir rapidamente o conceito de dominância. Em um problema multi-objetivo, as
+soluções podem ser expressas em termos de pontos superiores, ou pontos dominantes.
+Em um problema de minimização, por exemplo, o vetor x(1) é parcialmente menor que
+o vetor x(2) (x(1)  x(2) ), quando nenhum valor de x(2) for menor que x(1) e pelo menos
+um valor de x(2) for maior que x(1) . Se x(1) for parcialmente menor que x(2) , dizemos
+que o vetor x(1) domina x(2) . Desta maneira, qualquer vetor que não seja dominado
+por algum outro é dito vetor dominante ou não-dominado. As soluções ótimas para um
+problema de otimização multi-objetivos são as soluções não-dominadas. Elas também
+são conhecidas como soluções Pareto-ótimas. Por exemplo, considere um problema de
+minimização com dois objetivos:
+                    
+                     Minimize              f (x) = (f1 (x), f2 (x))
+                     De maneira que        x  X (espaço de busca)
+
+uma solução potencial x(1) domina x(2) se e somente se:
+
+                          i  {1, 2} : fi (x(1) )  fi (x(2) ) 
+                          j  {1, 2} : fj (x(1) ) < fj (x(2) )                        (2.2)
+
+   A idéia de utilizar o conceito de dominância em algoritmos evolutivos foi primeira-
+mente explorada por Goldberg [12], onde a idéia era utilizar de maneira explicita esse
+2. Algoritmos Genéticos                                                           15
+
+conceito para determinar a probabilidade de reprodução de cada indivíduo. Basica-
+mente, a idéia consiste em atribuir rank 1 para os indivíduos não dominados (frente
+1), removê-los da população, encontrar novos indivíduos não dominados, atribuir rank
+2 (frente 2), e assim por diante. A Figura 2.4 ilustra esse processo.
+
+                  f1
+
+                  5
+                  4                     5
+                  3
+                                4
+                  2
+                                              3
+                  1                 2
+                        1
+
+                      0 1   2 3 4 5     6 7       8 9   f2
+
+                  Figura 2.4: Ordenação por frentes não-dominadas
+                                         .
+
+   A estratégia proposta por Goldberg atribui a todos os indivíduos da mesma frente,
+o mesmo valor de tness, entretanto, isso não garante que o Pareto seja uniformemente
+distribuído. Quando existem várias soluções ótimas, a população tende a convergir
+somente para uma delas. Isso se deve a erros estocásticos no processo de seleção.
+Esse fenômeno é conhecido como genetic drift. Para evitar esse tipo de problema,
+Goldberg e Richardson [13] propuseram o compartilhamento do valor da tness de
+alguns indivíduos. A idéia é encontrar alguns nichos populosos e compartilhar a tness
+dos mesmos, fazendo assim com que outros nichos menos populosos tenham igual chance
+de reprodução. Ou seja, a intenção é criar diversidade evitando assim a convergência
+prematura para algum ponto do espaço de busca.
+   Vários AGs multi-objetivos têm sido propostos na literatura. Um estudo compar-
+ativo entre vários algoritmos foi apresentado por Zitzler et al [27]. Am de melhor
+ilustrar como um AG multi-objetivo utiliza os conceitos apresentados anteriormente,
+apresentaremos aqui o algoritmo proposto por Srinivas e Deb [24, 4], chamado NSGA
+(Non-Dominated Sorting Genetic Algorithm ).
+   O NSGA utiliza o conceito de ranking apresentado na Figura 2.4. Ele difere do
+AG clássico somente na maneira em que os indivíduos são selecionados para a próxima
+geração (operador de seleção). Os operadores de cruzamento e mutação permanecem in-
+alterados. Antes da seleção, os indivíduos são ordenados com base na não-dominância.
+2. Algoritmos Genéticos                                                                                                       16
+
+Todos os indivíduos da primeira frente recebem o mesmo valor de tness (dummy t-
+ness ), o que garante a mesma chance de reprodução a todos os indivíduos de uma
+mesma frente.
+      Para manter uma certa diversidade na população e fazer que o Pareto seja explorado
+de uma maneira uniforme, os indivíduos de uma mesma frente têm seu valor de tness
+compartilhado através da divisão do mesmo pela quantidade proporcional de indiví-
+duos em torno dele. Após esse compartilhamento, os indivíduos da frente corrente são
+ignorados temporariamente, e então o restante da população é processado da mesma
+maneira para encontrar a segunda frente. Os pontos da segunda frente recebem uma
+tness menor do que a menor tness (após o compartilhamento) da primeira frente.
+Esse processo continua até que todos os indivíduos da população estejam classicados
+em frentes. A Figura 2.5 ilustra esse processo.
+
+                                     4                                                                   3.80
+                3                                                           4.22
+                           2                                                                4.00
+                       1                  Frente 3
+         6.00                                                                       4.22
+
+                    6.00
+
+                                                            6                                                          4.00
+ f2
+
+                                                                       f2
+
+                                            5                                                                   6.00
+                                                            Frente 2
+
+                                         6.00    Frente 1
+
+                                                                             Pareto Ótimo
+
+                                f1                                                                  f1
+
+                               (a)                                                                 (b)
+
+Figura 2.5: Ordenação da população baseado no conceito de não-dominância: (a)
+População classicada em três frentes não dominadas e (b) Valores das tness após
+compartilhamento.
+
+      Podemos observar nesta Figura que os indivíduos 1 e 3 tiveram suas tness
+compartilhadas porque eles estão próximos um do outro. Nesse caso, a tness deles
+foram reduzidas de 6.00 para 4.22. A tness que é atribuída aos indivíduos da segunda
+frente é a menor tness da primeira frente multiplicada por uma constante k (por
+exemplo k = 0.95 neste exemplo). Desta maneira, os indivíduos da segunda frente
+recebem uma tness igual a 4.00 (4.22 × 0.95). Uma vez que os dois indivíduos da
+segunda frente não estão próximos um do outro, elas não são compartilhadas. A tness
+atribuída à terceira frente é então 3.80 (4.00 × 0.95).
+      A população é então reproduzida de acordo com os valores das tness através de
+qualquer método de seleção apresentado anteriormente. Levando-se em consideração
+2. Algoritmos Genéticos                                                             17
+
+que os valores da primeira frente possuem valores de tness maiores, os mesmos terão
+maiores chances de reprodução do que o resto da população. A idéia por traz disso é
+explorar regiões que contenham indivíduos não-dominados. A eciência do NSGA está
+na maneira em como vários objetivos podem ser reduzidos a um único valor de tness
+(dummy tness ).
+   O compartilhamento em cada frente é realizado através do cálculo de uma função
+de compartilhamento que considera dois indivíduos da mesma frente:
+                                 
+                                  1 - d(i,j ) 2   se   d(i, j ) < share
+                  Sh(d(i, j )) =      share                                       (2.3)
+                                  0               caso contrário
+
+onde d(i, j ) é a distância Euclidiana entre dois indivíduos i e j da frente corrente e
+share é a distância máxima permitida entre dois indivíduos para que eles se tornem
+membros do mesmo nicho. Esse parâmetro pode ser calculado da seguinte maneira [4]:
+
+                                            0.5
+                                     share  p q
+                                                                                  (2.4)
+
+onde q é o número desejado de soluções no Pareto e p é o número de variáveis de
+decisões do problema em questão. Embora o cálculo de share dependa do parâmetro q ,
+Srinivas e Deb [24] demonstraram que q  10 funciona bem na maioria dos problemas
+testados.
+
+2.5 Aplicações
+   Agora que vimos os conceitos básicos que envolvem os AGs, vamos voltar nossa
+atenção à algumas das possíveis aplicações desses algoritmos. Como vimos anterior-
+mente, AG é uma ferramenta poderosa para resolver qualquer problema de otimização,
+seja ele composto de um ou vários objetivos. Portanto, todo e qualquer problema que
+possa ser formulado na forma de um problema de otimização (com funções a serem
+minimizadas ou maximizadas) pode utilizar AG como ferramenta para a sua solução.
+Entretanto, AG são particularmente atrativos quando o espaço de busca é enorme.
+
+2.5.1 Seleção de características
+   A grande maioria dos sistema inteligentes conta com um classicador, o qual é
+treinado com um determinado conjunto de características. Durante a construção deste
+módulo, geralmente não se conhece a priori quais são as melhores características para
+2. Algoritmos Genéticos                                                            18
+
+a resolução do problema em questão. Sendo assim, diversas características são combi-
+nadas e testadas. Porém, a medida que o número de características cresce, o número de
+combinações possíveis explode na proporção 2N , onde N é o número de características.
+   Dentro deste contexto, os AGs têm sido largamente utilizado em problemas de
+seleção de características, o qual consiste em escolher o melhor subconjunto de carac-
+terísticas X a partir de um conjunto Z , e portanto pode ser formulado na forma de um
+problema de otimização. Para mais detalhes sobre seleção de características utilizando
+AG, consulte [22, 5]
+
+2.5.2 Data Mining
+   Suponha que uma loja de departamentos mantenha uma base de dados de tudo
+que seus clientes cadastrados compram. Nesse caso, os AGs se apresentam como uma
+ferramenta poderosa para a mineração desses dados, ou seja, encontrar algumas regras
+que não são visíveis devido a grande quantidade de dados.
+   No contexto de data mining, os indivíduos representam regras de previsão, ou outra
+forma de conhecimento. A função de tness mede a quantidade das regras ou conhec-
+imento associado com os indivíduos. Por exemplo, um indivíduo representando uma
+regra para prever quando um cliente comprará um produto oferecido a ele poderia ser
+escrita da seguinte maneira:
+
+    (idade < 18) e (produto = videogame)
+
+   Os fatores que podem ser medidos em funções de tness (assumindo que um indi-
+víduo representa uma regra de previsão), podem ser:
+
+   * Taxa de acerto da regra: número de tuplas corretamente e erroneamente classi-
+     cadas por uma regra.
+
+   * Generalidade: número de tuplas coberta pela regra.
+
+   * Simplicidade: sintática da regra.
+
+   Pode-se utilizar pesos para combinar tais regras, ou como visto anteriormente, um
+algoritmo que leve em consideração múltiplos objetivos.
+   Dentro deste contexto a mutação poderia ocorrer da seguinte maneira:
+2. Algoritmos Genéticos                                                             19
+
+    Antes do cruzamento:
+    (idade < 18)(produto = videogame)     |(sexo=F)
+    (idade < 35)(produto = liquidificador)|(sexo=M)
+
+    Após o cruzamento:
+    (idade < 18)(produto = videogame)     (sexo=M)
+    (idade < 35)(produto = liquidificador)(sexo=F)
+
+   Como visto até então, a mutação simplesmente muda o valor do gene:
+
+    Antes da mutação:
+    (idade < 18)(produto = liquidificador)(sexo=M)
+
+    Após a mutação:
+    (idade < 18)(produto = videogame)              (sexo=M)
+
+   A tness pode ser calculada através do número de tuplas selecionadas por uma
+determinada regra. Um exemplo de tness baixa poderia ser por exemplo:
+
+    (idade > 65)(produto = videogame)(sexo=F)(compra=SIM)
+
+   Já um exemplo de tness alta poderia ser:
+
+    (idade < 18)(produto = videogame)(sexo=M)(compra=SIM)
+
+   Desta maneira, o indivíduo correspondente a esse último exemplo provavelmente
+terá mais lhos, pois deverá ser selecionado mais freqüentemente do que indivíduo
+correspondente ao exemplo anterior.
+
+2.5.3 Otimização
+   Freqüentemente aplicações do mundo real podem ser formuladas na forma de um
+processo de otimização, como por exemplo a seleção de características discutida anteri-
+ormente. Um domínio bastante complexo onde os AGs têm sido utilizado com sucesso
+é a Formula 1. Um carro de corrida possui centenas de parâmetros que devem ser
+ajustados em função da pista, temperatura, etc. Para mais informações consulte [25].
+Cap´
+   itulo   3
+Programação Evolutiva
+
+   A programação evolutiva (PE) foi proposta por Fogel, Owens e Walsh em meados
+da década de 60 no livro  Articial Intelligence Through Simulated Evolution  [10].
+Ainda que a proposta original tratasse de predição de comportamento de máquinas de
+estado nitos, o enfoque da PE se adapta a qualquer estrutura de problema. Na PE,
+cada indivíduo gera um único descendente através de mutação, e a seguir a (melhor)
+metade da população ascendente e a (melhor) metade da população descendente são
+reunidas para formar a nova geração. Diferentemente do AG, o qual simula operações
+genéticas, a PE enfatiza o desenvolvimento de modelos comportamentais, ou seja, mod-
+elos que capturem a interação do sistema com o seu ambiente. Am de exemplicar o
+funcionamento da PE, apresentamos na próxima sessão um exemplo de PE aplicado a
+evolução de uma máquina de estado nito.
+
+3.1 Evolução de uma Máquina de Estado Finito
+   PE é utilizada freqüentemente em problemas envolvendo predição. Uma maneira
+de prever uma ação é através de ações passadas. Se cada ação é representada por um
+símbolo, então, dado uma seqüência de símbolos devemos prever qual será o próximo
+símbolo. Assim como nos AGs, os símbolos devem pertencer a um alfabeto nito. Desta
+maneira, podemos utilizar um sistema baseado em uma máquina de estado nito para
+analisar uma seqüência de símbolos e gerar uma saída que otimize uma dada função
+de tness, a qual envolve a previsão do próximo símbolo da seqüência. Podemos citar
+alguns exemplos, tais como, mercado nanceiro, previsão do tempo, etc...
+   Uma máquina de estado nito é denida como sendo um transdutor que ao ser
+estimulado por um alfabeto nito de símbolos, pode responder com um outro alfabeto
+3. Programação Evolutiva                                                         21
+
+nito de símbolos e possui um número nito de estados [6]. Os alfabetos de entrada
+e saída não são necessariamente idênticos. Devemos especicar o estado inicial da
+máquina e também especicar, para cada estado e símbolo de entrada, o símbolo de
+saída e o próximo estado. A Tabela 3.1 apresenta uma tabela de estados para uma
+máquina de três estados com um alfabeto de entrada de dois símbolos e um alfabeto
+de saída de três símbolos. Nesta tabela as linhas representam os estados, as colunas
+representam as entradas e as células da matriz indicam a saída e o próximo estado. A
+representação gráca da máquina pode ser visualizada na Figura 3.1.
+
+  Tabela 3.1: Tabela de estados de uma máquina de estado nito com três estados.
+
+                           Estados | Entradas         1      0
+                                   A                 Y,A    Y,B
+                                   B                 X,C    Z,B
+                                   C                 Z,A    Y,B
+
+                                   1,Y                      0,Z
+
+                                         0,Y
+                               A                       B
+
+                                               0,Y
+
+                             1,Z                      1,X
+                                         C
+
+       Figura 3.1: Representação da máquina de estado nito de três estados.
+                                       .
+
+   Máquinas de estado nito são basicamente um sub-conjunto das máquinas de Tur-
+ing, as quais foram desenvolvidas pelo matemático e cientista da computação inglês
+Alan Turing (1937). Tais máquina são capazes, em principio, de resolver todos os
+problemas matemáticos (de uma classe geral denida) em seqüência. As máquinas
+de estado nito usadas na PE podem modelar ou representar um organismo ou um
+sistema.
+   Diferentemente dos AGs, onde o operador de cruzamento é um importante com-
+ponente para a produção de uma nova geração, a mutação é o único operador usado
+na PE. Cada membro da população corrente normalmente sofre mutação e produz um
+3. Programação Evolutiva                                                         22
+
+lho. Levando-se em consideração o tipo de máquina de estado nito e suas operações,
+cinco tipos principais de mutação podem ocorrer (desde que a máquina seja composta
+por mais de um estado):
+
+  1. O estado inicial pode mudar.
+
+  2. O estado iniciar pode ser eliminado.
+
+  3. Um estado pode ser adicionado.
+
+  4. Uma transição entre estados pode ser mudada.
+
+  5. O símbolo de saída para um determinado estado e símbolo de entrada pode ser
+     mudado.
+
+   Embora o número de lhos produzido por cada pai seja um parâmetro do sistema,
+cada pai normalmente produz um lho. Sendo assim, a população dobra de tamanho
+após a operação de mutação. Após calcular a tness de cada indivíduo, a melhor metade
+é mantida, o que garante uma população de tamanho constante. Em um determinado
+momento, algumas aplicações podem desejar fazer uma predição do próximo símbolo
+da seqüência. O indivíduo que possuir a maior tness será escolhido então para gerar
+o próximo símbolo da seqüência.
+   Diferentemente de outros paradigmas evolutivos, na PE a mutação pode mudar
+o tamanho do indivíduo (estados podem ser adicionados ou eliminados). Este fato e
+possíveis mudanças nas transições entre estados podem ocasionar alguns espaços não
+preenchidos na tabela de especicação. Fogel [6] dene essas mutações como Mutações
+Neutras. Também é possível criar situações via mutação onde uma transição não seja
+possível pois um estado pode ter sido eliminado durante a operação de mutação. Esses
+tipos de problemas tendem a ter menos efeitos quando são consideradas máquina com
+um grande números de estados, entretanto, eles ainda podem causar erros se não forem
+identicados e corrigidos.
+   Embora PE possa ter indivíduos de tamanhos variáveis, também é possível evoluir
+uma máquina de estados nitos usando PE com indivíduos de tamanho xo. Primeira-
+mente, o número máximo de estados deve ser denido. Para exemplicar, vamos con-
+siderar a máquina denida na Figura 3.2. O cálculo da tness pode ser realizado com
+base no número de símbolos que são prognosticados corretamente. Por exemplo, para
+a seqüência de entrada 011101 a saída gerada pela máquina é 110111. Se compararmos
+3. Programação Evolutiva                                                             23
+
+                                      1,1
+
+                                              1,0
+                                 A                         C
+
+                                                   1,1
+
+                                0,1                       0,1
+                                              B
+
+                                        0,0
+
+Figura 3.2: Máquina de estado nito usada para fazer predição do próximo símbolo.
+
+as duas strings, podemos vericar que a máquina acertou somente 3 símbolos, ou seja,
+uma tness de 50%.
+   Cada estado pode ser representado por uma string de sete bits. O primeiro bit
+representa o nível de ativação: 1 para estado ativo e 0 para estado inativo (se o estado
+não existe). O segundo e terceiro bits representam os símbolo de entrada: 0 ou 1.
+O terceiro e quarto bits representam os símbolos de saída 0 e 1. Note que no nosso
+exemplo temos apenas dois símbolos de saída. Para ser mais consistente teríamos que
+ter um terceiro símbolo para indicar a não existência de um estado. Os dois últimos
+bits representam um dos quatro estados de saída. A Figura 3.3 mostra um exemplo
+desta codicação.
+
+                                Símbolos de              Estados de
+                                  Entrada                  Saída
+
+                            1     1     0      1     1    A     B
+
+                          Estado              Símbolos
+                          1-Ativo             de Saída
+                         0-Inativo
+
+                   Figura 3.3: Codicação do estado A da Figura 3.2.
+3. Programação Evolutiva                                                            24
+
+   A população é então inicializada com indivíduos de 28 bits. Por exemplo, poderia
+ser uma boa idéia considerar que somente indivíduos que tenham pelo menos dois
+estados ativos sejam admitidos na população inicial. Considerando os cinco tipos de
+mutação apresentados anteriormente, um procedimento possível de mutação seria:
+
+  1. Para cada indivíduo, gere um número aleatório entre 0 e 1.
+
+  2. Se o número estiver entre 0.0 e 0.2; mude o estado inicial; se estiver entre 0.2 e
+     0.4, elimine o estado; e assim por diante.
+
+  3. A mutação selecionada no passo 2 e feita com uma probabilidade igual sobre todas
+     as possibilidades. Por exemplo, se o estado inicial deve ser mudado e existirem n
+     estados ativos, então um estado ativo será selecionado para ser o estado inicial.
+     A probabilidade de um estado ativo ser escolhido para ser estado inicial é de 1/n.
+
+  4. Transições impossíveis de estados são modicadas para se tornarem possíveis. Se
+     uma transição para um estado inativo foi especicada, um dos estados ativos é
+     selecionado para ser o objeto da transição. Como no caso anterior, cada estado
+     ativo tem uma probabilidade de 1/n de ser selecionado.
+
+  5. Avaliar a tness e manter os melhores 50%, resultando assim uma nova população
+     do mesmo tamanho da inicial.
+
+   O cenário mostrado acima é somente um dos vários possíveis. Mas o que as máquina
+de estado nito têm haver com computação evolutiva. Um exemplo bastante interes-
+sante foi apresentado por Fogel [8], no qual ele evolve uma máquina de estado nito
+para jogar o jogo do dilema do prisioneiro (um dos jogos mais conhecidos da Teoria
+dos Jogos). Neste jogo, um jogador tem que tomar uma determinada decisão em face
+da decisão do outro. No fundo, é uma questão de decisão entre altruísmo ou egoísmo,
+como veremos.
+   O Dilema do Prisioneiro é a situação em que dois comparsas são pegos cometendo
+um crime. Levados à delegacia e colocados em salas separadas, lhes é colocada a
+seguinte situação com as respectivas opções de decisão:
+
+   * Se ambos carem quietos, cada um deles pode ser condenado a um mês de prisão;
+
+   * Se apenas um acusa o outro, o acusador sai livre. O outro, condenado em um
+     ano;
+3. Programação Evolutiva                                                               25
+
+   * Aquele que foi traído pode trair também e, neste caso, ambos pegam seis meses.
+
+   As decisões são simultâneas e um não sabe nada sobre a decisão do outro. Considera-
+se também que os suspeitos irão decidir única e exclusivamente de forma racional. O
+dilema do prisioneiro mostra que, em cada decisão, o prisioneiro pode satisfazer o seu
+próprio interesse (desertar) ou atender ao interesse do grupo (cooperar). O primeiro
+prisioneiro pensa da seguinte forma: Vou admitir inicialmente que meu comparsa
+planeja cooperar, cando quieto. Neste caso, se eu cooperar também, carei um mês
+atrás das grades (um bom resultado); mas, ainda admitindo a cooperação do meu
+comparsa, se eu desertar confessando o crime, eu saio livre (o melhor resultado possível).
+Porém, se eu supor que meu comparsa vai desertar e eu continuar cooperando, eu carei
+um ano na cadeia (o pior resultado possível) e ele sai livre. Mas se eu desertar também,
+eu carei somente seis meses preso (um resultado intermediário). Eu concluo então que,
+em ambos os casos (se ele cooperar ou não), sempre será melhor desertar, e é o que eu
+vou fazer.
+   Acontece que o segundo prisioneiro pensa da mesma maneira e ambos desertam.
+Se ambos cooperassem, haveria um ganho maior para ambos, mas a otimização dos
+resultados não é o que acontece. Ao invés deles carem somente um mês presos, eles
+passarão seis meses na cadeia para evitar o risco de car um ano se o outro optar por
+desertar. Mais que isso: desertando, cada parte tem a possibilidade de sair livre se a
+outra parte cooperar.
+   A repetição do jogo, entretanto, muda radicalmente a forma de pensar do pri-
+sioneiro. Dois comparsas de longa data terão uma tendência muito maior à cooper-
+ação. Com isto, formam-se outras opções de estratégia. A teoria dos jogos é bastante
+utilizada na economia para descrever e prever o comportamento econômico. Muitas de-
+cisões do tipo econômico dependem das expectativas que se tem sobre o comportamento
+dos demais agentes econômicos.
+   Voltando ao nosso assunto principal, a idéia é utilizar PE para evolver o jogo de
+maneira que possamos utilizar o modelo para prever a jogada do oponente. Figura
+3.4 mostra o diagrama de uma máquina de estado nito de sete estados para jogar o
+dilema do prisioneiro. O estado inicial é o estado 6 e o jogo é iniciado pela cooperação.
+Nesta gura, C e D signicam cooperar e desertar, respectivamente. O alfabeto
+de entrada compreende [(C, C ), (C, D), (D, C )(D, D)], onde a primeira letra representa
+o movimento anterior da máquina e a segunda o movimento anterior do oponente.
+Por exemplo, o rótulo C, D/C na echa que vai de um estado X para um estado Y
+signica que o sistema está no estado X e no movimento anterior a máquina cooperou
+3. Programação Evolutiva                                                                                                                 26
+
+                                                                              C,C/C
+                                                                              D,C/C
+                                                                              D,D/D
+
+                                    C,D/D
+                                    D,D/C
+                                                                          D   1
+                                                                        D/
+                                                                   C,
+
+                                                                                                     C
+                                                                                                     ,C
+                                                                                                         /C
+                                                                                                          ;D
+                                                 C,
+
+                                                                                                              ,C
+                                     7             C/
+
+                                                                                                               /C
+                                                     D
+
+                                                                                                                   ;C
+                                             D
+                                             ,C
+
+                                                                                                                      ,D
+                                                 /C
+
+                                                                                                                             /D
+                      C
+
+                                                                                                                                2
+                    C/
+                   C,
+
+                                                   /C
+                                             C,D
+                                        D;
+                               D    ,D/
+
+                                                                                                                    /D
+                                                                                                                   ,D
+               C          6
+
+                                                                                                               D
+                              D,C
+                                    /C
+
+                                                                                                                   D ,C /C
+                                                                                                                     ; C,C/
+                                                                                                                            C
+
+                                                                                                                                    C,
+                                                              /D
+
+                                                                                                                                    D/
+                                                           ,C
+
+                                                                                                                                    D
+                                                         ;C
+
+                                                                                                                        3
+                                                      /C
+                                                   ,D
+                                                  D
+
+                                             5
+                                                                                   C/C
+
+                                                        C,D/D
+                                                                                  D,
+
+                                                                                                                    D,D/C
+                                                                                                /D
+                                                                                         D ,D
+                                                                              4
+                                             D,D/C
+
+                                                                              C,D/D
+                                                                              C,C/C
+
+Figura 3.4: Uma máquina de estado nito para o jogo do dilema do prisioneiro (extraído
+de [8]).
+                                        .
+
+e o oponente desertou, então coopere e vá para o estado Y . Algumas vezes, mais que
+uma situação pode resultar na mesma transição de estado. Por exemplo, na Figura
+3.4, assuma que a máquina está no estado 6. Nesse caso, se a máquina e o oponente
+desertaram no movimento anterior, a máquina deserta (D,D/D) e vai para o estado
+2. Da mesma maneira, a transição do estado 6 para o estado 2 ocorre se a máquina
+cooperou e o oponente desertou no movimento anterior; a máquina coopera nesse caso
+(C,D/C) e vai para o estado 2. Como o jogo é jogado várias vezes, a PE evolve a
+máquina de modo que em um determinado momento a jogada do oponente possa ser
+prevista.
+Cap´
+   itulo   4
+Estratégias Evolutivas
+
+   Estratégias evolutivas (EE) são baseadas na evolução da evolução. Se levarmos
+em consideração que os processos biológicos foram otimizados através da evolução, e
+a evolução não deixa de ser um processo biológico, então a evolução também deve ter
+sido otimizada através dos tempos. Apesar das EE utilizarem operadores de mutação e
+cruzamento (geralmente chamado de recombinação na literatura de EE), eles têm uma
+pequena diferença dos operadores utilizados nos AGs e PE.
+   As EE foram desenvolvidas inicialmente na Alemanha, na década de 60. Naquele
+tempo, o objetivo era a resolução de problemas contínuos de otimização paramétrica
+[23]. Portanto, a representação usada nas EE é um vetor de números reais de tamanho
+xo. Assim como nos AGs, cada posição do vetor corresponde a uma característica do
+problema. A seguir descrevemos os principais operadores das EE: mutação, recombi-
+nação e seleção.
+
+4.1 Mutação
+   A idéia da mutação é criar uma nova geração de indivíduos. Para isso, adiciona-se
+números aleatórios (extraídos de uma distribuição normal) às coordenadas dos pais.
+Considere por exemplo um vetor pai X = (x1 , x2 , . . . , xn ). O lho o indivíduo X é
+dado pela seguinte equação:
+
+                                 X = X + N (0,  )                                (4.1)
+
+   A Equação 4.1 nos mostra que um indivíduo é determinado por um conjunto de car-
+acterísticas e seus respectivos parâmetros, os quais geralmente são representados pelo
+4. Estratégias Evolutivas                                                                      28
+
+desvio padrão. Intuitivamente, podemos notar que se aumentarmos o desvio padrão,
+aumentaremos também a variabilidade dos indivíduos, ou seja, eles serão mais difer-
+entes de seus pais. Em outras palavras, altos desvios signicam um exploração em toda
+a região (exploration ) de busca, enquanto baixos valores signicam um exploração local
+(exploitation ) em determinadas regiões do espaço de busca. A Figura 4.1 mostra um
+exemplo dessa mutação.
+
+                 1,3   0,4   1,8     0,2   0,0   1,0       1,2   0,7   1,6   0,2   0,1 1,2
+                               (a)                                       (b)
+
+       Figura 4.1: Mutação Gaussiana de um pai (a) para formar um lho (b).
+                                        .
+
+   Em EE, a mutação deve ser realizada com um desvio padrão ótimo, o qual é denida
+através da regra de 1/5. Ou seja, se a taxa de sucesso na mutação (entende-se por
+sucesso o lho que produz uma tness melhor que o pai) for maior que 1/5, então o
+desvio padrão deve ser aumentado. Se a taxa de sucesso for menor que 1/5, então o
+desvio padrão deve ser reduzido.
+   A razão intuitiva por traz da regra de 1/5 é o aumento da eciência na busca. Ou
+seja, se bem sucedida, a busca continua a passos maiores, caso contrário o passo deve
+ser reduzido.
+
+4.2 Recombinação
+   Existem dois métodos de recombinação em EE. O primeiro e mais comum consiste
+em formar um novo indivíduo com base em dois pais selecionados aleatóriamente. Esse
+método é denominado método local. No segundo método, denominado método global,
+os valores do indivíduo resultante podem vir de vários pais e não somente dois.
+   Ambos os métodos, global e local, podem ser implementados de duas maneiras
+diferentes. A primeira, chamada de recombinação discreta, seleciona o valor que o
+indivíduo lho irá receber de um dos pais. A segunda, chamada recombinação inter-
+mediária, seleciona um ponto médio dos valores dos pais, o qual deverá ser atribuído
+ao lho. Sejam os pais A e B , e o i-ésimo parâmetro está sendo determinado, então o
+valor estabelecido usando a recombinação intermediária é
+
+                                           xnew
+                                            i   = C (XB,i + XA,i )                           (4.2)
+4. Estratégias Evolutivas                                                             29
+
+onde C é uma constante normalmente igual a 0.5 para que possa produzir o ponto
+médio dos valores dos pais. Figura 4.2 exemplica esse processo.
+
+                 1,2 0,3 0,0 1,7 0,8 1,2
+                            (a)
+                                                 1,0 0,4 0,5 1,4 0,5 1,2
+                                                           (c)
+                 0,8 0,5 1,0 1,1 0,2 1,2
+                            (b)
+
+  Figura 4.2: Recombinação intermediária dos pais (a) e (b) para formar o lho (c).
+                                        .
+
+   Podemos notar que EE contém um componente de representação sexual de car-
+acterísticas. Na recombinação intermediária, por exemplo, os lhos são computados
+através da média dos seus pais, enquanto na recombinação discreta, o indivíduo pode
+sair da recombinação intacto ou com características de um pai ou outro.
+
+4.3 Seleção
+   Assim como nas outras técnicas de computação evolutiva, EE também determina
+a probabilidade de reprodução de um indivíduo através da sua tness. Uma maneira
+bastante simples de fazer a seleção consiste em ordenar todos os indivíduos, selecionar
+aqueles com melhores tness e descartar o resto. A natureza, entretanto, não age
+desta maneira. A sobrevivência de um indivíduo depende do ambiente em que ele vive.
+Imagine uma lebre que sofra uma mutação que torne sua pelagem preta no inverno. É
+obvio que esta lebre será um alvo mais fácil do que as outras. Pode acontecer, porém,
+que essa lebre passe o inverno inteiro sem ser alvo de caça, pois os predadores não estão
+presentes na região em que ela vive. Isso pode acontecer, apenas a probabilidade de
+que isso aconteça é muito baixa. Isso sugere que a seleção deve ser estocástica. Um
+método estocástico bastante utilizado para seleção é o método da roleta russa visto
+anteriormente.
+   As versões mais comuns de EE são (µ, ) e (µ + )-EE. Em ambas versões , o número
+de lhos gerados a partir de µ pais é  > µ. Normalmente a proporção é de 7 lhos
+para cada pai. Na versão original (1+1)-EE, um pai produz um lho e somente o que
+possuir a melhor tness sobrevive. Vale a pena ressaltar que essa versão do algoritmo
+é raramente utilizada.
+4. Estratégias Evolutivas                                                          30
+
+   Na versão (µ, ), os µ indivíduos com as melhores tness são escolhidos entre os 
+lhos. Note que os µ pais não são elegíveis nesse esquema de seleção, somente os lhos.
+Na versão (µ + )-EE os melhores µ indivíduos são selecionados entre um grupo de
+candidatos que incluem os µ pais e os  lhos.
+   O algoritmo clássico da EE pode ser resumido nos seguinte passos:
+
+  1. Inicializar a população.
+
+  2. Realizar a recombinação utilizando µ pais para formar  lhos.
+
+  3. Realizar a mutação em todos os lhos.
+
+  4. Avaliar a tness de µ ou µ +  indivíduos (de acordo com a estratégia escolhida).
+
+  5. Selecionar µ indivíduos para compor a nova população.
+
+  6. Se o critério de parada não foi alcançado, então volte ao item 2; Caso contrario,
+      m.
+Cap´
+   itulo   5
+Programação Genética
+
+   As três áreas da computação evolutiva discutidas até aqui envolveram estruturas
+denidas como strings. Em alguns casos, as strings continham valores binários e em
+outros valores reais, mas sempre strings (ou vetores). A programação genética (PG)
+[18] evolui programas de computadores os quais são representados através de árvores de
+sintaxe abstrata. A PG pode ser vista como um sub-conjunto dos AGs. As principais
+diferenças entre PG e AG são:
+
+   * Os membros da população são estruturas executáveis (geralmente na forma de
+     programas de computador), e não strings de bits ou valores reais.
+
+   * A tness de um membro da população é conseguida através da execução deste
+     programa.
+
+   A PG é a evolução de um conjunto de programas com o objetivo de aprendizagem
+por indução. A objetivo é ensinar os computadores a se auto programarem, isto é, a
+partir de especicações de comportamento, o computador deve ser capaz de induzir um
+programa que as satisfaça. A cada programa é associado uma tness representando
+o quanto ele é capaz de resolver o problema. O mecanismo de busca da PG pode
+ser descrito como um ciclo criar-testar-modicar, muito similar a forma com que os
+humanos desenvolvem seus programas. Inicialmente, programas são criados baseados
+no conhecimento sobre o domínio do problema. Em seguida, são testados para vericar
+sua funcionalidade. Se os resultados não forem satisfatórios, modicações são feitas
+para melhorá-los. Este ciclo é repetido até que uma solução satisfatória seja encontrada
+ou um determinado critério seja satisfeito.
+   Como foi dito anteriormente, cada programa é representado por uma árvore de
+sintaxe abstrata, onde as funções denidas para o problema aparecem nos nós internos
+5. Programação Genética                                                               32
+
+da árvore e as constantes e variáveis aparecem nos nós-folhas. A implementação da PG
+consistem em:
+
+   * Determinar o conjunto dos terminais.
+
+   * Determinar o conjunto das funções válidas.
+
+   * Determinar a medida de tness.
+
+   * Selecionar os parâmetros de controle.
+
+   * Determinar as condições de parada.
+
+   As funções válidas são limitadas pela linguagem de programação utilizada na con-
+strução dos programas dentro da PG. Elas podem ser, por exemplo, funções matemáti-
+cas (seno, cosseno, etc.), aritméticas (+, -, ×, etc.), operadores Booleanos (AND, NOT,
+etc.), operadores condicionais (if-then-else), funções iterativas e funções recursivas. A
+tarefa de especicar o conjunto de funções válidas consiste em selecionar o conjunto
+mínimo de funções necessárias para realizar a tarefa desejada. Cada função do conjunto
+de funções válidas requer um certo número de argumentos, conhecido como aridade da
+função.
+   Isso nos leva a duas propriedades desejáveis em uma aplicação de PG: fechamento e
+suciência. Para garantir a viabilidade das árvores de sintaxe abstrata, Koza [18] deniu
+a propriedade de Fechamento (closure ). Para satisfazê-la, cada função do conjunto
+de funções válidas deve aceitar, como seus argumentos, qualquer valor que possa ser
+retornado por qualquer função ou terminal. Esta imposição garante que qualquer árvore
+gerada pode ser avaliada corretamente. Um caso típico de problema de Fechamento
+é a operação de divisão. Matematicamente, não é possível dividir um valor por zero.
+Uma abordagem possível é denir uma função alternativa que permita um valor para
+a divisão por zero.
+   É o caso da função de divisão protegida (protected division ) % proposta por Koza
+[18]. A função % recebe dois argumentos e retorna o valor 1 (um) caso seja feita
+uma divisão por zero e, caso contrário, o seu quociente. Para garantir a convergência
+para uma solução, a propriedade de Suciência (suciency ) foi denida. Ela diz que
+os conjuntos de funções válidas e terminais devem ser capazes de representar uma
+solução para o problema. Isto implica que deve existir uma forte evidência de que
+alguma composição de funções e terminais possa produzir uma solução. Dependendo
+5. Programação Genética                                                               33
+
+do problema, esta propriedade pode ser óbvia ou exigir algum conhecimento prévio de
+como deverá ser a solução.
+   A tness utilizada geralmente é intensamente proporcional ao erro produzido pela
+saída do programa. Os dois principais parâmetros na PG são o tamanho da população
+e o número máximo de gerações. Outros parâmetros a serem determinados são a
+probabilidade de reprodução, probabilidade de cruzamento e o tamanho máximo de
+um indivíduo (profundidade da árvore).
+
+5.1 Entendendo a PG
+   O algoritmo de PG pode ser descrito resumidamente da seguinte forma:
+
+  1. Inicializar a população de programas.
+
+  2. Determinar a tness de cada indivíduo.
+
+  3. Realizar a reprodução de acordo com o valor da tness e a probabilidade de
+     reprodução.
+
+  4. Realizar o cruzamento
+
+  5. Voltar ao passo 2 até que uma condição de parada seja alcançada.
+
+   Cada execução deste laço representa uma nova geração de programas. Tradicional-
+mente, a condição de parada é estabelecida como sendo encontrar uma solução sat-
+isfatória ou atingir um número máximo de gerações. Existem também abordagens
+baseadas na análise do processo evolutivo, ou seja, o laço permanece enquanto houver
+melhoria na população.
+
+5.1.1 Criando um indivíduo
+   A representação dos programa em PG se baseia tradicionalmente em árvores de
+sintaxe abstrata. Os programas são formados pela livre combinação de funções e ter-
+minais adequados ao domínio do problema. Primeiramente, deve-se denir os conjuntos
+de funções F e de terminais T . Cada f  F tem associada uma aridade superior a
+zero. O conjunto T é composto pelas variáveis, constantes e funções de aridade zero.
+   Considere por exemplo os seguintes conjuntos T e F : F = {+, -, ×, ÷} e T =
+{x, 3, 6}. Ou seja, o conjunto das funções válidas é o conjunto das operações aritméticas
+5. Programação Genética                                                            34
+
+de aridade dois, e o conjunto dos terminais é composto pela variável x e as constantes
+3 e 6. Sendo assim, expressões matemáticas simples tais como 3 × (x + 6) podem ser
+produzidas. A representação é feita por uma árvore de sintaxe abstrata como mostrado
+na Figura 5.1
+
+                                          x
+
+                                      3       +
+
+                                          x       6
+
+                Figura 5.1: Árvore de sintaxe abstrata de 3 × (x + 6)
+                                          .
+
+   O espaço de busca é determinado por todas as árvores que possam ser criadas pela
+livre combinação de elementos dos conjuntos F e T .
+
+5.1.2 Criando um População Aleatória
+   A população inicial normalmente é composta por árvores geradas aleatoriamente
+a partir dos conjuntos de funções F e de terminais T . Primeiramente se escolhe de
+maneira aleatória uma função f  F . Para cada um dos argumentos de f , escolhe-se
+um elemento de {F    T }. O processo prossegue até que se tenha apenas terminais como
+nós folha da árvore. Usualmente se especica um limite máximo para a profundidade
+da árvore para se evitar árvores muito grandes.
+   Um aspecto muito importante para o sucesso do processo evolutivo é a qualidade
+da população inicial. Ela deve ser uma amostra signicativa do espaço de busca, apre-
+sentando uma grande variedade de composição nos programas, para que seja possível
+através da recombinação de seus códigos, convergir para uma solução. Am de melhorar
+a qualidade da população inicial, diversos métodos têm sido propostos: ramped-half-
+and-half [18], random-branch [2] e probabilistic tree-creation [20]. O método ramped-
+half-and-half proposto por Koza [18] é uma combinação de dois métodos simples: grow
+e full. O método grow envolve a criação de árvores cuja profundidade é variável. A
+escolha dos nós é feita aleatoriamente entre funções e terminais, respeitando-se uma
+profundidade máxima.
+   Já o método full envolve a criação de árvores completas, isto é, todas as árvores
+terão a mesma profundidade. Isto é facilmente feito através da seleção de funções para
+os nós cuja profundidade seja inferior a desejada e a seleção de terminais para os nós
+5. Programação Genética                                                            35
+
+de profundidade máxima. Combinar os métodos full e grow com objetivo de gerar um
+número igual de árvores para cada profundidade, entre dois e a profundidade máxima,
+é a base do método ramped-half-and-half. Por exemplo, supondo que a profundidade
+máxima seja seis, então serão geradas árvores com profundidades de dois, três, quatro,
+cinco e seis eqüitativamente. Isto signica que 20% terão profundidade dois, 20% terão
+profundidade três e assim sucessivamente. Para cada profundidade, 50% são geradas
+pelo método full e 50% pelo método grow.
+   Segundo Luke [20] este método apresenta algumas desvantagens:
+
+   * Impõe uma faixa xa de profundidades (normalmente entre 2 e 6), independente-
+     mente do tamanho da árvore. Dependendo do número de argumentos (aridade)
+     de cada função, mesmo com a mesma profundidade, podem ser geradas árvores
+     de tamanhos muito diferentes.
+
+   * A escolha da profundidade máxima, antes de se gerar a árvore, não é aleatória e
+     sim de forma proporcional.
+
+   * Se o conjunto de funções for maior que o de terminais (como na maioria dos
+     problemas), a tendência é gerar a maior árvore possível ao aplicar grow.
+
+   O método random-branch [2] permite que se informe qual o tamanho máximo da
+árvore (e não a sua profundidade). Porém, devido ao fato de random-branch dividir
+igualmente S dentre as árvores de um nó-pai não-terminal, existem muitas árvores que
+não são possíveis de serem produzidas. Isto torna o método muito restritivo apesar de
+ter complexidade linear.
+   Os métodos probabilistic tree-creation (PTC) 1 e 2 [20], ao contrário dos outros
+métodos, não procuram gerar estruturas de árvores completamente uniformes. Ao invés
+disso, permite denir as probabilidades de ocorrência das funções na árvore. O PTC1
+é uma variante do grow onde para cada terminal f  F , associa-se uma probabilidade
+qt dele ser escolhido quando houver necessidade de um terminal. O mesmo se faz com
+cada f  F , associando-se uma probabilidade qf . Antes de gerar qualquer árvore,
+o algoritmo calcula p, a probabilidade de escolher um não-terminal ao invés de um
+terminal, de forma a produzir uma árvore de tamanho esperado Etree . O valor de p é
+calculado utilizando a seguinte formula:
+
+                                                  1
+                                           1-   Etree
+                                   p=                                            (5.1)
+                                           nN    qn bn
+5. Programação Genética                                                              36
+
+   PTC1 garante que as árvores serão geradas dentro de um tamanho esperado. Uma
+variante deste método (PTC2) usa um tamanho máximo S e uma distribuição de
+probabilidades w1 , w2 , . . . , ws para cada árvore de tamanho 1 a S . Além do controle
+sobre o tamanho esperado da árvore, tem-se um controle sobre a distribuição destes
+tamanhos.
+
+5.1.3 Fitness
+   Assim como nos AGs, após a criação da população inicial o próximo passo consiste
+na avaliação da tness de cada indivíduo. Alguns métodos para avaliação de tness
+são descritos abaixo.
+
+   * Raw tness : representa a medida dentro do próprio domínio do problema. É a
+     avaliação pura e simples do programa. O método mais comum de raw tness é a
+     avaliação do erro cometido, isto é, a soma de todas as diferenças absolutas entre
+     o resultado obtido pelo programa e o seu valor correto.
+
+   * Standardized tness : Devido ao fato da raw tness depender do domínio do prob-
+     lema, um valor bom pode ser um valor baixo (quando se avalia o erro) ou um valor
+     alto (quando se avalia o desempenho). A avaliação desta tness é feita através
+     de uma função de adaptação do valor da raw tness de forma que quanto melhor
+     o programa, menor deve ser a standardized tness. Desta forma, o melhor pro-
+     grama apresentará o valor zero (0) como standardized tness, independentemente
+     do domínio do problema.
+
+   * Adjusted tness : é obtida através da standardized tness. Se s(i, t) representa a
+     standardized tness do indivíduo i na geração t, então a adjusted tness a(i, t) é
+     calculada da seguinte maneira:
+
+                                                      1
+                                      a(i, t) =                                    (5.2)
+                                                  1 + s(i, t)
+
+     Percebe-se que a adjusted tness varia entre zero (0) e um (1), sendo que os
+     maiores valores representam os melhores indivíduos. A adjusted tness tem o
+     benefício de exagerar a importância de pequenas diferenças no valor da standard-
+     ized tness quando esta se aproxima de zero.
+
+   * Normalized tness : se a(i, t) é a adjusted tness do indivíduo i na geração t,
+     então sua normalized tness n(i, t) será obtida da seguinte forma:
+5. Programação Genética                                                           37
+
+                                               a(i, t)
+                                   n(i, t) =   m                                (5.3)
+                                               k=1a(k, t)
+
+5.1.4 Operadores Genéticos
+   O processo evolutivo começa após o calculo da tness. Os indivíduos de uma nova
+população são formados através da aplicação de três operadores: reprodução, cruza-
+mento e mutação. Uma vez formada a nova população (do mesmo tamanho da anterior),
+a população antiga é destruída.
+
+Reprodução
+   Um programa é selecionado e copiado para a próxima geração sem sofrer nenhuma
+mudança de estrutura. Koza [18] permite que 10% da população seja reproduzida.
+A seleção dos indivíduos que serão reproduzidos é responsabilidade dos métodos de
+seleção, os quais serão discutidos na próxima seção.
+
+Cruzamento
+   Dois programas são selecionados e são recombinados para gerar outros dois progra-
+mas. Um ponto aleatório de cruzamento é escolhido em cada programa pai e as árvores
+abaixo destes pontos são trocadas. A Figura 5.2 ilustra esse processo.
+   Neste exemplo, foram escolhidos os programas: (2 × 8) + (4 ÷ 1) e 3 × (x + 6).
+Foram escolhidas aleatoriamente uma sub-á rvore em cada árvore, identicada por um
+retângulo (Figura 5.2). As árvores são então trocadas, gerando os novos programas:
+(5 + 6) + (4 ÷ 1) e 3 × (2 × 8)
+   Para que o cruzamento seja sempre possível, o conjunto de funções deve apresen-
+tar a propriedade de Fechamento (closure ), isto é, as funções devem suportar como
+argumento qualquer outra função ou terminal. Se não for possível, deve-se estabelecer
+critérios de restrição na escolha dos pontos de cruzamento.
+
+Mutação
+   Um programa é selecionado e um de seus nós é escolhido aleatóriamente. A árvore
+cuja raiz é o nó selecionado deve ser eliminada e substituída por uma nova árvore
+gerada aleatóriamente.
+5. Programação Genética                                                                                    38
+
+                                        1) Seleciona-se dois indivíduos
+                                                 aleatóriamente.
+
+                                        +                                      x
+
+                            x                         /                3                   +
+
+                    2               8         4               1                    x               6
+
+                                            2) Seleciona-se aleatoriamente sub-
+                                                 árvores de cada indivíduo
+
+                                                3) As sub-árvores são então
+                                            trocadas, gerando novos indivíduos.
+
+                                             +                                     x
+
+                                +                         /                3                   x
+
+                        x               6         4               1                    2               8
+
+             Figura 5.2: Exemplo de cruzamento entre dois programas.
+
+5.1.5 Métodos de Seleção
+   O método de seleção tem por objetivo escolher quais programas deverão sofrer a
+ação dos operadores genéticos e compor uma nova geração. Dado que a qualidade
+de um programa é dada pelo seu valor de tness, a seleção deve priorizar, de alguma
+forma, os programas que apresentem os melhores valores de tness. Alguns métodos
+usados são: Seleção Proporcional, Seleção por Torneio e Seleção por Truncamento.
+
+  1. Seleção Proporcional (tness-proportionate selection ): Apresentada por John
+     Holland [14] para AGs, foi o método escolhido por Koza [18]. Ele usa a normalized
+     tness disposta em uma roleta, sendo que cada indivíduo da população ocupa
+     uma fatia proporcional a sua aptidão normalizada (veja Figura 2.2, Seção 2.2).
+5. Programação Genética                                                              39
+
+     Em seguida é produzido um número aleatório no intervalo [0,1]. Este número
+     representará a posição ocupada pela agulha da roleta.
+
+  2. Seleção por Torneio (tournament selection ): Apresentada por David Goldberg
+     [12] para AGs, foi utilizada em vários problemas por John Koza [19]. A seleção
+     por torneio é feita da seguinte forma: t indivíduos são selecionados aleatóriamente
+     na população e o melhor deles é o escolhido. Este processo é repetido até que se
+     tenha uma nova população. O valor de t é conhecido como o tamanho do torneio.
+
+  3. Seleção por Truncamento (truncation selection ): Com base em um valor de limiar
+     T entre [0,1], a seleção é feita aleatóriamente entre os T melhores indivíduos. Por
+     exemplo, se T = 0.4, então a seleção é feita entre os 40% melhores indivíduos e
+     os outros 60% são descartados.
+Cap´
+   itulo   6
+Inteligência Coletiva
+
+   No início dos anos 90, alguns pesquisadores começaram a fazer analogias entre o
+comportamento dos enxames de criaturas e os problemas de otimização. Colorni et
+al [3] desenvolveram uma estratégia distribuída de otimização baseada em colônias de
+formigas (ACO - Ant Colony Optmization), a qual é baseada no comportamento social
+das formigas. Em 1995, Kennedy e Eberhart propuseram uma técnica de otimiza-
+ção baseada em revoadas (enxame) de pássaros, chamada Particle Swarm Intelligence
+(PSO) [16]. Essas técnicas são classicadas como Inteligência de Enxame ou In-
+teligência Coletiva . Neste capítulo discutiremos com mais detalhes PSO.
+
+6.1 Particle Swarm Intelligence
+   PSO tem várias similaridades com as técnicas evolutivas discutidas anteriormente.
+O sistema é inicializado com uma população de soluções aleatórias e busca uma solução
+ótima através das gerações. Diferentemente dos AGs, PSO não conta com os oper-
+adores evolutivos, tais como cruzamento e mutação. Em PSO, as soluções potenciais,
+chamadas Partículas, voam no espaço de busca seguindo as partículas ótimas.
+   Comparado aos AGs, PSO tem a vantagem de ser fácil e simples de implementar
+e exigir menos parâmetros ajustáveis. Diferentemente dos AGs que foram concebidos
+inicialmente para lidar com representações binárias, PSO foi desenvolvido para repre-
+sentações contínuas. Entretanto, recentemente Kennedy e Eberhart [17] apresentaram
+algumas alterações no algoritmo original para representações binárias.
+6. Inteligência Coletiva                                                             41
+
+6.1.1 O Algoritmo
+   Como mencionado anteriormente, PSO simula o comportamento de revoadas de
+pássaros. Considere o seguinte cenário: um grupo de pássaros procurando comida
+em uma determinada área, a qual tem um único pedaço de comida. Os pássaros não
+sabem onde está a comida, mas sabem o quão distante está a comida a cada iteração.
+Então qual seria a melhor estratégia para procurar comida? Uma estratégia que parece
+bastante ecaz é seguir o pássaro que está mais próximo da comida.
+   PSO aprende a partir do cenário e usa esse aprendizado para resolver problemas de
+otimização. Deste modo, cada solução é um pássaro (partícula) no espaço de busca.
+Todas as partículas têm um valor de tness, a qual depende da função sendo otimizada,
+e velocidades que indicam a maneira de voar das mesmas.
+   Por uma questão de simplicidade, vamos considerar um espaço bi-dimensional. A
+posição de cada partícula é representada por (x, y ), a velocidade no eixo x é represen-
+tada por vx e a velocidade no eixo y é representada por vy . A modicação da partícula
+é realizada com base nas variáveis de velocidade. PSO é inicializado com um grupo
+de indivíduos (partículas) que são atualizados através das gerações. Em cada iteração,
+cada partícula é atualizada baseada em dois valores. O primeiro é a melhor posição
+(tness) que ela mesma encontrou até então. Esse valor é conhecido como pbest. O
+segundo valor e a melhor posição (tness) encontrada dentre todas as partículas da
+população, ou seja, o melhor de todos os pbest . Esse valor é conhecido com gbest. Essa
+informação indica como as outras partículas estão se saindo.
+   Cada agente tenta modicar a sua posição levando em consideração as seguintes
+informações:
+
+   * Sua posição corrente (x, y ).
+
+   * As velocidades correntes (vx e vy ).
+
+   * A distância entre a posição corrente e pbest.
+
+   * A distância entre a posição corrente e gbest.
+
+   Essa alteração de posição se dá através da seguinte equação:
+
+             k+1     k
+            vi   = wvi + c1 rand() × (pbesti - sk                           k
+                                                i ) + c2 rand() × (gbest - si )    (6.1)
+         k
+   onde vi é a velocidade da partícula i na iteração k , w é uma função de peso, cj são
+os fatores de aprendizagem (normalmente c1 = c2 = 2), rand() é um número aleatório
+6. Inteligência Coletiva                                                               42
+
+              i é a posição da partícula i na iteração k , pbest i , é a melhor posição da
+entre 0 e 1, sk
+partícula i e gbest é a melhor posição do grupo.
+   A seguinte função de peso é geralmente utilizada:
+
+                                         wmax - wmin
+                            w = wmax -               × iter                          (6.2)
+                                           itermax
+onde wmax é o peso inicial, wmin é o peso nal, itermax é o número máximo de iterações
+e iter é a iteração corrente. Quanto maior for o valor do peso, mais diversa tende
+ser a busca (exploration ). A medida que o peso diminui, a exploração se torna local
+(exploitation ). Uma técnica normalmente aplicada consiste em inicializar o algoritmo
+com um peso alto (proximo de 1) e diminuir seu valor a medida que o processo evolui.
+   A posição corrente pode ser modicada utilizando a seguinte equação:
+
+                                    sk
+                                     i
+                                       +1
+                                          = sk    k+1
+                                             i + vi                                  (6.3)
+
+   A Figura 6.1a mostra a representação gráca da modicação de um ponto no espaço
+de busca.
+
+                           y
+                                                     sk+1
+                                           vk+1
+                                    vk
+                                                      vgbest
+
+                                   sk             vpbest
+
+                                                               x
+
+ Figura 6.1: Representação gráca da modicação de um ponto no espaço de busca.
+
+   O pseudo-código do PSO é descrito abaixo
+
+     Para cada partícula
+         Inicialize a partícula
+     Fim
+
+     Faça
+            Para cada partícula
+6. Inteligência Coletiva                                                            43
+
+                Calcule of valor de fitness
+                Se o valor de fitness >= pbest
+                    pbest = valor da fitness
+          Fim
+
+          gbest = melhor partícula
+
+          Para cada partícula
+              Calcule a velocidade da partícula
+              Atualize a posição da partícula
+          Fim
+
+     Enquanto não atingir o critério de parada
+     ou número máximo de iterações.
+
+   As velocidades de cada dimensão das partículas são restringidas à uma velocidade
+Vmax . Se a soma das acelerações (dimensões) ultrapassar Vmax (parâmetro denido pelo
+usuário), a velocidade naquela dimensão será limitada a Vmax .
+   Com base nas equações 6.1, 6.2 e 6.3 podemos observar que o PSO clássico foi
+desenvolvido para resolver problemas de otimização com representação contínua. A
+equação 6.1 responsável pela atualização da velocidade das partículas pode ser dividida
+em três termos. O primeiro termo é a velocidade antiga da partícula. O segundo e
+terceiro termos são utilizados para mudar a velocidade da partícula. Sem eles, ela
+caria voando na mesma direção até bater na fronteira do espaço de busca.
+   Como pode-se vericar, PSO tem vários pontos em comum com AGs. Ambos
+começam com uma população aleatória e avaliam as tness de cada indivíduo. Além
+disso, ambos buscam um ponto ótimo de maneira estocástica. Ambas estratégias não
+garantem sucesso. Comparando PSO e AG, a maneira pela qual se compartilha infor-
+mações entre os indivíduos é bem diferente. Nos AGs, os cromossomos compartilham
+informações uns com os outros, e portanto, toda a população se move como um grupo
+em direção do ponto ótimo. Em PSO, somente gbest fornece essa informação para os
+outros indivíduos. Experimentos têm mostrado que PSO converge mais rapidamente
+que os AGs.
+6. Inteligência Coletiva                                                             44
+
+6.1.2 Controlando os Parâmetros
+   Como citado anteriormente, a lista de parâmetros a serem controlados não é tão
+extensa. Nesta seção descrevemos os parâmetros típicos em PSO.
+
+   * Número de partículas: Geralmente entre 20 e 40. Em muitos problemas 10 é
+      suciente.
+
+   * Dimensão das partículas: Assim como em outras técnicas de computação evolu-
+      tiva, depende do problema.
+
+   * Domínio das partículas: Valores máximo e mínimo que uma partícula pode as-
+      sumir. Também é dependente do problema.
+
+   * Vmax : Determina a velocidade máxima de uma partícula em uma determinada
+      iteração. Por exemplo, considera a partícula (x1 , x2 , x3 ), onde xi pode assumir
+      valores entre [-10,10]. Nesse caso, Vmax = 20.
+
+   * Fatores de aprendizagem (c1 , c2 ): Geralmente igual a 2. Entretanto outros valores
+      entre [0,4] podem ser utilizados.
+
+6.1.3 PSO Discreto
+   Como discutido anteriormente, PSO foi inicialmente concebido para problemas de
+otimização com representação contínua. Entretanto, vários problemas são encontrados
+na forma discreta. Para suprir essa carência, Kennedy e Eberhart desenvolveram uma
+versão binária do PSO [17]. No modelo binário, a probabilidade de uma partícula
+decidir sim ou não, é uma função que leva em consideração fatores pessoais e sociais
+como segue:
+
+                           P (sk
+                               i
+                                 +1
+                                    = 1) = f (sk    k
+                                               i , vi , pbesti , gbest)            (6.4)
+
+   O parâmetro v , que representa a predisposição da partícula fazer uma ou outra
+escolha, determina um limiar de probabilidade. Se o valor de v for elevado, provavel-
+mente a escolha será 1, caso contrário 0. Para determinar isso, recorre-se a uma função
+sigmoid:
+
+                                        k               1
+                               sigmoid(vi )=                                       (6.5)
+                                                  1 + exp(-vi
+                                                            k
+                                                              )
+   A formula que ajusta a velocidade das partículas no modelo discreto é:
+6. Inteligência Coletiva                                                        45
+
+                k+1    k
+               vi   = vi + rand() × (pbesti - sk                        k
+                                               i ) + rand() × (gbest - si )   (6.6)
+
+                     If k
+                        i
+                          +1            k+1
+                             < sigmoid(vi   )entãosk
+                                                   i
+                                                     +1
+                                                        = 1senão = 0          (6.7)
+
+onde k
+     i
+       +1
+          é um vetor de números aleatórios [0.0, 1.0].
+Referências Bibliográcas
+
+ [1] T. Back. Evolutionary Algorithms in Theory and Practice. Oxford University
+    Press, 1996.
+
+ [2] K. Chellapilla. Evolving programs without sub-tree crossover. IEEE Trans. on
+    Evolutionary Computation, 1(3):209216, 1997.
+
+ [3] A. Colorni, M. Dorigo, and V. Maniezzo. Distributed optimization by ant colonies.
+    In Procs. of the 1st European Conference on Artical Life, pages 134142, 1991.
+
+ [4] K. Deb. Multi-Objetive Optimization using Evolutionary Algorithms. Wiley, 2
+    edition, 2001.
+
+ [5] C. Emmanouilidis, A. Hunter, and J. MacIntyre. A multiobjective evolutionary
+    setting for feature selection and a commonality-based crossover operator. In Procs.
+    of the Congress on Evolutionary Computation, volume 1, pages 309316, 2000.
+
+ [6] D. B. Fogel. System identication through simulated evolution: Machine Learning
+    Approach to Modeling. Ginn Press, 1991.
+
+ [7] D. B. Fogel. An introduction to simulated evolutionary computation. IEEE Trans-
+    actions on Neural Networks, 5:314, 1994.
+
+ [8] D. B. Fogel. Evolutionary Computation: Toward a new philosophy of machine
+    intelligence. IEEE Press, 1995.
+
+ [9] D. B. Fogel. Evolutionary Computing. IEEE Press, 2002.
+
+[10] L. J. Fogel, A. J. Owens, and M. J. Walsh. Articial Intelligence Through Simulated
+    Evolution. John Wiley & Sons, 1966.
+Referências Bibliográcas                                                           47
+
+[11] A. S. Fraser. Simulation of genetic systems by automatic digital computers. Aus-
+    tralian Journal of Biological Science, 10:484499, 1957.
+
+[12] D. Goldberg. Genetic Algorithms in Search, Optimization, and Machine Learning.
+    Addison-Wesley, 1989.
+
+[13] D. E. Goldberg and J. Richardson. Genetic algorithms with sharing for multi-
+    modal function optimisation. In Procs. of the 2nd International Conference on
+    Genetic Algorithms and Their Applications, pages 4149, 1987.
+
+[14] J. H. Holland. Adaptation in Natural and Articial Systems. MIT Press, 1975.
+
+[15] J. H. Holland. Adaptation in Natural and Articial Systems. MIT Press, 2 edition,
+    1992.
+
+[16] J. Kennedy and R. Eberhart. Particle swarm optimization. In Procs. of the
+    International Conference on Neural Networks, pages 19421948, 1995.
+
+[17] J. Kennedy and R. C. Eberhart. Swarm Intelligence. Morgan Kaufmann, 2001.
+
+[18] J. R. Koza. Genetic Programming: On the programming of computers by means
+    of natural selection. MIT Press, 1992.
+
+[19] J. R. Koza. Genetic Programming II: Automatic discovery of reusable programs.
+    MIT Press, 1994.
+
+[20] S. Luke. Two fast tree-creation algorithms for genetic programming. IEEE Trans.
+    on Evolutionary Computation, 4(3):274283, 2000.
+
+[21] Z. Michalewicz and M. Schoenauer. Evolutionary algorithms for constrained pa-
+    rameter optimization problems. Evolutionary Computation, 4:132, 1996.
+
+[22] L. S. Oliveira, R. Sabourin, F. Bortolozzi, and C. Y. Suen. A methodology for
+    feature selection using multi-objective genetic algorithms for handwritten digit
+    string recognition. International Journal of Pattern Recognition and Articial
+    Intelligence, 17(6):903930, 2003.
+
+[23] I. Rechenberg. Evolution strategy. In J. Zurada et al, editor, Computational
+    Intelligence-Imitating Life, pages 147159. IEEE Press, 1994.
+
+[24] N. Srinivas and K. Deb. Multiobjective optimization using nondominated sorting
+    in genetic algorithms. Evolutionary Computation, 2(3):221248, 1995.
+Referências Bibliográcas                                                            48
+
+[25] K. Wloch and P. J. Bentley. Optimising the performace of a formula one car
+    using a genetic algorithm. In Procs of the 8th International Conference on Parallel
+    Problem Solving From Nature, 2004.
+
+[26] D. H. Wolpert and W. G. Macready. No free lunch theorems for optimization.
+    IEEE Transactions on Evolutionary Computation, 1:6782, 1997.
+
+[27] E. Zitzler, K. Deb, and L. Thiele. Comparison of multiobjective evolutionary
+    algorithms: Empirical results. Evolutionary Computation, 8(2):173195, 2000.
