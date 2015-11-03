@@ -2,7 +2,7 @@ package br.edu.utfpr.cm.grafo;
 
 import java.util.Iterator;
 
-public interface Grafo<V extends Vertice, A extends Aresta<V,V>> {
+public interface Grafo<V extends Vertice, A extends Aresta<V, V>> {
 	public final int NAO_DIRECIONADO = 0;
 	public final int DIRECIONADO = 1;
 	public final int PONDERADO = 2;
