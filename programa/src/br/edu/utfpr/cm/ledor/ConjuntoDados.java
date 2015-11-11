@@ -5,8 +5,8 @@ package br.edu.utfpr.cm.ledor;
 
 import java.util.ArrayList;
 
-import br.edu.utfpr.cm.grafo.Aresta;
-import br.edu.utfpr.cm.grafo.Grafo;
+import br.edu.utfpr.cm.grafo.ArestaPonderada;
+import br.edu.utfpr.cm.grafo.GrafoPonderado;
 import br.edu.utfpr.cm.grafo.Vertice;
 
 /**
@@ -17,7 +17,7 @@ public class ConjuntoDados {
     private int numeroDeVertices;
     private int numeroDeRotulos;
     private ArrayList<ArrayList<String>> matriz;
-    private Grafo<Vertice, Aresta<Vertice,Vertice>> grafo;
+    private GrafoPonderado<Vertice, ArestaPonderada<Vertice,Vertice>> grafo;
     
     /**
      * @param numeroDeVertices
@@ -67,13 +67,13 @@ public class ConjuntoDados {
     /**
      * @return the grafo
      */
-    public Grafo<Vertice, Aresta<Vertice, Vertice>> getGrafo() {
+    public GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> getGrafo() {
         return grafo;
     }
     /**
      * @param grafo the grafo to set
      */
-    public void setGrafo(Grafo<Vertice, Aresta<Vertice, Vertice>> grafo) {
+    public void setGrafo(GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> grafo) {
         this.grafo = grafo;
     }
     /* (non-Javadoc)
