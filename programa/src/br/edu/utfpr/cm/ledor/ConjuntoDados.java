@@ -18,6 +18,7 @@ public class ConjuntoDados {
     private int numeroDeRotulos;
     private ArrayList<ArrayList<String>> matriz;
     private Grafo<Vertice, Aresta<Vertice,Vertice>> grafo;
+    
     /**
      * @param numeroDeVertices
      * @param numeroDeRotulos

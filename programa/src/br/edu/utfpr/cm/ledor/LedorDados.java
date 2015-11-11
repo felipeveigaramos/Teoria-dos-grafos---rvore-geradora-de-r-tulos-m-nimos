@@ -10,6 +10,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import br.edu.utfpr.cm.factory.GrafoFactory;
+import br.edu.utfpr.cm.factory.Representacao;
+import br.edu.utfpr.cm.grafo.Aresta;
+import br.edu.utfpr.cm.grafo.Grafo;
+import br.edu.utfpr.cm.grafo.Vertice;
+
 /**
  * @author felipevr
  *
@@ -44,8 +50,7 @@ public class LedorDados {
 
     public static LedorDados getInstance() {
         if (LedorDados.instance == null) {
-            throw new IllegalArgumentException(
-                    "É necessário indicar um caminho base ao criar a classe.");
+            throw new IllegalArgumentException("É necessário indicar um caminho base ao criar a classe.");
         } else {
             return LedorDados.instance;
         }
@@ -55,13 +60,12 @@ public class LedorDados {
         if (LedorDados.instance == null) {
             File f = new File(raiz);
             if (!f.exists()) {
-                throw new IllegalArgumentException("O caminho especificado \""
-                        + f.getAbsolutePath() + "\" não existe.");
+                throw new IllegalArgumentException(
+                        "O caminho especificado \"" + f.getAbsolutePath() + "\" não existe.");
             } else {
                 LedorDados.instance = new LedorDados(f);
                 return LedorDados.instance;
             }
-
         } else {
             return LedorDados.instance;
         }
@@ -88,19 +92,37 @@ public class LedorDados {
             String texto = buffer.readLine();
             String[] listaTextos = texto.split(" ");
             int numeroDeVertices = Integer.parseInt(listaTextos[0]);
-            int numeroDeRotulos = Integer.parseInt(listaTextos[0]);
+            int numeroDeRotulos = Integer.parseInt(listaTextos[1]);
 
             for (int i = 0; i < 10; i++) {
-
+                ConjuntoDados conjuntoDados = new ConjuntoDados(numeroDeVertices, numeroDeRotulos);
+                ArrayList<ArrayList<String>> matriz = new ArrayList<ArrayList<String>>();
+                for (int j = 0; j < numeroDeVertices; j++) {
+                    texto = buffer.readLine();
+                    listaTextos = texto.split(" ");
+                    matriz.add(new ArrayList<String>());
+                    for (String s : listaTextos) {
+                        matriz.get(j).add(s);
+                    }
+                }
+                conjuntoDados.setMatriz(matriz);
+                Grafo<Vertice, Aresta<Vertice, Vertice>> grafo = criaGrafo(matriz);
+                this.listConjuntoDados.add(conjuntoDados);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Arquivo " + arquivoConjuntoDados.getName()
-                    + " não encontrado.");
+            System.out.println("Arquivo " + arquivoConjuntoDados.getName() + " não encontrado.");
         } catch (IOException e) {
-            System.out.println("Erro carregando conjunto de dados do arquivo: " + arquivoConjuntoDados.getAbsolutePath());
-            
+            System.out
+                    .println("Erro carregando conjunto de dados do arquivo: " + arquivoConjuntoDados.getAbsolutePath());
             e.printStackTrace();
         }
 
+    }
+
+    private Grafo<Vertice, Aresta<Vertice, Vertice>> criaGrafo(ArrayList<ArrayList<String>> matriz) {
+
+        Grafo<Vertice, Aresta<Vertice, Vertice>> grafo = GrafoFactory.constroiGrafo(Representacao.LISTA_ADJACENCIA);
+
+        return grafo;
     }
 }
