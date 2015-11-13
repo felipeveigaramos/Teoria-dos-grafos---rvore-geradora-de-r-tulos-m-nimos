@@ -9,6 +9,8 @@ public class GrafoFactory implements Factory {
 				return new GrafoListaAdjacencia();
 			case MATRIZ_ADJACENCIA:
 				return new GrafoMatrizAdjacencia();
+			case PONDERADO_LISTA_ADJACENCIA:
+			    return new GrafoPonderadoListaAdjacencia();
 		}
 		return null;
 	}
