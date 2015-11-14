@@ -17,8 +17,8 @@ public class ConjuntoDados {
     private int numeroDeVertices;
     private int numeroDeRotulos;
     private ArrayList<ArrayList<String>> matriz;
-    private GrafoPonderado<Vertice, ArestaPonderada<Vertice,Vertice>> grafo;
-    
+    private GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> grafo;
+
     /**
      * @param numeroDeVertices
      * @param numeroDeRotulos
@@ -28,55 +28,71 @@ public class ConjuntoDados {
         this.numeroDeVertices = numeroDeVertices;
         this.numeroDeRotulos = numeroDeRotulos;
     }
+
     /**
      * @return the numeroDeVertices
      */
     public int getNumeroDeVertices() {
         return numeroDeVertices;
     }
+
     /**
-     * @param numeroDeVertices the numeroDeVertices to set
+     * @param numeroDeVertices
+     *            the numeroDeVertices to set
      */
     public void setNumeroDeVertices(int numeroDeVertices) {
         this.numeroDeVertices = numeroDeVertices;
     }
+
     /**
      * @return the numeroDeRotulos
      */
     public int getNumeroDeRotulos() {
         return numeroDeRotulos;
     }
+
     /**
-     * @param numeroDeRotulos the numeroDeRotulos to set
+     * @param numeroDeRotulos
+     *            the numeroDeRotulos to set
      */
     public void setNumeroDeRotulos(int numeroDeRotulos) {
         this.numeroDeRotulos = numeroDeRotulos;
     }
+
     /**
      * @return the matriz
      */
     public ArrayList<ArrayList<String>> getMatriz() {
         return matriz;
     }
+
     /**
-     * @param matriz the matriz to set
+     * @param matriz
+     *            the matriz to set
      */
     public void setMatriz(ArrayList<ArrayList<String>> matriz) {
         this.matriz = matriz;
     }
+
     /**
      * @return the grafo
      */
     public GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> getGrafo() {
         return grafo;
     }
+
     /**
-     * @param grafo the grafo to set
+     * @param grafo
+     *            the grafo to set
      */
-    public void setGrafo(GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> grafo) {
+    public void setGrafo(
+            GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> grafo) {
         this.grafo = grafo;
     }
-    /* (non-Javadoc)
+
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#hashCode()
      */
     @Override
@@ -88,7 +104,10 @@ public class ConjuntoDados {
         result = prime * result + numeroDeVertices;
         return result;
     }
-    /* (non-Javadoc)
+
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#equals(java.lang.Object)
      */
     @Override
@@ -118,7 +137,10 @@ public class ConjuntoDados {
         }
         return true;
     }
-    /* (non-Javadoc)
+
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override
@@ -129,6 +151,5 @@ public class ConjuntoDados {
         builder.append("]");
         return builder.toString();
     }
-    
-    
-	}
+
+}

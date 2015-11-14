@@ -17,7 +17,9 @@ public class ArestaPonderada<U extends Vertice, V extends Vertice> extends
         this.peso = peso;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#hashCode()
      */
     @Override
@@ -30,7 +32,9 @@ public class ArestaPonderada<U extends Vertice, V extends Vertice> extends
         return result;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#equals(java.lang.Object)
      */
     @Override
@@ -52,7 +56,9 @@ public class ArestaPonderada<U extends Vertice, V extends Vertice> extends
         return true;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override

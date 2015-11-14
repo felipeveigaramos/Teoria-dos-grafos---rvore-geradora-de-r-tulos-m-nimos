@@ -83,7 +83,8 @@ public class TesteGrafoPonderadoListaAdjacencia {
                 .constroiGrafo(Representacao.PONDERADO_LISTA_ADJACENCIA);
         Vertice v1 = new Vertice("a");
         Vertice v2 = new Vertice("b");
-        ArestaPonderada<Vertice, Vertice> a1 = new ArestaPonderada<Vertice, Vertice>(v1, v2, 3);
+        ArestaPonderada<Vertice, Vertice> a1 = new ArestaPonderada<Vertice, Vertice>(
+                v1, v2, 3);
         g.adicionaAresta(a1);
 
         Iterator<ArestaPonderada<Vertice, Vertice>> i = g.getArestas();
@@ -97,8 +98,8 @@ public class TesteGrafoPonderadoListaAdjacencia {
 
         Vertice v3 = new Vertice("a");
         Vertice v4 = new Vertice("c");
-        ArestaPonderada<Vertice, Vertice> a2 = new ArestaPonderada<Vertice, Vertice>(v3,
-                v4, 5);
+        ArestaPonderada<Vertice, Vertice> a2 = new ArestaPonderada<Vertice, Vertice>(
+                v3, v4, 5);
         g.adicionaAresta(a2);
 
         assertFalse(g.getVerticesAdjacentes(v4).hasNext());
@@ -113,8 +114,8 @@ public class TesteGrafoPonderadoListaAdjacencia {
 
         Vertice v5 = new Vertice("x");
         Vertice v6 = new Vertice("y");
-        ArestaPonderada<Vertice, Vertice> a3 = new ArestaPonderada<Vertice, Vertice>(v5,
-                v6, 4);
+        ArestaPonderada<Vertice, Vertice> a3 = new ArestaPonderada<Vertice, Vertice>(
+                v5, v6, 4);
         g.adicionaAresta(a3);
 
         i = g.getArestas();

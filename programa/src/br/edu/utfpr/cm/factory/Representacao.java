@@ -1,9 +1,7 @@
 package br.edu.utfpr.cm.factory;
 
 public enum Representacao {
-    LISTA_ADJACENCIA(0), 
-    MATRIZ_ADJACENCIA(1),
-    PONDERADO_LISTA_ADJACENCIA(2);
+    LISTA_ADJACENCIA(0), MATRIZ_ADJACENCIA(1), PONDERADO_LISTA_ADJACENCIA(2);
 
     private int representacao;
 

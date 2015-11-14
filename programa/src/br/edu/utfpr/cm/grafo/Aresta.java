@@ -25,7 +25,9 @@ public class Aresta<U extends Vertice, V extends Vertice> {
         this.v2 = v2;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#hashCode()
      */
     @Override
@@ -37,7 +39,9 @@ public class Aresta<U extends Vertice, V extends Vertice> {
         return result;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#equals(java.lang.Object)
      */
     @Override
@@ -69,7 +73,9 @@ public class Aresta<U extends Vertice, V extends Vertice> {
         return true;
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see java.lang.Object#toString()
      */
     @Override
