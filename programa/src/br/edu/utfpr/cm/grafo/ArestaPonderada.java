@@ -6,10 +6,11 @@ public class ArestaPonderada<U extends Vertice, V extends Vertice> extends
 
     public ArestaPonderada(U v1, V v2, double peso) {
         super(v1, v2);
+        this.peso = peso;
     }
 
     public double getPeso() {
-        return peso;
+        return this.peso;
     }
 
     public void setPeso(double peso) {

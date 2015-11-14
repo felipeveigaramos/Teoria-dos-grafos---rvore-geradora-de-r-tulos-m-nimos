@@ -91,7 +91,7 @@ public class TesteGrafoPonderadoListaAdjacencia {
             ArestaPonderada<Vertice, Vertice> aresta = i.next();
             assertTrue(aresta.getVertice1().equals(v1));
             assertTrue(aresta.getVertice2().equals(v2));
-            System.out.println(aresta.getPeso());
+            System.out.println("#teste" + aresta.getPeso());
             assertTrue(aresta.getPeso() == 3);
         }
 
