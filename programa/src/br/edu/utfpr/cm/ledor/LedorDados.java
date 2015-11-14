@@ -101,10 +101,12 @@ public class LedorDados {
                 ArrayList<ArrayList<String>> matriz = new ArrayList<ArrayList<String>>();
                 for (int j = 0; j < numeroDeVertices; j++) {
                     texto = buffer.readLine();
-                    listaTextos = texto.split(" ");
-                    matriz.add(new ArrayList<String>());
-                    for (String s : listaTextos) {
-                        matriz.get(j).add(s);
+                    if (!texto.equals("")) {
+                        listaTextos = texto.split(" ");
+                        matriz.add(new ArrayList<String>());
+                        for (String s : listaTextos) {
+                            matriz.get(j).add(s);
+                        }
                     }
                 }
                 conjuntoDados.setMatriz(matriz);
@@ -129,11 +131,11 @@ public class LedorDados {
             int numeroDeRotulos) {
 
         GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> grafo = (GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>>) GrafoFactory
-                .constroiGrafo(Representacao.LISTA_ADJACENCIA);
+                .constroiGrafo(Representacao.PONDERADO_LISTA_ADJACENCIA);
         Vertice v1, v2;
         ArestaPonderada<Vertice, Vertice> aresta;
 
-        for (int i = 0; i < numeroDeVertices; i++) {
+        for (int i = 0; i < matriz.size(); i++) {
             v1 = new Vertice(String.valueOf(i));
             for (int j = 0; j < matriz.get(i).size(); j++) {
                 if (Integer.parseInt(matriz.get(i).get(j)) < numeroDeRotulos) {

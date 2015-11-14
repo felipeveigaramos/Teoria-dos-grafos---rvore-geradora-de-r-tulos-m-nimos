@@ -110,7 +110,7 @@ public class GrafoPonderadoListaAdjacencia implements
             throw new RuntimeException(
                     "Não é possível adicionar uma aresta com vértice nulos no grafo");
         else {
-            System.out.println(arestaAdicionada.getPeso());
+            
             // vertice 1 da aresta já existe no grafo ?
             // se não, cria nova entrada na lista de adjacências
             Vertice v = getVertice(arestaAdicionada.getVertice1().getId());
