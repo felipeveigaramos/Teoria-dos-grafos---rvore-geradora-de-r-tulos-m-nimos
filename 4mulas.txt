@@ -95,7 +95,20 @@ end
 
 	
 
- ?
+Algorithm 3:  Procedure Local-Search(i,xi)
+
+- Let Comp(xi) be the number of Steiner components of xi;
+for j = 1 to |xi| do
+	if COmp(xi - {j}) = 1 then
+		-Delete label j from the position xi of the given particle, xi (recebe) xi - {j};
+		Update Comp(xi);
+	end
+end
+
+
+
+
+
 
 
 
