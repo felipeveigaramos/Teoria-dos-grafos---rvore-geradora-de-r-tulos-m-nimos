@@ -30,26 +30,26 @@ begin
    repeat
 	for i = 1 to ns do
 		If i = 1 then
-			- Initialize the best position of the social neighbourhood: gi (recebe) l;
+			- Initialize the best position of the social neighbourhood: g[i] (recebe) l;
 		else
-			- Update the best position of the social neighbourhood i: gi (recebe) g(i - );
+			- Update the best position of the social neighbourhood i: g[i] (recebe) g[i - 1];
 		end
 		 Select at random a number between 0 and 1:[0,1] aquele random de antes;
 
 	if random [0,1] está entre [0 , 0.25[ then
-		- selected (recebe) xi;
+		- selected (recebe) x[i];
 	else if random [0.25 , 0.5[ then
 		- selected recebe bi;
 	else if [0.5 , 0.75] then
 		- selected (recebe) g*;
-		- Combine particle i and the selected particle: xi (recebe) Combine (xi, selected);
+		- Combine particle i and the selected particle: x[i] (recebe) Combine (x[i], selected);
 		- Local -- Search(i,c);
-	if|xi| < |bi| then
-		- Update the best position of given particle i: bi (recebe) xi;
+	if|x[i]| < |b[i]| then
+		- Update the best position of given particle i: b[i] (recebe) x[i];
 	end
 
-	if |xi| < |gi| then
-		- Update the global best position to date: g* (recebe) xi;
+	if |x[i]| < |g[i]| then
+		- Update the global best position to date: g* (recebe) x[i];
 	end 
    end
 
@@ -71,37 +71,37 @@ Página 10 do pdf - 38 do paper
 
 
 Algorithm 2: Procedure Combine (xi, slected)
-- Let Comp(xi) be the number of Steiner components of xi;
-- Select a random integer between 0 and |xi|: tridentinho (recebe) random (0,|xi|);
+- Let Comp(x[i]) be the number of Steiner components of x[i];
+- Select a random integer between 0 and |x[i]|: tridentinho (recebe) random (0,|x[i]|);
 for j (recebe) 1 to tridentinho do
 	- select at random a number between 0  and 1: (recebe) random (0,1);
 
 	if random <= 0.5 then
-		- Select at random a label c' (pertencente) a xi;
-		- Delete label c' from position of the given particle: xi (recebe xi) união {c'};
+		- Select at random a label c' (pertencente) a x[i];
+		- Delete label c' from position of the given particle: x[i] (recebe x[i]) união {c'};
 	else
 		-Select at random a label c' (pertencente) selected;
-		- Add label c' to the position of the given particle i: xi (recebe) xi união {c'};
+		- Add label c' to the position of the given particle i: x[i] (recebe) x[i] união {c'};
 	end
-end?
+end
 
-- Update Comp(xi);
+- Update Comp(x[i]);
 
-while Comp(xi) > 1 do
-	- Select at random an unused label u (pertencente) (L -xi);
-        - Add label u to the position of the given particle i: xi (recebe) xi união {u};
+while Comp(x[i]) > 1 do
+	- Select at random an unused label u (pertencente) (L -x[i]);
+        - Add label u to the position of the given particle i: x[i] (recebe) x[i] união {u};
 end
 
 
 	
 
-Algorithm 3:  Procedure Local-Search(i,xi)
+Algorithm 3:  Procedure Local-Search(i,x[i])
 
-- Let Comp(xi) be the number of Steiner components of xi;
-for j = 1 to |xi| do
-	if COmp(xi - {j}) = 1 then
-		-Delete label j from the position xi of the given particle, xi (recebe) xi - {j};
-		Update Comp(xi);
+- Let Comp(x[i]) be the number of Steiner components of x[i];
+for j = 1 to |x[i]| do
+	if COmp(x[i] - {j}) = 1 then
+		-Delete label j from the position x[i] of the given particle, x[i] (recebe) x[i] - {j};
+		Update Comp(x[i]);
 	end
 end
 
