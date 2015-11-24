@@ -39,16 +39,25 @@ begin
         else if random [0.25 , 0.5[ then
                 - selected recebe bi;
         else if [0.5 , 0.75] then
+                - selected (recebe) g[i]
+        else if (0.75, 1) then
                 - selected (recebe) g*;
-                - Combine particle i and the selected particle: x[i] (recebe) Combine (x[i], selected);
-                - Local -- Search(i,c);
+
+        - Combine particle i and the selected particle: x[i] (recebe) Combine (x[i], selected);
+        - Local -- Search(i,c);
+
         if|x[i]| < |b[i]| then
                 - Update the best position of given particle i: b[i] (recebe) x[i];
         end
 
         if |x[i]| < |g[i]| then
+                - update the best social neiborhood: g[i] (recebe) x[i]
+        end
+
+        if |x[i]| < |g*| then
                 - Update the global best position to date: g* (recebe) x[i];
-        end 
+        end
+
    end
 
   until termination conditions;
