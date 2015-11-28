@@ -8,8 +8,13 @@ import java.util.Iterator;
 import br.edu.utfpr.cm.algoritmo.entidades.Cor;
 import br.edu.utfpr.cm.algoritmo.entidades.CorVertice;
 import br.edu.utfpr.cm.algoritmo.entidades.VerticeBuscaProfundidade;
+import br.edu.utfpr.cm.factory.GrafoFactory;
+import br.edu.utfpr.cm.factory.Representacao;
 import br.edu.utfpr.cm.grafo.Aresta;
+import br.edu.utfpr.cm.grafo.ArestaPonderada;
 import br.edu.utfpr.cm.grafo.Grafo;
+import br.edu.utfpr.cm.grafo.GrafoPonderado;
+import br.edu.utfpr.cm.grafo.Vertice;
 
 /**
  * @author felipevr
@@ -85,7 +90,6 @@ public class ContaComponentesConexas implements Algoritmo {
             if (v.getCor().getCor() == Cor.Branco) {
                 this.quantidadeDeComponentesConexas++;
                 buscaProfundidade(v);
-
             }
         }
 
@@ -99,11 +103,32 @@ public class ContaComponentesConexas implements Algoritmo {
                 .getVerticesAdjacentes(v);
         while (verticesAdjacentes.hasNext()) {
             v2 = verticesAdjacentes.next();
-            v2.setPai(v);
-            buscaProfundidade(v2);
+            if (v2.getCor().getCor() == Cor.Branco) {
+                v2.setPai(v);
+                buscaProfundidade(v2);
+            }
         }
         v.setCor(new CorVertice(Cor.Preto));
         v.setTempoFinalizacao(++tempo);
+    }
+
+    public void setGrafo(
+            GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> g) {
+        Grafo<VerticeBuscaProfundidade, Aresta<VerticeBuscaProfundidade, VerticeBuscaProfundidade>> grafo = GrafoFactory
+                .constroiGrafo(Representacao.LISTA_ADJACENCIA);
+        ArestaPonderada<Vertice, Vertice> a;
+        Aresta<VerticeBuscaProfundidade, VerticeBuscaProfundidade> a2;
+        VerticeBuscaProfundidade u, v;
+        Iterator<ArestaPonderada<Vertice, Vertice>> arestas = g.getArestas();
+        while (arestas.hasNext()) {
+            a = arestas.next();
+            u = new VerticeBuscaProfundidade(a.getVertice1().getId());
+            v = new VerticeBuscaProfundidade(a.getVertice2().getId());
+            a2 = new Aresta<VerticeBuscaProfundidade, VerticeBuscaProfundidade>(
+                    u, v);
+            grafo.adicionaAresta(a2);
+        }
+        this.grafo = grafo;
     }
 
 }
