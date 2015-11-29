@@ -18,6 +18,7 @@ public class TesteGrafoPonderadoListaAdjacencia {
 
     @Test
     public void testeVertice() {
+        @SuppressWarnings("unchecked")
         GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> g = (GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>>) GrafoFactory
                 .constroiGrafo(Representacao.PONDERADO_LISTA_ADJACENCIA);
         Vertice a = new Vertice("a");
@@ -36,8 +37,7 @@ public class TesteGrafoPonderadoListaAdjacencia {
         assertEquals(c, g.getVertice(c.getId()));
 
         // todas as arestas tem 'a' como antecessor
-        Iterator<ArestaPonderada<Vertice, Vertice>> iteratorAresta = g
-                .getArestas();
+        Iterator<ArestaPonderada<Vertice, Vertice>> iteratorAresta = g.getArestas();
         while (iteratorAresta.hasNext()) {
             ArestaPonderada<Vertice, Vertice> aresta = iteratorAresta.next();
             assertEquals(a, aresta.getVertice1());
@@ -64,8 +64,7 @@ public class TesteGrafoPonderadoListaAdjacencia {
         while (iteratorAresta.hasNext()) {
             ArestaPonderada<Vertice, Vertice> aresta = iteratorAresta.next();
             if (aresta.getVertice1().getId().equals("b"))
-                assertTrue(aresta.getVertice2().getId().equals("d")
-                        || aresta.getVertice2().getId().equals("e")
+                assertTrue(aresta.getVertice2().getId().equals("d") || aresta.getVertice2().getId().equals("e")
                         || aresta.getVertice2().getId().equals("f"));
         }
 
@@ -79,12 +78,12 @@ public class TesteGrafoPonderadoListaAdjacencia {
 
     @Test
     public void testeAresta() {
+        @SuppressWarnings("unchecked")
         GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> g = (GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>>) GrafoFactory
                 .constroiGrafo(Representacao.PONDERADO_LISTA_ADJACENCIA);
         Vertice v1 = new Vertice("a");
         Vertice v2 = new Vertice("b");
-        ArestaPonderada<Vertice, Vertice> a1 = new ArestaPonderada<Vertice, Vertice>(
-                v1, v2, 3);
+        ArestaPonderada<Vertice, Vertice> a1 = new ArestaPonderada<Vertice, Vertice>(v1, v2, 3);
         g.adicionaAresta(a1);
 
         Iterator<ArestaPonderada<Vertice, Vertice>> i = g.getArestas();
@@ -98,8 +97,7 @@ public class TesteGrafoPonderadoListaAdjacencia {
 
         Vertice v3 = new Vertice("a");
         Vertice v4 = new Vertice("c");
-        ArestaPonderada<Vertice, Vertice> a2 = new ArestaPonderada<Vertice, Vertice>(
-                v3, v4, 5);
+        ArestaPonderada<Vertice, Vertice> a2 = new ArestaPonderada<Vertice, Vertice>(v3, v4, 5);
         g.adicionaAresta(a2);
 
         assertFalse(g.getVerticesAdjacentes(v4).hasNext());
@@ -108,14 +106,12 @@ public class TesteGrafoPonderadoListaAdjacencia {
         while (i.hasNext()) {
             ArestaPonderada<Vertice, Vertice> aresta = i.next();
             assertTrue(aresta.getVertice1().equals(v1));
-            assertTrue(aresta.getVertice2().equals(v4)
-                    || aresta.getVertice2().equals(v2));
+            assertTrue(aresta.getVertice2().equals(v4) || aresta.getVertice2().equals(v2));
         }
 
         Vertice v5 = new Vertice("x");
         Vertice v6 = new Vertice("y");
-        ArestaPonderada<Vertice, Vertice> a3 = new ArestaPonderada<Vertice, Vertice>(
-                v5, v6, 4);
+        ArestaPonderada<Vertice, Vertice> a3 = new ArestaPonderada<Vertice, Vertice>(v5, v6, 4);
         g.adicionaAresta(a3);
 
         i = g.getArestas();

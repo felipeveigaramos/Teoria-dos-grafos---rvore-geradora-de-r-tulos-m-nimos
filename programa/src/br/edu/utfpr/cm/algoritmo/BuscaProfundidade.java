@@ -12,14 +12,9 @@ public class BuscaProfundidade implements Algoritmo {
             Grafo<VerticeBuscaProfundidade, Aresta<VerticeBuscaProfundidade, VerticeBuscaProfundidade>> g,
             VerticeBuscaProfundidade verticeInicial) {
         if (g.getVertice(verticeInicial.getId()) == null)
-            throw new RuntimeException(
-                    "O vértice de índice "
-                            + verticeInicial.getId()
-                            + " não pertence ao grafo "
-                            + g.toString()
-                            + ". "
-                            + "Utilize um vértice válido como argumento do construtor da classe "
-                            + this.getClass().getName());
+            throw new RuntimeException("O vértice de índice " + verticeInicial.getId() + " não pertence ao grafo "
+                    + g.toString() + ". " + "Utilize um vértice válido como argumento do construtor da classe "
+                    + this.getClass().getName());
         else {
             this.g = g;
             this.s = verticeInicial;

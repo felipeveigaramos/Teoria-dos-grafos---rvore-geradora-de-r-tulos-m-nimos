@@ -1,7 +1,6 @@
 package br.edu.utfpr.cm.grafo;
 
-public class ArestaPonderada<U extends Vertice, V extends Vertice> extends
-        Aresta<U, V> {
+public class ArestaPonderada<U extends Vertice, V extends Vertice> extends Aresta<U, V> {
     double peso = Double.POSITIVE_INFINITY;
 
     public ArestaPonderada(U v1, V v2, double peso) {
@@ -48,9 +47,8 @@ public class ArestaPonderada<U extends Vertice, V extends Vertice> extends
         if (!(obj instanceof ArestaPonderada)) {
             return false;
         }
-        ArestaPonderada other = (ArestaPonderada) obj;
-        if (Double.doubleToLongBits(peso) != Double
-                .doubleToLongBits(other.peso)) {
+        ArestaPonderada<?, ?> other = (ArestaPonderada<?, ?>) obj;
+        if (Double.doubleToLongBits(peso) != Double.doubleToLongBits(other.peso)) {
             return false;
         }
         return true;

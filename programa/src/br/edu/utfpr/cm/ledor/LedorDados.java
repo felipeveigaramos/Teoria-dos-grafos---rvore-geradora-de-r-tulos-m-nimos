@@ -50,8 +50,7 @@ public class LedorDados {
 
     public static LedorDados getInstance() {
         if (LedorDados.instance == null) {
-            throw new IllegalArgumentException(
-                    "É necessário indicar um caminho base ao criar a classe.");
+            throw new IllegalArgumentException("É necessário indicar um caminho base ao criar a classe.");
         } else {
             return LedorDados.instance;
         }
@@ -61,8 +60,8 @@ public class LedorDados {
         if (LedorDados.instance == null) {
             File f = new File(raiz);
             if (!f.exists()) {
-                throw new IllegalArgumentException("O caminho especificado \""
-                        + f.getAbsolutePath() + "\" não existe.");
+                throw new IllegalArgumentException(
+                        "O caminho especificado \"" + f.getAbsolutePath() + "\" não existe.");
             } else {
                 LedorDados.instance = new LedorDados(f);
                 return LedorDados.instance;
@@ -96,8 +95,7 @@ public class LedorDados {
             int numeroDeRotulos = Integer.parseInt(listaTextos[1]);
 
             for (int i = 0; i < 10; i++) {
-                ConjuntoDados conjuntoDados = new ConjuntoDados(
-                        numeroDeVertices, numeroDeRotulos);
+                ConjuntoDados conjuntoDados = new ConjuntoDados(numeroDeVertices, numeroDeRotulos);
                 ArrayList<ArrayList<String>> matriz = new ArrayList<ArrayList<String>>();
                 for (int j = 0; j < numeroDeVertices; j++) {
                     texto = buffer.readLine();
@@ -110,43 +108,48 @@ public class LedorDados {
                     }
                 }
                 conjuntoDados.setMatriz(matriz);
-                GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> grafo = criaGrafo(
-                        matriz, numeroDeVertices, numeroDeRotulos);
+                GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> grafo = criaGrafo(matriz, numeroDeVertices,
+                        numeroDeRotulos);
                 conjuntoDados.setGrafo(grafo);
                 this.listConjuntoDados.add(conjuntoDados);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Arquivo " + arquivoConjuntoDados.getName()
-                    + " não encontrado.");
+            System.out.println("Arquivo " + arquivoConjuntoDados.getName() + " não encontrado.");
         } catch (IOException e) {
-            System.out.println("Erro carregando conjunto de dados do arquivo: "
-                    + arquivoConjuntoDados.getAbsolutePath());
+            System.out
+                    .println("Erro carregando conjunto de dados do arquivo: " + arquivoConjuntoDados.getAbsolutePath());
             e.printStackTrace();
         }
-
     }
 
-    private GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> criaGrafo(
-            ArrayList<ArrayList<String>> matriz, int numeroDeVertices,
-            int numeroDeRotulos) {
-
+    private GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> criaGrafo(ArrayList<ArrayList<String>> matriz,
+            int numeroDeVertices, int numeroDeRotulos) {
+        @SuppressWarnings("unchecked")
         GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> grafo = (GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>>) GrafoFactory
                 .constroiGrafo(Representacao.PONDERADO_LISTA_ADJACENCIA);
         Vertice v1, v2;
         ArestaPonderada<Vertice, Vertice> aresta;
+        int verticeVerdadeiro;// utilizado para calcular v2, já que a matriz
+                              // usa só os valores acima da diagonal principal
+                              // e alguns podem ser ignorados.
 
         for (int i = 0; i < matriz.size(); i++) {
             v1 = new Vertice(String.valueOf(i));
+            verticeVerdadeiro = i;
             for (int j = 0; j < matriz.get(i).size(); j++) {
+                verticeVerdadeiro++;
                 if (Integer.parseInt(matriz.get(i).get(j)) < numeroDeRotulos) {
-                    v2 = new Vertice(String.valueOf(i + j));
-                    aresta = new ArestaPonderada<Vertice, Vertice>(v1, v2,
-                            Double.parseDouble(matriz.get(i).get(j)));
+                    v2 = new Vertice(String.valueOf(verticeVerdadeiro));
+                    aresta = new ArestaPonderada<Vertice, Vertice>(v1, v2, Double.parseDouble(matriz.get(i).get(j)));
+                    grafo.adicionaAresta(aresta);
+                    aresta = new ArestaPonderada<Vertice, Vertice>(v2, v1, Double.parseDouble(matriz.get(i).get(j)));// Porque
+                                                                                                                     // o
+                                                                                                                     // grafo
+                                                                                                                     // é
+                                                                                                                     // não-direcionado!
                     grafo.adicionaAresta(aresta);
                 }
-
             }
-
         }
 
         return grafo;

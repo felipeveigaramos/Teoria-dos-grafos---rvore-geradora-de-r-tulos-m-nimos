@@ -18,12 +18,13 @@ import br.edu.utfpr.cm.grafo.Vertice;
 //os lemas e teoremas relacionados ?? busca em largura
 public class TesteBuscaLargura {
 
+    @SuppressWarnings("unchecked")
     @Test
     public void Lema1() {
         HashMap<Vertice, Integer> distanciasMinimas = new HashMap<Vertice, Integer>();
 
         Grafo<VerticeBuscaLargura, Aresta<VerticeBuscaLargura, VerticeBuscaLargura>> g;
-        g = GrafoFactory.constroiGrafo(Representacao.LISTA_ADJACENCIA);
+        g = (Grafo<VerticeBuscaLargura, Aresta<VerticeBuscaLargura, VerticeBuscaLargura>>)GrafoFactory.constroiGrafo(Representacao.LISTA_ADJACENCIA);
 
         // vértice inicial
         VerticeBuscaLargura s = new VerticeBuscaLargura("s");

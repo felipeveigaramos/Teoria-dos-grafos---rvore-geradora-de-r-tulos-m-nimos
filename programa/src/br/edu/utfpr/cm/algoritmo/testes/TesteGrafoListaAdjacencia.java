@@ -18,8 +18,8 @@ public class TesteGrafoListaAdjacencia {
 
     @Test
     public void testeVertice() {
-        Grafo<Vertice, Aresta<Vertice, Vertice>> g = GrafoFactory
-                .constroiGrafo(Representacao.LISTA_ADJACENCIA);
+        @SuppressWarnings("unchecked")
+        Grafo<Vertice, Aresta<Vertice, Vertice>> g = (Grafo<Vertice, Aresta<Vertice, Vertice>>)GrafoFactory.constroiGrafo(Representacao.LISTA_ADJACENCIA);
         Vertice a = new Vertice("a");
         g.adicionaVertice(a);
 
@@ -62,8 +62,7 @@ public class TesteGrafoListaAdjacencia {
         while (iteratorAresta.hasNext()) {
             Aresta<Vertice, Vertice> aresta = iteratorAresta.next();
             if (aresta.getVertice1().getId().equals("b"))
-                assertTrue(aresta.getVertice2().getId().equals("d")
-                        || aresta.getVertice2().getId().equals("e")
+                assertTrue(aresta.getVertice2().getId().equals("d") || aresta.getVertice2().getId().equals("e")
                         || aresta.getVertice2().getId().equals("f"));
         }
 
@@ -77,8 +76,8 @@ public class TesteGrafoListaAdjacencia {
 
     @Test
     public void testeAresta() {
-        Grafo<Vertice, Aresta<Vertice, Vertice>> g = GrafoFactory
-                .constroiGrafo(Representacao.LISTA_ADJACENCIA);
+        @SuppressWarnings("unchecked")
+        Grafo<Vertice, Aresta<Vertice, Vertice>> g = (Grafo<Vertice, Aresta<Vertice, Vertice>>)GrafoFactory.constroiGrafo(Representacao.LISTA_ADJACENCIA);
         Vertice v1 = new Vertice("a");
         Vertice v2 = new Vertice("b");
         Aresta<Vertice, Vertice> a1 = new Aresta<Vertice, Vertice>(v1, v2);
@@ -102,8 +101,7 @@ public class TesteGrafoListaAdjacencia {
         while (i.hasNext()) {
             Aresta<Vertice, Vertice> aresta = i.next();
             assertTrue(aresta.getVertice1().equals(v1));
-            assertTrue(aresta.getVertice2().equals(v4)
-                    || aresta.getVertice2().equals(v2));
+            assertTrue(aresta.getVertice2().equals(v4) || aresta.getVertice2().equals(v2));
         }
 
         Vertice v5 = new Vertice("x");

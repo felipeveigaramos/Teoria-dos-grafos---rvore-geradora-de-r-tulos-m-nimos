@@ -55,7 +55,7 @@ public class Aresta<U extends Vertice, V extends Vertice> {
         if (!(obj instanceof Aresta)) {
             return false;
         }
-        Aresta other = (Aresta) obj;
+        Aresta<?, ?> other = (Aresta<?, ?>) obj;
         if (v1 == null) {
             if (other.v1 != null) {
                 return false;

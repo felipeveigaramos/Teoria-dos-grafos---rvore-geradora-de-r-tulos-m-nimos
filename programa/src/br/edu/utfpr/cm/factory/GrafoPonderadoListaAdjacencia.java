@@ -9,8 +9,7 @@ import br.edu.utfpr.cm.grafo.ArestaPonderada;
 import br.edu.utfpr.cm.grafo.GrafoPonderado;
 import br.edu.utfpr.cm.grafo.Vertice;
 
-public class GrafoPonderadoListaAdjacencia implements
-        GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> {
+public class GrafoPonderadoListaAdjacencia implements GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> {
     HashMap<Vertice, HashMap<Vertice, Double>> grafo = new HashMap<Vertice, HashMap<Vertice, Double>>();
 
     @Override
@@ -42,8 +41,7 @@ public class GrafoPonderadoListaAdjacencia implements
         for (Vertice u : grafo.keySet()) {
             HashMap<Vertice, Double> adj = grafo.get(u);
             for (Vertice v : adj.keySet()) {
-                arestas.add(new ArestaPonderada<Vertice, Vertice>(u, v, grafo
-                        .get(u).get(v)));
+                arestas.add(new ArestaPonderada<Vertice, Vertice>(u, v, grafo.get(u).get(v)));
             }
         }
         return arestas.iterator();
@@ -66,13 +64,11 @@ public class GrafoPonderadoListaAdjacencia implements
     }
 
     @Override
-    public void adicionaVertice(Vertice verticeNoGrafo,
-            Vertice verticeAdicionado) {
+    public void adicionaVertice(Vertice verticeNoGrafo, Vertice verticeAdicionado) {
         // verifica se verticeNoGrafo esta no grafo
         Vertice v = getVertice(verticeNoGrafo.getId());
         if (v == null)
-            throw new RuntimeException("O vértice com identificador "
-                    + verticeNoGrafo.getId()
+            throw new RuntimeException("O vértice com identificador " + verticeNoGrafo.getId()
                     + " precisa necessariamente estar no grafo.");
         // else -> vertice esta no grafo !
         else {
@@ -103,12 +99,9 @@ public class GrafoPonderadoListaAdjacencia implements
     }
 
     @Override
-    public void adicionaAresta(
-            ArestaPonderada<Vertice, Vertice> arestaAdicionada) {
-        if (arestaAdicionada.getVertice1() == null
-                || arestaAdicionada.getVertice2() == null)
-            throw new RuntimeException(
-                    "Não é possível adicionar uma aresta com vértice nulos no grafo");
+    public void adicionaAresta(ArestaPonderada<Vertice, Vertice> arestaAdicionada) {
+        if (arestaAdicionada.getVertice1() == null || arestaAdicionada.getVertice2() == null)
+            throw new RuntimeException("Não é possível adicionar uma aresta com vértice nulos no grafo");
         else {
 
             // vertice 1 da aresta já existe no grafo ?

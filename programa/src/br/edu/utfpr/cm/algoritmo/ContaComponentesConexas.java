@@ -88,19 +88,17 @@ public class ContaComponentesConexas implements Algoritmo {
         while (vertices.hasNext()) {
             v = vertices.next();
             if (v.getCor().getCor() == Cor.Branco) {
-                this.quantidadeDeComponentesConexas++;
                 buscaProfundidade(v);
+                this.quantidadeDeComponentesConexas++;
             }
         }
-
     }
 
     private void buscaProfundidade(VerticeBuscaProfundidade v) {
         VerticeBuscaProfundidade v2;
         v.setTempoDescoberta(++tempo);
         v.setCor(new CorVertice(Cor.Cinza));
-        Iterator<VerticeBuscaProfundidade> verticesAdjacentes = grafo
-                .getVerticesAdjacentes(v);
+        Iterator<VerticeBuscaProfundidade> verticesAdjacentes = grafo.getVerticesAdjacentes(v);
         while (verticesAdjacentes.hasNext()) {
             v2 = verticesAdjacentes.next();
             if (v2.getCor().getCor() == Cor.Branco) {
@@ -112,9 +110,9 @@ public class ContaComponentesConexas implements Algoritmo {
         v.setTempoFinalizacao(++tempo);
     }
 
-    public void setGrafo(
-            GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> g) {
-        Grafo<VerticeBuscaProfundidade, Aresta<VerticeBuscaProfundidade, VerticeBuscaProfundidade>> grafo = GrafoFactory
+    public void setGrafo(GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> g) {
+        @SuppressWarnings("unchecked")
+        Grafo<VerticeBuscaProfundidade, Aresta<VerticeBuscaProfundidade, VerticeBuscaProfundidade>> grafo = (Grafo<VerticeBuscaProfundidade, Aresta<VerticeBuscaProfundidade, VerticeBuscaProfundidade>>)GrafoFactory
                 .constroiGrafo(Representacao.LISTA_ADJACENCIA);
         ArestaPonderada<Vertice, Vertice> a;
         Aresta<VerticeBuscaProfundidade, VerticeBuscaProfundidade> a2;
@@ -124,11 +122,9 @@ public class ContaComponentesConexas implements Algoritmo {
             a = arestas.next();
             u = new VerticeBuscaProfundidade(a.getVertice1().getId());
             v = new VerticeBuscaProfundidade(a.getVertice2().getId());
-            a2 = new Aresta<VerticeBuscaProfundidade, VerticeBuscaProfundidade>(
-                    u, v);
+            a2 = new Aresta<VerticeBuscaProfundidade, VerticeBuscaProfundidade>(u, v);
             grafo.adicionaAresta(a2);
         }
         this.grafo = grafo;
     }
-
 }

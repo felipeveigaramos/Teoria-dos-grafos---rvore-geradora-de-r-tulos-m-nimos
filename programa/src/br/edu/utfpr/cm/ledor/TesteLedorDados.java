@@ -13,29 +13,44 @@ public class TesteLedorDados {
         LedorDados ld = LedorDados.getInstance("instancias");
         ContaComponentesConexas ccc = new ContaComponentesConexas();
         ConjuntoDados cd;
+
+        // System.out.println(cd.getNumeroDeVertices() + " " +
+        // cd.getNumeroDeRotulos() + "\n" + cd.getMatriz());
+
         /*
-         * System.out.println(cd.getNumeroDeVertices() + " " +
-         * cd.getNumeroDeRotulos() + "\n" + cd.getMatriz()); i =
-         * cd.getGrafo().getArestas(); while (i.hasNext()) {
+         * i = cd.getGrafo().getArestas(); while (i.hasNext()) {
          * ArestaPonderada<Vertice, Vertice> aresta = i.next();
          * System.out.println(aresta); }
          */
 
-        cd  = ld.next();
+        cd = ld.next();
         ccc.setGrafo(cd.getGrafo());
         ccc.executar();
         System.out.println(ccc.getQuantidadeDeComponentesConexas());
-        cd  = ld.next();
+
+        cd = ld.next();
         ccc.setGrafo(cd.getGrafo());
         ccc.executar();
         System.out.println(ccc.getQuantidadeDeComponentesConexas());
-        cd  = ld.next();
+
+        cd = ld.next();
         ccc.setGrafo(cd.getGrafo());
         ccc.executar();
         System.out.println(ccc.getQuantidadeDeComponentesConexas());
-        cd  = ld.next();
+
         ccc.setGrafo(cd.getGrafo());
         ccc.executar();
         System.out.println(ccc.getQuantidadeDeComponentesConexas());
+
+        cd = ld.next();
+        ccc.setGrafo(cd.getGrafo());
+        ccc.executar();
+        System.out.println(ccc.getQuantidadeDeComponentesConexas());
+
+        cd = ld.next();
+        ccc.setGrafo(cd.getGrafo());
+        ccc.executar();
+        System.out.println(ccc.getQuantidadeDeComponentesConexas());
+
     }
 }

@@ -7,14 +7,14 @@ public class VerticeBuscaProfundidade extends Vertice {
     private int tempoDescoberta = (int) Float.POSITIVE_INFINITY;
     private int tempoFinalizacao = (int) Float.POSITIVE_INFINITY;
     private VerticeBuscaProfundidade pai = null;
-    
-    public VerticeBuscaProfundidade(){
+
+    public VerticeBuscaProfundidade() {
         super();
     }
 
     public VerticeBuscaProfundidade(String id) {
         super(id);
-        
+
     }
 
     public CorVertice getCor() {

@@ -85,8 +85,7 @@ public class ConjuntoDados {
      * @param grafo
      *            the grafo to set
      */
-    public void setGrafo(
-            GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> grafo) {
+    public void setGrafo(GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> grafo) {
         this.grafo = grafo;
     }
 

@@ -12,8 +12,7 @@ import br.edu.utfpr.cm.grafo.Aresta;
 import br.edu.utfpr.cm.grafo.Grafo;
 import br.edu.utfpr.cm.grafo.Vertice;
 
-public class GrafoListaAdjacencia implements
-        Grafo<Vertice, Aresta<Vertice, Vertice>> {
+public class GrafoListaAdjacencia implements Grafo<Vertice, Aresta<Vertice, Vertice>> {
     HashMap<Vertice, ArrayList<Vertice>> grafo = new HashMap<Vertice, ArrayList<Vertice>>();
 
     @Override
@@ -58,13 +57,11 @@ public class GrafoListaAdjacencia implements
     }
 
     @Override
-    public void adicionaVertice(Vertice verticeNoGrafo,
-            Vertice verticeAdicionado) {
+    public void adicionaVertice(Vertice verticeNoGrafo, Vertice verticeAdicionado) {
         // verifica se verticeNoGrafo esta no grafo
         Vertice v = getVertice(verticeNoGrafo.getId());
         if (v == null)
-            throw new RuntimeException("O vértice com identificado "
-                    + verticeNoGrafo.getId()
+            throw new RuntimeException("O vértice com identificado " + verticeNoGrafo.getId()
                     + " precisa necessariamente estar no grafo.");
         // else -> vertice esta no grafo !
         else {
@@ -96,10 +93,8 @@ public class GrafoListaAdjacencia implements
 
     @Override
     public void adicionaAresta(Aresta<Vertice, Vertice> arestaAdicionada) {
-        if (arestaAdicionada.getVertice1() == null
-                || arestaAdicionada.getVertice2() == null)
-            throw new RuntimeException(
-                    "Não é possível adicionar uma aresta com vértice nulos no grafo");
+        if (arestaAdicionada.getVertice1() == null || arestaAdicionada.getVertice2() == null)
+            throw new RuntimeException("Não é possível adicionar uma aresta com vértice nulos no grafo");
         else {
             // vertice 1 da aresta já existe no grafo ?
             // se não, cria nova entrada na lista de adjacências
@@ -141,5 +136,9 @@ public class GrafoListaAdjacencia implements
                 l.add(v2);
             }
         }
+    }
+
+    public void imprime() {
+        System.out.println(grafo);
     }
 }

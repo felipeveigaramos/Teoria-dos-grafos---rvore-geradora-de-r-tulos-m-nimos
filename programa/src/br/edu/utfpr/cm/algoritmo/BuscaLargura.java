@@ -10,18 +10,12 @@ public class BuscaLargura implements Algoritmo {
     private Grafo<VerticeBuscaLargura, Aresta<VerticeBuscaLargura, VerticeBuscaLargura>> g;
     private VerticeBuscaLargura s;
 
-    public BuscaLargura(
-            Grafo<VerticeBuscaLargura, Aresta<VerticeBuscaLargura, VerticeBuscaLargura>> g,
+    public BuscaLargura(Grafo<VerticeBuscaLargura, Aresta<VerticeBuscaLargura, VerticeBuscaLargura>> g,
             VerticeBuscaLargura verticeInicial) {
         if (g.getVertice(verticeInicial.getId()) == null)
-            throw new RuntimeException(
-                    "O vértice de índice "
-                            + verticeInicial.getId()
-                            + " não pertence ao grafo "
-                            + g.toString()
-                            + ". "
-                            + "Utilize um vértice válido como argumento do construtor da classe "
-                            + this.getClass().getName());
+            throw new RuntimeException("O vértice de índice " + verticeInicial.getId() + " não pertence ao grafo "
+                    + g.toString() + ". " + "Utilize um vértice válido como argumento do construtor da classe "
+                    + this.getClass().getName());
         else {
             this.g = g;
             this.s = verticeInicial;
@@ -49,8 +43,7 @@ public class BuscaLargura implements Algoritmo {
     public void executar() {
     }
 
-    public void imprimeGrafo(
-            Grafo<VerticeBuscaLargura, Aresta<VerticeBuscaLargura, VerticeBuscaLargura>> g,
+    public void imprimeGrafo(Grafo<VerticeBuscaLargura, Aresta<VerticeBuscaLargura, VerticeBuscaLargura>> g,
             VerticeBuscaLargura s, VerticeBuscaLargura v) {
         if (v.equals(s)) {
             System.out.print(s);
