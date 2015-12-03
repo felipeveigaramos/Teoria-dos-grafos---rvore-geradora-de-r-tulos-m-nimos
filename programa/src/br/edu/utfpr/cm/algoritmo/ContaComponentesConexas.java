@@ -67,7 +67,7 @@ public class ContaComponentesConexas implements Algoritmo {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see br.edu.utfpr.cm.algoritmo.Algoritmo#executar()
      */
     @Override
@@ -112,11 +112,19 @@ public class ContaComponentesConexas implements Algoritmo {
 
     public void setGrafo(GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> g) {
         @SuppressWarnings("unchecked")
-        Grafo<VerticeBuscaProfundidade, Aresta<VerticeBuscaProfundidade, VerticeBuscaProfundidade>> grafo = (Grafo<VerticeBuscaProfundidade, Aresta<VerticeBuscaProfundidade, VerticeBuscaProfundidade>>)GrafoFactory
+        Grafo<VerticeBuscaProfundidade, Aresta<VerticeBuscaProfundidade, VerticeBuscaProfundidade>> grafo = (Grafo<VerticeBuscaProfundidade, Aresta<VerticeBuscaProfundidade, 
+VerticeBuscaProfundidade>>)GrafoFactory
                 .constroiGrafo(Representacao.LISTA_ADJACENCIA);
         ArestaPonderada<Vertice, Vertice> a;
         Aresta<VerticeBuscaProfundidade, VerticeBuscaProfundidade> a2;
         VerticeBuscaProfundidade u, v;
+        
+        Iterator<Vertice> vertices = g.getVertices();
+        while (vertices.hasNext()) {
+            u = new VerticeBuscaProfundidade(vertices.next().getId());
+            grafo.adicionaVertice(u);
+        }
+        
         Iterator<ArestaPonderada<Vertice, Vertice>> arestas = g.getArestas();
         while (arestas.hasNext()) {
             a = arestas.next();

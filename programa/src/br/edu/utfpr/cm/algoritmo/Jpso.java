@@ -4,6 +4,7 @@
 package br.edu.utfpr.cm.algoritmo;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.Random;
 
@@ -25,13 +26,7 @@ public class Jpso implements Algoritmo {
     private GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> grafo;
     private GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> grafoResultante;
     private ArrayList<Double> rotulosResultantes;
-
-    /**
-     * @return the grafo
-     */
-    public GrafoPonderado<?, ?> getGrafo() {
-        return grafo;
-    }
+    private long tempoExecucao;
 
     /**
      * @return the conjuntoDados
@@ -49,6 +44,27 @@ public class Jpso implements Algoritmo {
         this.grafo = conjuntoDados.getGrafo();
     }
 
+    /**
+     * @return the grafoResultante
+     */
+    public GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> getGrafoResultante() {
+        return grafoResultante;
+    }
+
+    /**
+     * @return the rotulosResultantes
+     */
+    public ArrayList<Double> getRotulosResultantes() {
+        return rotulosResultantes;
+    }
+
+    /**
+     * @return the tempoExecucao
+     */
+    public long getTempoExecucao() {
+        return tempoExecucao;
+    }
+
     /*
      * (non-Javadoc)
      * 
@@ -56,6 +72,7 @@ public class Jpso implements Algoritmo {
      */
     @Override
     public void executar() {
+        long tempoInicial = new GregorianCalendar().getTimeInMillis();
         ArrayList<Double> c = new ArrayList<Double>();
         GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> h = (GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>>) GrafoFactory
                 .constroiGrafo(Representacao.PONDERADO_LISTA_ADJACENCIA);
@@ -63,10 +80,14 @@ public class Jpso implements Algoritmo {
         ArrayList<Double> rotulos = geraListaDeRotulos();
         ArrayList<Particula> particulas = generateSwarmAtRandom(ns, rotulos);
         Particula melhorPosicaoGlobal = encontreMelhorPosicao(particulas);
-        ArrayList<ArrayList<Double>> melhorPosicaoDaVizinhanca = new ArrayList<ArrayList<Double>>(ns);
+        ArrayList<ArrayList<Double>> melhorPosicaoDaVizinhanca = new ArrayList<ArrayList<Double>>();
+        for (int i = 0; i < ns; i++) {
+            melhorPosicaoDaVizinhanca.add(new ArrayList<Double>());
+        }
         Random random = new Random();
         double rand;
         ArrayList<Double> rotulosSelecionados;
+        int quantidadeDeIteracoesSemMelhoriaNaMelhorPosicao = 0;
 
         do {
             for (int i = 0; i < ns; i++) {
@@ -79,7 +100,7 @@ public class Jpso implements Algoritmo {
                 }
 
                 rand = random.nextDouble();
-
+                // System.out.println("#rand principal:" + rand);
                 Particula particula = particulas.get(i);
                 if (0 <= rand && rand < 0.25) {
                     rotulosSelecionados = particula.getRotulos();
@@ -91,7 +112,6 @@ public class Jpso implements Algoritmo {
                     rotulosSelecionados = melhorPosicaoGlobal.getRotulos();
                 }
 
-                // particulas.set(i,
                 combine(particula, rotulosSelecionados);
                 localSearch(particula);
 
@@ -105,19 +125,23 @@ public class Jpso implements Algoritmo {
 
                 if (particula.getNumeroDeRotulos() < melhorPosicaoGlobal.getNumeroDeRotulos()) {
                     melhorPosicaoGlobal = particula;
+                    quantidadeDeIteracoesSemMelhoriaNaMelhorPosicao = 0;
+                } else {
+                    quantidadeDeIteracoesSemMelhoriaNaMelhorPosicao++;
                 }
             }
 
-        } while (1 == 1);
+        } while (quantidadeDeIteracoesSemMelhoriaNaMelhorPosicao < 100);
 
-        grafoResultante = melhorPosicaoGlobal.getGrafo();
-        rotulosResultantes = melhorPosicaoGlobal.getRotulos();
+        this.grafoResultante = melhorPosicaoGlobal.getGrafo();
+        this.rotulosResultantes = melhorPosicaoGlobal.getRotulos();
+        this.tempoExecucao = new GregorianCalendar().getTimeInMillis() - tempoInicial;
     }
 
     private void localSearch(Particula particula) {
         ContaComponentesConexas contaComponentesConexas = new ContaComponentesConexas();
         GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> g = particula.getGrafo();
-        ArrayList<Double> rotulos = particula.getRotulos();
+        ArrayList<Double> rotulos = new ArrayList<Double>(particula.getRotulos());
 
         for (Double rotulo : particula.getRotulos()) {
             rotulos.remove(rotulo);
@@ -131,42 +155,80 @@ public class Jpso implements Algoritmo {
 
         particula.setGrafo(g);
         particula.setRotulos(rotulos);
-
     }
 
-    private void combine(Particula particula, ArrayList<Double> rotulosSelecionados) {
-        ArrayList<Double> rotulosParticula = particula.getRotulos();
+    private void combine(Particula particula, ArrayList<Double> rs) {
+        ArrayList<Double> rotulosParticula = new ArrayList<Double>(particula.getRotulos());
+        ArrayList<Double> rotulosSelecionados = new ArrayList<Double>(rs);
+        if (rotulosParticula.equals(rotulosSelecionados)) {
+            return;
+        }
+
         ArrayList<Double> posicao = new ArrayList<Double>(rotulosParticula);
         double rotulo;
         GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> g;
         ContaComponentesConexas contaComponentesConexas = new ContaComponentesConexas();
         Random random = new Random();
         int rand = random.nextInt(rotulosParticula.size());
+        // int rand = rotulosParticula.size() < rotulosSelecionados.size() ?
+        // rotulosParticula.size() : rotulosSelecionados.size();
+        int mod = 0;
+        // System.out.println("#Iniciando combine: " + rand + "\nrp" +
+        // rotulosParticula + "\nrs" + rotulosSelecionados);
 
         for (int i = 0; i < rand; i++) {
-            if (random.nextDouble() < 0.5) {
+            if (random.nextDouble() + mod <= 0.5) {
+                if (rotulosParticula.size() == 1) {
+                    mod = 1;
+                }
+                // System.out.println("#<0.5: " + rotulosParticula.size());
                 posicao.remove(rotulosParticula.remove(random.nextInt(rotulosParticula.size())));
+                // posicao.add(rotulosParticula.remove(random.nextInt(rotulosParticula.size())));
+                // System.out.println("#" + posicao);
             } else {
+                if (rotulosSelecionados.size() == 1) {
+                    mod = -1;
+                }
                 do {
+                    if (rotulosSelecionados.size() == 0) {
+                        mod = -1;
+                        break;
+                    }
+                    // System.out.println("#>0.5 " +
+                    // rotulosSelecionados.size());
                     rotulo = rotulosSelecionados.remove(random.nextInt(rotulosSelecionados.size()));
+                    // System.out.println("# " + rotulo + " " +
+                    // (posicao.contains(rotulo)));
                     if (!posicao.contains(rotulo)) {
                         posicao.add(rotulo);
                         rotulo = -1;
                     }
+                    // System.out.println("3 " + posicao);
                 } while (rotulo != -1);
             }
         }
         g = this.induzGrafo(this.grafo, posicao);
         contaComponentesConexas.setGrafo(g);
         contaComponentesConexas.executar();
-
+        // System.out.println("#fim do for: " + rand + "\nrp" + rotulosParticula
+        // + "\nrs" + rotulosSelecionados + "\npos" + posicao);
+        // System.out.println("#qtd componentes conexas: " +
+        // contaComponentesConexas.getQuantidadeDeComponentesConexas());
+        rotulosParticula = new ArrayList<Double>(particula.getRotulos());
         while (contaComponentesConexas.getQuantidadeDeComponentesConexas() > 1) {
             do {
+                // System.out.println("#dowhile: " + rotulosParticula.size() + "
+                // " +
+                // contaComponentesConexas.getQuantidadeDeComponentesConexas());
                 rotulo = rotulosParticula.remove(random.nextInt(rotulosParticula.size()));
+                // System.out.println("# " + rotulo + " " +
+                // posicao.contains(rotulo));
                 if (!posicao.contains(rotulo)) {
                     posicao.add(rotulo);
                     rotulo = -1;
+                    // System.out.println("#comp: " + (rotulo == -1));
                 }
+                // System.out.println("#pos " + posicao);
             } while (rotulo != -1);
             g = this.induzGrafo(this.grafo, posicao);
             contaComponentesConexas.setGrafo(g);
@@ -196,12 +258,12 @@ public class Jpso implements Algoritmo {
             p = geraParticula(rotulos);
             p.setMelhorPosicao(p.getRotulos());
             particulas.add(p);
-            System.out.println("#gpi " + p.getRotulos());
         }
         return particulas;
     }
 
-    private Particula geraParticula(ArrayList<Double> rotulos) {
+    private Particula geraParticula(ArrayList<Double> rs) {
+        ArrayList<Double> rotulos = new ArrayList<Double>(rs);
         Particula particula = new Particula();
 
         Random random = new Random();
@@ -231,7 +293,7 @@ public class Jpso implements Algoritmo {
         return rotulos;
     }
 
-    private GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> induzGrafo(
+    public GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> induzGrafo(
             GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> g, ArrayList<Double> labels) {
         GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> grafoInduzido = (GrafoPonderadoListaAdjacencia) GrafoFactory
                 .constroiGrafo(Representacao.PONDERADO_LISTA_ADJACENCIA);
