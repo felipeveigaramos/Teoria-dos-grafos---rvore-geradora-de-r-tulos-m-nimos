@@ -11,8 +11,7 @@ import br.edu.utfpr.cm.grafo.Vertice;
 //TODO Exercício 2.1 - Implementar os métodos para o grafo representado
 //por matriz de adjacências
 
-public class GrafoMatrizAdjacencia implements
-        Grafo<Vertice, Aresta<Vertice, Vertice>> {
+public class GrafoMatrizAdjacencia implements Grafo<Vertice, Aresta<Vertice, Vertice>> {
     private ArrayList<ArrayList<Integer>> matrizAdjacencia;
     private HashMap<Integer, Vertice> mapVertices;
     Integer ultimoAdicionado;
@@ -66,8 +65,7 @@ public class GrafoMatrizAdjacencia implements
         for (Integer i = 0; i < this.matrizAdjacencia.size(); i++) {
             for (Integer j = 0; j < this.matrizAdjacencia.get(i).size(); j++) {
                 if (this.matrizAdjacencia.get(i).get(j) != 0) {
-                    arestas.add(new Aresta<Vertice, Vertice>(this.mapVertices
-                            .get(i), this.mapVertices.get(j)));
+                    arestas.add(new Aresta<Vertice, Vertice>(this.mapVertices.get(i), this.mapVertices.get(j)));
                 }
             }
         }
@@ -86,12 +84,10 @@ public class GrafoMatrizAdjacencia implements
     }
 
     @Override
-    public void adicionaVertice(Vertice verticeNoGrafo,
-            Vertice verticeAdicionado) {
+    public void adicionaVertice(Vertice verticeNoGrafo, Vertice verticeAdicionado) {
         Integer posV1 = this.getNumVertice(verticeNoGrafo);
         Integer posV2 = this.getNumVertice(verticeAdicionado);
-        if (verticeNoGrafo == null || verticeAdicionado == null
-                || posV1 == null || posV2 != null) {
+        if (verticeNoGrafo == null || verticeAdicionado == null || posV1 == null || posV2 != null) {
             return;
         }
 
