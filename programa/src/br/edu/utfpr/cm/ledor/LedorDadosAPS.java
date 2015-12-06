@@ -20,15 +20,15 @@ import br.edu.utfpr.cm.grafo.Vertice;
  * @author felipevr
  *
  */
-public class LedorDados {
+public class LedorDadosAPS {
     private ArrayList<File> arquivos;
     private ArrayList<ConjuntoDados> listConjuntoDados;
-    private static LedorDados instance;
+    private static LedorDadosAPS instance;
 
     /**
      * @param raiz
      */
-    private LedorDados(File raiz) {
+    private LedorDadosAPS(File raiz) {
         super();
         this.arquivos = new ArrayList<File>();
         this.listConjuntoDados = new ArrayList<ConjuntoDados>();
@@ -48,26 +48,26 @@ public class LedorDados {
         }
     }
 
-    public static LedorDados getInstance() {
-        if (LedorDados.instance == null) {
+    public static LedorDadosAPS getInstance() {
+        if (LedorDadosAPS.instance == null) {
             throw new IllegalArgumentException("É necessário indicar um caminho base ao criar a classe.");
         } else {
-            return LedorDados.instance;
+            return LedorDadosAPS.instance;
         }
     }
 
-    public static LedorDados getInstance(String raiz) {
-        if (LedorDados.instance == null) {
+    public static LedorDadosAPS getInstance(String raiz) {
+        if (LedorDadosAPS.instance == null) {
             File f = new File(raiz);
             if (!f.exists()) {
                 throw new IllegalArgumentException(
                         "O caminho especificado \"" + f.getAbsolutePath() + "\" não existe.");
             } else {
-                LedorDados.instance = new LedorDados(f);
-                return LedorDados.instance;
+                LedorDadosAPS.instance = new LedorDadosAPS(f);
+                return LedorDadosAPS.instance;
             }
         } else {
-            return LedorDados.instance;
+            return LedorDadosAPS.instance;
         }
     }
 

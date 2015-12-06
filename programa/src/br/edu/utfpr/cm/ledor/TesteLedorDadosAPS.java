@@ -10,10 +10,10 @@ import br.edu.utfpr.cm.grafo.ArestaPonderada;
 import br.edu.utfpr.cm.grafo.GrafoPonderado;
 import br.edu.utfpr.cm.grafo.Vertice;
 
-public class TesteLedorDados {
+public class TesteLedorDadosAPS {
 
     public static void main(String[] args) {
-        LedorDados ld = LedorDados.getInstance("instancias");
+        LedorDadosAPS ld = LedorDadosAPS.getInstance("instancias");
         ContaComponentesConexas ccc = new ContaComponentesConexas();
         ConjuntoDados cd = null;
         ArrayList<Double> rotulos = new ArrayList<Double>();
