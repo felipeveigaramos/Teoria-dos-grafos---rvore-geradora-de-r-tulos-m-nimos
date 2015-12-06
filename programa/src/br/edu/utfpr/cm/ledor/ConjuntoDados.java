@@ -18,6 +18,7 @@ public class ConjuntoDados {
     private int numeroDeRotulos;
     private ArrayList<ArrayList<String>> matriz;
     private GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> grafo;
+    private String nomedoArquivoDeOrigemDosDados;
 
     /**
      * @param numeroDeVertices
@@ -89,51 +90,67 @@ public class ConjuntoDados {
         this.grafo = grafo;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /**
+     * @return the nomedoArquivoDeOrigemDosDados
+     */
+    public String getNomedoArquivoDeOrigemDosDados() {
+        return nomedoArquivoDeOrigemDosDados;
+    }
+
+    /**
+     * @param nomedoArquivoDeOrigemDosDados the nomedoArquivoDeOrigemDosDados to set
+     */
+    public void setNomedoArquivoDeOrigemDosDados(String nomedoArquivoDeOrigemDosDados) {
+        this.nomedoArquivoDeOrigemDosDados = nomedoArquivoDeOrigemDosDados;
+    }
+
+    /* (non-Javadoc)
      * @see java.lang.Object#hashCode()
      */
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
+        result = prime * result + ((grafo == null) ? 0 : grafo.hashCode());
         result = prime * result + ((matriz == null) ? 0 : matriz.hashCode());
+        result = prime * result
+                + ((nomedoArquivoDeOrigemDosDados == null) ? 0 : nomedoArquivoDeOrigemDosDados.hashCode());
         result = prime * result + numeroDeRotulos;
         result = prime * result + numeroDeVertices;
         return result;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /* (non-Javadoc)
      * @see java.lang.Object#equals(java.lang.Object)
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
+        if (this == obj)
             return true;
-        }
-        if (obj == null) {
+        if (obj == null)
             return false;
-        }
-        if (!(obj instanceof ConjuntoDados)) {
+        if (getClass() != obj.getClass())
             return false;
-        }
         ConjuntoDados other = (ConjuntoDados) obj;
-        if (matriz == null) {
-            if (other.matriz != null) {
+        if (grafo == null) {
+            if (other.grafo != null)
                 return false;
-            }
-        } else if (!matriz.equals(other.matriz)) {
+        } else if (!grafo.equals(other.grafo))
             return false;
-        }
-        if (numeroDeRotulos != other.numeroDeRotulos) {
+        if (matriz == null) {
+            if (other.matriz != null)
+                return false;
+        } else if (!matriz.equals(other.matriz))
             return false;
-        }
-        if (numeroDeVertices != other.numeroDeVertices) {
+        if (nomedoArquivoDeOrigemDosDados == null) {
+            if (other.nomedoArquivoDeOrigemDosDados != null)
+                return false;
+        } else if (!nomedoArquivoDeOrigemDosDados.equals(other.nomedoArquivoDeOrigemDosDados))
             return false;
-        }
+        if (numeroDeRotulos != other.numeroDeRotulos)
+            return false;
+        if (numeroDeVertices != other.numeroDeVertices)
+            return false;
         return true;
     }
 

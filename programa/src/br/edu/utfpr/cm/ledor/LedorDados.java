@@ -72,9 +72,12 @@ public class LedorDados {
     }
 
     public ConjuntoDados next() {
-        carregaConjuntoDados();
-        return this.listConjuntoDados.remove(0);
-
+        if (this.listConjuntoDados.size() == 0 && this.arquivos.size() == 0) {
+            return null;
+        } else {
+            carregaConjuntoDados();
+            return this.listConjuntoDados.remove(0);
+        }
     }
 
     private void carregaConjuntoDados() {
@@ -96,6 +99,7 @@ public class LedorDados {
 
             for (int i = 0; i < 10; i++) {
                 ConjuntoDados conjuntoDados = new ConjuntoDados(numeroDeVertices, numeroDeRotulos);
+                conjuntoDados.setNomedoArquivoDeOrigemDosDados(arquivoConjuntoDados.getName());
                 ArrayList<ArrayList<String>> matriz = new ArrayList<ArrayList<String>>();
                 for (int j = 0; j < numeroDeVertices; j++) {
                     texto = buffer.readLine();

@@ -1,0 +1,2589 @@
+#Lendo arquivos de: C:\Users\Felipe\Documents\GitHub\Teoria-dos-grafos--arvore-geradora-de-rotulos-minimos\programa\instancias
+#arquivos para leitura: [instancias\GROUP 1\HDGraph20_20.txt,
+instancias\GROUP 1\HDGraph30_30.txt, instancias\GROUP
+1\HDGraph40_40.txt, instancias\GROUP 1\HDGraph50_50.txt,
+instancias\GROUP 1\LDGraph20_20.txt, instancias\GROUP
+1\LDGraph30_30.txt, instancias\GROUP 1\LDGraph40_40.txt,
+instancias\GROUP 1\LDGraph50_50.txt, instancias\GROUP
+1\MDGraph20_20.txt, instancias\GROUP 1\MDGraph30_30.txt,
+instancias\GROUP 1\MDGraph40_40.txt, instancias\GROUP
+1\MDGraph50_50.txt, instancias\Group 2 with n=100\HDGraph100_100.txt,
+instancias\Group 2 with n=100\HDGraph100_125.txt, instancias\Group 2
+with n=100\HDGraph100_25.txt, instancias\Group 2 with
+n=100\HDGraph100_50.txt, instancias\Group 2 with
+n=100\LDGraph100_100.txt, instancias\Group 2 with
+n=100\LDGraph100_125.txt, instancias\Group 2 with
+n=100\LDGraph100_25.txt, instancias\Group 2 with
+n=100\LDGraph100_50.txt, instancias\Group 2 with
+n=100\MDGraph100_100.txt, instancias\Group 2 with
+n=100\MDGraph100_125.txt, instancias\Group 2 with
+n=100\MDGraph100_25.txt, instancias\Group 2 with
+n=100\MDGraph100_50.txt, instancias\Group 2 with
+n=200\HDGraph200_100.txt, instancias\Group 2 with
+n=200\HDGraph200_200.txt, instancias\Group 2 with
+n=200\HDGraph200_250.txt , instancias\Group 2 with
+n=200\HDGraph200_50.txt, instancias\Group 2 with
+n=200\LDGraph200_100.txt, instancias\Group 2 with
+n=200\LDGraph200_200.txt, instancias\Group 2 with
+n=200\LDGraph200_250.txt, instancias\Group 2 with
+n=200\LDGraph200_50.txt, instancias\Group 2 with
+n=200\MDGraph200_100.txt, instancias\Group 2 with
+n=200\MDGraph200_200.txt , instancias\Group 2 with
+n=200\MDGraph200_250.txt, instancias\Group 2 with
+n=200\MDGraph200_50.txt, instancias\Group 2 with
+n=400\HDGraph400_100.txt, instancias\Group 2 with
+n=400\HDGraph400_200.txt, instancias\Group 2 with
+n=400\HDGraph400_400.txt, instancias\Group 2 with
+n=400\HDGraph400_500.txt, instancias\Group 2 with
+n=400\LDGraph400_100.tx t, instancias\Group 2 with
+n=400\LDGraph400_200.txt, instancias\Group 2 with
+n=400\LDGraph400_400.txt, instancias\Group 2 with
+n=400\LDGraph400_500.txt, instancias\Group 2 with
+n=400\MDGraph400_100.txt, instancias\Group 2 with
+n=400\MDGraph400_200.txt, instancias\Group 2 with
+n=400\MDGraph400_400.txt, instancias\Group 2 with
+n=400\MDGraph400_500.tx t, instancias\Group 2 with
+n=50\HDGraph50_12.txt, instancias\Group 2 with n=50\HDGraph50_25.txt,
+instancias\Group 2 with n=50\HDGraph50_50.txt, instancias\Group 2 with
+n=50\HDGraph50_62.txt, instancias\Group 2 with n=50\LDGraph50_12.txt,
+instancias\Group 2 with n=50\LDGraph50_25.txt, instancias\Group 2 with
+n=50\LDGraph50_50.txt, instancias\Group 2 with n=50\LDGraph50_62.txt,
+instancias\Group 2 with n=50\MDGraph50_12.txt, instancias\Group 2 with
+n=50\MDGraph50_25.txt, instancias\Group 2 with n=50\MDGraph50_50.txt,
+instancias\Group 2 with n=50\MDGraph50_62.txt, instancias\Group 2 with
+n=500\HDGraph500_125.txt, instancias\Group 2 with
+n=500\HDGraph500_250.txt, instancias\Group 2 with
+n=500\HDGraph500_500.txt, instancias\Group 2 with
+n=500\HDGraph500_625.txt, instancias\Group 2 with
+n=500\LDGraph500_125.txt, instancias\Group 2 with
+n=500\LDGraph500_250.txt, instancias\Group 2 with
+n=500\LDGraph500_500.txt, instancias\Group 2 with
+n=500\LDGraph500_625.txt, instancias\Group 2 with
+n=500\MDGraph500_125.tx t, instancias\Group 2 with
+n=500\MDGraph500_250.txt, instancias\Group 2 with
+n=500\MDGraph500_500.txt, instancias\Group 2 with
+n=500\MDGraph500_625.txt]
+
+Número de partículas: 100
+Número de iterações sem melhorias no melhor caso até o algoritmo
+parar:100
+
+Arquivo #: 1 HDGraph20_20.txt v: 20 r: 20
+Grafo #: 1
+Quantidade de rótulos: 3
+Tempo de execução : 269 ms
+Grafo #: 2
+Quantidade de rótulos: 2
+Tempo de execução : 177 ms
+Grafo #: 3
+Quantidade de rótulos: 2
+Tempo de execução : 66 ms
+Grafo #: 4
+Quantidade de rótulos: 2
+Tempo de execução : 84 ms
+Grafo #: 5
+Quantidade de rótulos: 2
+Tempo de execução : 68 ms
+Grafo #: 6
+Quantidade de rótulos: 2
+Tempo de execução : 68 ms
+Grafo #: 7
+Quantidade de rótulos: 3
+Tempo de execução : 60 ms
+Grafo #: 8
+Quantidade de rótulos: 2
+Tempo de execução : 85 ms
+Grafo #: 9
+Quantidade de rótulos: 3
+Tempo de execução : 59 ms
+Grafo #: 10
+Quantidade de rótulos: 3
+Tempo de execução : 66 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 2.4
+Tempo de execução médio: 100.2 ms
+
+Arquivo #: 2 HDGraph30_30.txt v: 30 r: 30
+Grafo #: 1
+Quantidade de rótulos: 3
+Tempo de execução : 229 ms
+Grafo #: 2
+Quantidade de rótulos: 2
+Tempo de execução : 265 ms
+Grafo #: 3
+Quantidade de rótulos: 3
+Tempo de execução : 165 ms
+Grafo #: 4
+Quantidade de rótulos: 3
+Tempo de execução : 163 ms
+Grafo #: 5
+Quantidade de rótulos: 3
+Tempo de execução : 149 ms
+Grafo #: 6
+Quantidade de rótulos: 3
+Tempo de execução : 146 ms
+Grafo #: 7
+Quantidade de rótulos: 2
+Tempo de execução : 150 ms
+Grafo #: 8
+Quantidade de rótulos: 3
+Tempo de execução : 170 ms
+Grafo #: 9
+Quantidade de rótulos: 3
+Tempo de execução : 274 ms
+Grafo #: 10
+Quantidade de rótulos: 3
+Tempo de execução : 179 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 2.8
+Tempo de execução médio: 189.0 ms
+
+Arquivo #: 3 HDGraph40_40.txt v: 40 r: 40
+Grafo #: 1
+Quantidade de rótulos: 3
+Tempo de execução : 303 ms
+Grafo #: 2
+Quantidade de rótulos: 3
+Tempo de execução : 290 ms
+Grafo #: 3
+Quantidade de rótulos: 3
+Tempo de execução : 289 ms
+Grafo #: 4
+Quantidade de rótulos: 3
+Tempo de execução : 264 ms
+Grafo #: 5
+Quantidade de rótulos: 3
+Tempo de execução : 313 ms
+Grafo #: 6
+Quantidade de rótulos: 2
+Tempo de execução : 382 ms
+Grafo #: 7
+Quantidade de rótulos: 3
+Tempo de execução : 283 ms
+Grafo #: 8
+Quantidade de rótulos: 3
+Tempo de execução : 303 ms
+Grafo #: 9
+Quantidade de rótulos: 3
+Tempo de execução : 316 ms
+Grafo #: 10
+Quantidade de rótulos: 3
+Tempo de execução : 278 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 2.9
+Tempo de execução médio: 302.1 ms
+
+Arquivo #: 4 HDGraph50_50.txt v: 50 r: 50
+Grafo #: 1
+Quantidade de rótulos: 3
+Tempo de execução : 483 ms
+Grafo #: 2
+Quantidade de rótulos: 3
+Tempo de execução : 922 ms
+Grafo #: 3
+Quantidade de rótulos: 3
+Tempo de execução : 526 ms
+Grafo #: 4
+Quantidade de rótulos: 3
+Tempo de execução : 483 ms
+Grafo #: 5
+Quantidade de rótulos: 3
+Tempo de execução : 447 ms
+Grafo #: 6
+Quantidade de rótulos: 3
+Tempo de execução : 492 ms
+Grafo #: 7
+Quantidade de rótulos: 3
+Tempo de execução : 1412 ms
+Grafo #: 8
+Quantidade de rótulos: 3
+Tempo de execução : 502 ms
+Grafo #: 9
+Quantidade de rótulos: 3
+Tempo de execução : 497 ms
+Grafo #: 10
+Quantidade de rótulos: 3
+Tempo de execução : 965 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 3.0
+Tempo de execução médio: 672.9 ms
+
+Arquivo #: 5 LDGraph20_20.txt v: 20 r: 20
+Grafo #: 1
+Quantidade de rótulos: 5
+Tempo de execução : 143 ms
+Grafo #: 2
+Quantidade de rótulos: 6
+Tempo de execução : 209 ms
+Grafo #: 3
+Quantidade de rótulos: 8
+Tempo de execução : 175 ms
+Grafo #: 4
+Quantidade de rótulos: 7
+Tempo de execução : 181 ms
+Grafo #: 5
+Quantidade de rótulos: 5
+Tempo de execução : 180 ms
+Grafo #: 6
+Quantidade de rótulos: 7
+Tempo de execução : 230 ms
+Grafo #: 7
+Quantidade de rótulos: 7
+Tempo de execução : 259 ms
+Grafo #: 8
+Quantidade de rótulos: 8
+Tempo de execução : 186 ms
+Grafo #: 9
+Quantidade de rótulos: 8
+Tempo de execução : 375 ms
+Grafo #: 10
+Quantidade de rótulos: 7
+Tempo de execução : 218 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 6.8
+Tempo de execução médio: 215.6 ms
+
+Arquivo #: 6 LDGraph30_30.txt v: 30 r: 30
+Grafo #: 1
+Quantidade de rótulos: 8
+Tempo de execução : 729 ms
+Grafo #: 2
+Quantidade de rótulos: 8
+Tempo de execução : 476 ms
+Grafo #: 3
+Quantidade de rótulos: 8
+Tempo de execução : 702 ms
+Grafo #: 4
+Quantidade de rótulos: 6
+Tempo de execução : 494 ms
+Grafo #: 5
+Quantidade de rótulos: 7
+Tempo de execução : 803 ms
+Grafo #: 6
+Quantidade de rótulos: 9
+Tempo de execução : 642 ms
+Grafo #: 7
+Quantidade de rótulos: 7
+Tempo de execução : 568 ms
+Grafo #: 8
+Quantidade de rótulos: 7
+Tempo de execução : 567 ms
+Grafo #: 9
+Quantidade de rótulos: 8
+Tempo de execução : 740 ms
+Grafo #: 10
+Quantidade de rótulos: 7
+Tempo de execução : 470 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 7.5
+Tempo de execução médio: 619.1 ms
+
+Arquivo #: 7 LDGraph40_40.txt v: 40 r: 40
+Grafo #: 1
+Quantidade de rótulos: 7
+Tempo de execução : 1167 ms
+Grafo #: 2
+Quantidade de rótulos: 7
+Tempo de execução : 1326 ms
+Grafo #: 3
+Quantidade de rótulos: 9
+Tempo de execução : 1028 ms
+Grafo #: 4
+Quantidade de rótulos: 8
+Tempo de execução : 1688 ms
+Grafo #: 5
+Quantidade de rótulos: 7
+Tempo de execução : 1437 ms
+Grafo #: 6
+Quantidade de rótulos: 8
+Tempo de execução : 2388 ms
+Grafo #: 7
+Quantidade de rótulos: 8
+Tempo de execução : 1134 ms
+Grafo #: 8
+Quantidade de rótulos: 7
+Tempo de execução : 1707 ms
+Grafo #: 9
+Quantidade de rótulos: 7
+Tempo de execução : 1286 ms
+Grafo #: 10
+Quantidade de rótulos: 9
+Tempo de execução : 1422 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 7.7
+Tempo de execução médio: 1458.3 ms
+
+Arquivo #: 8 LDGraph50_50.txt v: 50 r: 50
+Grafo #: 1
+Quantidade de rótulos: 8
+Tempo de execução : 2396 ms
+Grafo #: 2
+Quantidade de rótulos: 9
+Tempo de execução : 2486 ms
+Grafo #: 3
+Quantidade de rótulos: 10
+Tempo de execução : 3123 ms
+Grafo #: 4
+Quantidade de rótulos: 8
+Tempo de execução : 4088 ms
+Grafo #: 5
+Quantidade de rótulos: 8
+Tempo de execução : 2693 ms
+Grafo #: 6
+Quantidade de rótulos: 8
+Tempo de execução : 2514 ms
+Grafo #: 7
+Quantidade de rótulos: 10
+Tempo de execução : 2955 ms
+Grafo #: 8
+Quantidade de rótulos: 9
+Tempo de execução : 4210 ms
+Grafo #: 9
+Quantidade de rótulos: 8
+Tempo de execução : 3113 ms
+Grafo #: 10
+Quantidade de rótulos: 10
+Tempo de execução : 3788 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 8.8
+Tempo de execução médio: 3136.6 ms
+
+Arquivo #: 9 MDGraph20_20.txt v: 20 r: 20
+Grafo #: 1
+Quantidade de rótulos: 3
+Tempo de execução : 182 ms
+Grafo #: 2
+Quantidade de rótulos: 3
+Tempo de execução : 143 ms
+Grafo #: 3
+Quantidade de rótulos: 3
+Tempo de execução : 109 ms
+Grafo #: 4
+Quantidade de rótulos: 3
+Tempo de execução : 135 ms
+Grafo #: 5
+Quantidade de rótulos: 3
+Tempo de execução : 185 ms
+Grafo #: 6
+Quantidade de rótulos: 3
+Tempo de execução : 187 ms
+Grafo #: 7
+Quantidade de rótulos: 4
+Tempo de execução : 107 ms
+Grafo #: 8
+Quantidade de rótulos: 3
+Tempo de execução : 147 ms
+Grafo #: 9
+Quantidade de rótulos: 3
+Tempo de execução : 178 ms
+Grafo #: 10
+Quantidade de rótulos: 3
+Tempo de execução : 170 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 3.1
+Tempo de execução médio: 154.3 ms
+
+Arquivo #: 10 MDGraph30_30.txt v: 30 r: 30
+Grafo #: 1
+Quantidade de rótulos: 4
+Tempo de execução : 553 ms
+Grafo #: 2
+Quantidade de rótulos: 4
+Tempo de execução : 280 ms
+Grafo #: 3
+Quantidade de rótulos: 3
+Tempo de execução : 724 ms
+Grafo #: 4
+Quantidade de rótulos: 3
+Tempo de execução : 230 ms
+Grafo #: 5
+Quantidade de rótulos: 4
+Tempo de execução : 275 ms
+Grafo #: 6
+Quantidade de rótulos: 4
+Tempo de execução : 278 ms
+Grafo #: 7
+Quantidade de rótulos: 3
+Tempo de execução : 344 ms
+Grafo #: 8
+Quantidade de rótulos: 4
+Tempo de execução : 357 ms
+Grafo #: 9
+Quantidade de rótulos: 4
+Tempo de execução : 591 ms
+Grafo #: 10
+Quantidade de rótulos: 4
+Tempo de execução : 659 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 3.7
+Tempo de execução médio: 429.1 ms
+
+Arquivo #: 11 MDGraph40_40.txt v: 40 r: 40
+Grafo #: 1
+Quantidade de rótulos: 3
+Tempo de execução : 587 ms
+Grafo #: 2
+Quantidade de rótulos: 4
+Tempo de execução : 691 ms
+Grafo #: 3
+Quantidade de rótulos: 4
+Tempo de execução : 942 ms
+Grafo #: 4
+Quantidade de rótulos: 4
+Tempo de execução : 815 ms
+Grafo #: 5
+Quantidade de rótulos: 4
+Tempo de execução : 716 ms
+Grafo #: 6
+Quantidade de rótulos: 4
+Tempo de execução : 697 ms
+Grafo #: 7
+Quantidade de rótulos: 3
+Tempo de execução : 597 ms
+Grafo #: 8
+Quantidade de rótulos: 3
+Tempo de execução : 1091 ms
+Grafo #: 9
+Quantidade de rótulos: 4
+Tempo de execução : 817 ms
+Grafo #: 10
+Quantidade de rótulos: 4
+Tempo de execução : 1065 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 3.7
+Tempo de execução médio: 801.8 ms
+
+Arquivo #: 12 MDGraph50_50.txt v: 50 r: 50
+Grafo #: 1
+Quantidade de rótulos: 4
+Tempo de execução : 826 ms
+Grafo #: 2
+Quantidade de rótulos: 5
+Tempo de execução : 966 ms
+Grafo #: 3
+Quantidade de rótulos: 5
+Tempo de execução : 2780 ms
+Grafo #: 4
+Quantidade de rótulos: 5
+Tempo de execução : 1963 ms
+Grafo #: 5
+Quantidade de rótulos: 4
+Tempo de execução : 1128 ms
+Grafo #: 6
+Quantidade de rótulos: 4
+Tempo de execução : 1033 ms
+Grafo #: 7
+Quantidade de rótulos: 5
+Tempo de execução : 2155 ms
+Grafo #: 8
+Quantidade de rótulos: 4
+Tempo de execução : 1789 ms
+Grafo #: 9
+Quantidade de rótulos: 5
+Tempo de execução : 913 ms
+Grafo #: 10
+Quantidade de rótulos: 4
+Tempo de execução : 1448 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 4.5
+Tempo de execução médio: 1500.1 ms
+
+Arquivo #: 13 HDGraph100_100.txt v: 100 r: 100
+Grafo #: 1
+Quantidade de rótulos: 4
+Tempo de execução : 2766 ms
+Grafo #: 2
+Quantidade de rótulos: 3
+Tempo de execução : 7709 ms
+Grafo #: 3
+Quantidade de rótulos: 4
+Tempo de execução : 2961 ms
+Grafo #: 4
+Quantidade de rótulos: 4
+Tempo de execução : 2932 ms
+Grafo #: 5
+Quantidade de rótulos: 4
+Tempo de execução : 2962 ms
+Grafo #: 6
+Quantidade de rótulos: 4
+Tempo de execução : 4692 ms
+Grafo #: 7
+Quantidade de rótulos: 4
+Tempo de execução : 2750 ms
+Grafo #: 8
+Quantidade de rótulos: 3
+Tempo de execução : 4853 ms
+Grafo #: 9
+Quantidade de rótulos: 4
+Tempo de execução : 2938 ms
+Grafo #: 10
+Quantidade de rótulos: 4
+Tempo de execução : 2575 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 3.8
+Tempo de execução médio: 3713.8 ms
+
+Arquivo #: 14 HDGraph100_125.txt v: 100 r: 125
+Grafo #: 1
+Quantidade de rótulos: 4
+Tempo de execução : 8177 ms
+Grafo #: 2
+Quantidade de rótulos: 4
+Tempo de execução : 3078 ms
+Grafo #: 3
+Quantidade de rótulos: 4
+Tempo de execução : 5984 ms
+Grafo #: 4
+Quantidade de rótulos: 4
+Tempo de execução : 5696 ms
+Grafo #: 5
+Quantidade de rótulos: 4
+Tempo de execução : 10812 ms
+Grafo #: 6
+Quantidade de rótulos: 4
+Tempo de execução : 6727 ms
+Grafo #: 7
+Quantidade de rótulos: 4
+Tempo de execução : 7749 ms
+Grafo #: 8
+Quantidade de rótulos: 4
+Tempo de execução : 3547 ms
+Grafo #: 9
+Quantidade de rótulos: 4
+Tempo de execução : 4811 ms
+Grafo #: 10
+Quantidade de rótulos: 5
+Tempo de execução : 3509 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 4.1
+Tempo de execução médio: 6009.0 ms
+
+Arquivo #: 15 HDGraph100_25.txt v: 100 r: 25
+Grafo #: 1
+Quantidade de rótulos: 1
+Tempo de execução : 1099 ms
+Grafo #: 2
+Quantidade de rótulos: 2
+Tempo de execução : 1088 ms
+Grafo #: 3
+Quantidade de rótulos: 2
+Tempo de execução : 1127 ms
+Grafo #: 4
+Quantidade de rótulos: 2
+Tempo de execução : 1018 ms
+Grafo #: 5
+Quantidade de rótulos: 2
+Tempo de execução : 1121 ms
+Grafo #: 6
+Quantidade de rótulos: 2
+Tempo de execução : 1123 ms
+Grafo #: 7
+Quantidade de rótulos: 2
+Tempo de execução : 1109 ms
+Grafo #: 8
+Quantidade de rótulos: 2
+Tempo de execução : 1205 ms
+Grafo #: 9
+Quantidade de rótulos: 2
+Tempo de execução : 1458 ms
+Grafo #: 10
+Quantidade de rótulos: 1
+Tempo de execução : 1092 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 1.8
+Tempo de execução médio: 1144.0 ms
+
+Arquivo #: 16 HDGraph100_50.txt v: 100 r: 50
+Grafo #: 1
+Quantidade de rótulos: 2
+Tempo de execução : 6277 ms
+Grafo #: 2
+Quantidade de rótulos: 2
+Tempo de execução : 10414 ms
+Grafo #: 3
+Quantidade de rótulos: 2
+Tempo de execução : 1817 ms
+Grafo #: 4
+Quantidade de rótulos: 2
+Tempo de execução : 1564 ms
+Grafo #: 5
+Quantidade de rótulos: 2
+Tempo de execução : 1512 ms
+Grafo #: 6
+Quantidade de rótulos: 2
+Tempo de execução : 1512 ms
+Grafo #: 7
+Quantidade de rótulos: 2
+Tempo de execução : 2127 ms
+Grafo #: 8
+Quantidade de rótulos: 2
+Tempo de execução : 1582 ms
+Grafo #: 9
+Quantidade de rótulos: 2
+Tempo de execução : 2862 ms
+Grafo #: 10
+Quantidade de rótulos: 2
+Tempo de execução : 1479 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 2.0
+Tempo de execução médio: 3114.6 ms
+
+Arquivo #: 17 LDGraph100_100.txt v: 100 r: 100
+Grafo #: 1
+Quantidade de rótulos: 11
+Tempo de execução : 15488 ms
+Grafo #: 2
+Quantidade de rótulos: 12
+Tempo de execução : 25493 ms
+Grafo #: 3
+Quantidade de rótulos: 10
+Tempo de execução : 11376 ms
+Grafo #: 4
+Quantidade de rótulos: 11
+Tempo de execução : 17286 ms
+Grafo #: 5
+Quantidade de rótulos: 12
+Tempo de execução : 22889 ms
+Grafo #: 6
+Quantidade de rótulos: 10
+Tempo de execução : 20634 ms
+Grafo #: 7
+Quantidade de rótulos: 11
+Tempo de execução : 15577 ms
+Grafo #: 8
+Quantidade de rótulos: 12
+Tempo de execução : 27581 ms
+Grafo #: 9
+Quantidade de rótulos: 14
+Tempo de execução : 18508 ms
+Grafo #: 10
+Quantidade de rótulos: 10
+Tempo de execução : 17334 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 11.3
+Tempo de execução médio: 19216.6 ms
+
+Arquivo #: 18 LDGraph100_125.txt v: 100 r: 125
+Grafo #: 1
+Quantidade de rótulos: 12
+Tempo de execução : 25940 ms
+Grafo #: 2
+Quantidade de rótulos: 15
+Tempo de execução : 22171 ms
+Grafo #: 3
+Quantidade de rótulos: 12
+Tempo de execução : 12637 ms
+Grafo #: 4
+Quantidade de rótulos: 14
+Tempo de execução : 29525 ms
+Grafo #: 5
+Quantidade de rótulos: 15
+Tempo de execução : 37265 ms
+Grafo #: 6
+Quantidade de rótulos: 12
+Tempo de execução : 22658 ms
+Grafo #: 7
+Quantidade de rótulos: 12
+Tempo de execução : 21314 ms
+Grafo #: 8
+Quantidade de rótulos: 12
+Tempo de execução : 24351 ms
+Grafo #: 9
+Quantidade de rótulos: 16
+Tempo de execução : 23005 ms
+Grafo #: 10
+Quantidade de rótulos: 11
+Tempo de execução : 20153 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 13.1
+Tempo de execução médio: 23901.9 ms
+
+Arquivo #: 19 LDGraph100_25.txt v: 100 r: 25
+Grafo #: 1
+Quantidade de rótulos: 5
+Tempo de execução : 3786 ms
+Grafo #: 2
+Quantidade de rótulos: 5
+Tempo de execução : 5838 ms
+Grafo #: 3
+Quantidade de rótulos: 4
+Tempo de execução : 3594 ms
+Grafo #: 4
+Quantidade de rótulos: 5
+Tempo de execução : 4626 ms
+Grafo #: 5
+Quantidade de rótulos: 5
+Tempo de execução : 6633 ms
+Grafo #: 6
+Quantidade de rótulos: 4
+Tempo de execução : 6152 ms
+Grafo #: 7
+Quantidade de rótulos: 4
+Tempo de execução : 4897 ms
+Grafo #: 8
+Quantidade de rótulos: 5
+Tempo de execução : 3682 ms
+Grafo #: 9
+Quantidade de rótulos: 5
+Tempo de execução : 5201 ms
+Grafo #: 10
+Quantidade de rótulos: 4
+Tempo de execução : 2427 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 4.6
+Tempo de execução médio: 4683.6 ms
+
+Arquivo #: 20 LDGraph100_50.txt v: 100 r: 50
+Grafo #: 1
+Quantidade de rótulos: 7
+Tempo de execução : 9334 ms
+Grafo #: 2
+Quantidade de rótulos: 8
+Tempo de execução : 12041 ms
+Grafo #: 3
+Quantidade de rótulos: 6
+Tempo de execução : 7140 ms
+Grafo #: 4
+Quantidade de rótulos: 7
+Tempo de execução : 11637 ms
+Grafo #: 5
+Quantidade de rótulos: 9
+Tempo de execução : 9262 ms
+Grafo #: 6
+Quantidade de rótulos: 6
+Tempo de execução : 8359 ms
+Grafo #: 7
+Quantidade de rótulos: 6
+Tempo de execução : 13563 ms
+Grafo #: 8
+Quantidade de rótulos: 7
+Tempo de execução : 9656 ms
+Grafo #: 9
+Quantidade de rótulos: 7
+Tempo de execução : 16063 ms
+Grafo #: 10
+Quantidade de rótulos: 6
+Tempo de execução : 10447 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 6.9
+Tempo de execução médio: 10750.2 ms
+
+Arquivo #: 21 MDGraph100_100.txt v: 100 r: 100
+Grafo #: 1
+Quantidade de rótulos: 5
+Tempo de execução : 9578 ms
+Grafo #: 2
+Quantidade de rótulos: 5
+Tempo de execução : 12699 ms
+Grafo #: 3
+Quantidade de rótulos: 5
+Tempo de execução : 6224 ms
+Grafo #: 4
+Quantidade de rótulos: 5
+Tempo de execução : 10796 ms
+Grafo #: 5
+Quantidade de rótulos: 6
+Tempo de execução : 16427 ms
+Grafo #: 6
+Quantidade de rótulos: 5
+Tempo de execução : 6080 ms
+Grafo #: 7
+Quantidade de rótulos: 5
+Tempo de execução : 5598 ms
+Grafo #: 8
+Quantidade de rótulos: 6
+Tempo de execução : 8297 ms
+Grafo #: 9
+Quantidade de rótulos: 6
+Tempo de execução : 7584 ms
+Grafo #: 10
+Quantidade de rótulos: 5
+Tempo de execução : 12935 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 5.3
+Tempo de execução médio: 9621.8 ms
+
+Arquivo #: 22 MDGraph100_125.txt v: 100 r: 125
+Grafo #: 1
+Quantidade de rótulos: 6
+Tempo de execução : 11450 ms
+Grafo #: 2
+Quantidade de rótulos: 6
+Tempo de execução : 15288 ms
+Grafo #: 3
+Quantidade de rótulos: 6
+Tempo de execução : 9808 ms
+Grafo #: 4
+Quantidade de rótulos: 6
+Tempo de execução : 16791 ms
+Grafo #: 5
+Quantidade de rótulos: 7
+Tempo de execução : 15556 ms
+Grafo #: 6
+Quantidade de rótulos: 6
+Tempo de execução : 10564 ms
+Grafo #: 7
+Quantidade de rótulos: 7
+Tempo de execução : 9183 ms
+Grafo #: 8
+Quantidade de rótulos: 6
+Tempo de execução : 6651 ms
+Grafo #: 9
+Quantidade de rótulos: 6
+Tempo de execução : 10476 ms
+Grafo #: 10
+Quantidade de rótulos: 6
+Tempo de execução : 7372 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 6.2
+Tempo de execução médio: 11313.9 ms
+
+Arquivo #: 23 MDGraph100_25.txt v: 100 r: 25
+Grafo #: 1
+Quantidade de rótulos: 2
+Tempo de execução : 1477 ms
+Grafo #: 2
+Quantidade de rótulos: 2
+Tempo de execução : 1393 ms
+Grafo #: 3
+Quantidade de rótulos: 2
+Tempo de execução : 1207 ms
+Grafo #: 4
+Quantidade de rótulos: 2
+Tempo de execução : 1387 ms
+Grafo #: 5
+Quantidade de rótulos: 2
+Tempo de execução : 3957 ms
+Grafo #: 6
+Quantidade de rótulos: 2
+Tempo de execução : 1232 ms
+Grafo #: 7
+Quantidade de rótulos: 2
+Tempo de execução : 1353 ms
+Grafo #: 8
+Quantidade de rótulos: 2
+Tempo de execução : 1436 ms
+Grafo #: 9
+Quantidade de rótulos: 2
+Tempo de execução : 1850 ms
+Grafo #: 10
+Quantidade de rótulos: 2
+Tempo de execução : 1372 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 2.0
+Tempo de execução médio: 1666.4 ms
+
+Arquivo #: 24 MDGraph100_50.txt v: 100 r: 50
+Grafo #: 1
+Quantidade de rótulos: 3
+Tempo de execução : 2283 ms
+Grafo #: 2
+Quantidade de rótulos: 3
+Tempo de execução : 2450 ms
+Grafo #: 3
+Quantidade de rótulos: 3
+Tempo de execução : 2045 ms
+Grafo #: 4
+Quantidade de rótulos: 3
+Tempo de execução : 3400 ms
+Grafo #: 5
+Quantidade de rótulos: 3
+Tempo de execução : 5114 ms
+Grafo #: 6
+Quantidade de rótulos: 3
+Tempo de execução : 5915 ms
+Grafo #: 7
+Quantidade de rótulos: 3
+Tempo de execução : 3562 ms
+Grafo #: 8
+Quantidade de rótulos: 3
+Tempo de execução : 3211 ms
+Grafo #: 9
+Quantidade de rótulos: 3
+Tempo de execução : 4449 ms
+Grafo #: 10
+Quantidade de rótulos: 3
+Tempo de execução : 2238 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 3.0
+Tempo de execução médio: 3466.7 ms
+
+Arquivo #: 25 HDGraph200_100.txt v: 200 r: 100
+Grafo #: 1
+Quantidade de rótulos: 3
+Tempo de execução : 8248 ms
+Grafo #: 2
+Quantidade de rótulos: 3
+Tempo de execução : 8133 ms
+Grafo #: 3
+Quantidade de rótulos: 2
+Tempo de execução : 18725 ms
+Grafo #: 4
+Quantidade de rótulos: 3
+Tempo de execução : 11174 ms
+Grafo #: 5
+Quantidade de rótulos: 3
+Tempo de execução : 8370 ms
+Grafo #: 6
+Quantidade de rótulos: 3
+Tempo de execução : 8585 ms
+Grafo #: 7
+Quantidade de rótulos: 3
+Tempo de execução : 8611 ms
+Grafo #: 8
+Quantidade de rótulos: 3
+Tempo de execução : 9040 ms
+Grafo #: 9
+Quantidade de rótulos: 3
+Tempo de execução : 9417 ms
+Grafo #: 10
+Quantidade de rótulos: 3
+Tempo de execução : 8953 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 2.9
+Tempo de execução médio: 9925.6 ms
+
+Arquivo #: 26 HDGraph200_200.txt v: 200 r: 200
+Grafo #: 1
+Quantidade de rótulos: 4
+Tempo de execução : 21890 ms
+Grafo #: 2
+Quantidade de rótulos: 4
+Tempo de execução : 27439 ms
+Grafo #: 3
+Quantidade de rótulos: 5
+Tempo de execução : 15611 ms
+Grafo #: 4
+Quantidade de rótulos: 5
+Tempo de execução : 18477 ms
+Grafo #: 5
+Quantidade de rótulos: 4
+Tempo de execução : 38083 ms
+Grafo #: 6
+Quantidade de rótulos: 5
+Tempo de execução : 15333 ms
+Grafo #: 7
+Quantidade de rótulos: 5
+Tempo de execução : 15483 ms
+Grafo #: 8
+Quantidade de rótulos: 4
+Tempo de execução : 71410 ms
+Grafo #: 9
+Quantidade de rótulos: 5
+Tempo de execução : 14960 ms
+Grafo #: 10
+Quantidade de rótulos: 5
+Tempo de execução : 15365 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 4.6
+Tempo de execução médio: 25405.1 ms
+
+Arquivo #: 27 HDGraph200_250.txt v: 200 r: 250
+Grafo #: 1
+Quantidade de rótulos: 5
+Tempo de execução : 112459 ms
+Grafo #: 2
+Quantidade de rótulos: 5
+Tempo de execução : 95079 ms
+Grafo #: 3
+Quantidade de rótulos: 5
+Tempo de execução : 31441 ms
+Grafo #: 4
+Quantidade de rótulos: 6
+Tempo de execução : 45421 ms
+Grafo #: 5
+Quantidade de rótulos: 5
+Tempo de execução : 45404 ms
+Grafo #: 6
+Quantidade de rótulos: 4
+Tempo de execução : 42551 ms
+Grafo #: 7
+Quantidade de rótulos: 5
+Tempo de execução : 66621 ms
+Grafo #: 8
+Quantidade de rótulos: 5
+Tempo de execução : 41335 ms
+Grafo #: 9
+Quantidade de rótulos: 5
+Tempo de execução : 67490 ms
+Grafo #: 10
+Quantidade de rótulos: 6
+Tempo de execução : 18443 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 5.1
+Tempo de execução médio: 56624.4 ms
+
+Arquivo #: 28 HDGraph200_50.txt v: 200 r: 50
+Grafo #: 1
+Quantidade de rótulos: 2
+Tempo de execução : 4820 ms
+Grafo #: 2
+Quantidade de rótulos: 2
+Tempo de execução : 5222 ms
+Grafo #: 3
+Quantidade de rótulos: 2
+Tempo de execução : 5313 ms
+Grafo #: 4
+Quantidade de rótulos: 2
+Tempo de execução : 6301 ms
+Grafo #: 5
+Quantidade de rótulos: 2
+Tempo de execução : 5367 ms
+Grafo #: 6
+Quantidade de rótulos: 2
+Tempo de execução : 5120 ms
+Grafo #: 7
+Quantidade de rótulos: 2
+Tempo de execução : 5318 ms
+Grafo #: 8
+Quantidade de rótulos: 2
+Tempo de execução : 5304 ms
+Grafo #: 9
+Quantidade de rótulos: 2
+Tempo de execução : 5234 ms
+Grafo #: 10
+Quantidade de rótulos: 2
+Tempo de execução : 5186 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 2.0
+Tempo de execução médio: 5318.5 ms
+
+Arquivo #: 29 LDGraph200_100.txt v: 200 r: 100
+Grafo #: 1
+Quantidade de rótulos: 11
+Tempo de execução : 55857 ms
+Grafo #: 2
+Quantidade de rótulos: 11
+Tempo de execução : 63466 ms
+Grafo #: 3
+Quantidade de rótulos: 7
+Tempo de execução : 45977 ms
+Grafo #: 4
+Quantidade de rótulos: 10
+Tempo de execução : 83169 ms
+Grafo #: 5
+Quantidade de rótulos: 11
+Tempo de execução : 52155 ms
+Grafo #: 6
+Quantidade de rótulos: 7
+Tempo de execução : 43341 ms
+Grafo #: 7
+Quantidade de rótulos: 11
+Tempo de execução : 61535 ms
+Grafo #: 8
+Quantidade de rótulos: 9
+Tempo de execução : 60145 ms
+Grafo #: 9
+Quantidade de rótulos: 9
+Tempo de execução : 66726 ms
+Grafo #: 10
+Quantidade de rótulos: 8
+Tempo de execução : 42016 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 9.4
+Tempo de execução médio: 57438.7 ms
+
+Arquivo #: 30 LDGraph200_200.txt v: 200 r: 200
+Grafo #: 1
+Quantidade de rótulos: 16
+Tempo de execução : 152685 ms
+Grafo #: 2
+Quantidade de rótulos: 19
+Tempo de execução : 129692 ms
+Grafo #: 3
+Quantidade de rótulos: 13
+Tempo de execução : 85393 ms
+Grafo #: 4
+Quantidade de rótulos: 17
+Tempo de execução : 109970 ms
+Grafo #: 5
+Quantidade de rótulos: 15
+Tempo de execução : 137544 ms
+Grafo #: 6
+Quantidade de rótulos: 12
+Tempo de execução : 68498 ms
+Grafo #: 7
+Quantidade de rótulos: 18
+Tempo de execução : 91472 ms
+Grafo #: 8
+Quantidade de rótulos: 15
+Tempo de execução : 128284 ms
+Grafo #: 9
+Quantidade de rótulos: 14
+Tempo de execução : 162913 ms
+Grafo #: 10
+Quantidade de rótulos: 14
+Tempo de execução : 118224 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 15.3
+Tempo de execução médio: 118467.5 ms
+
+Arquivo #: 31 LDGraph200_250.txt v: 200 r: 250
+Grafo #: 1
+Quantidade de rótulos: 19
+Tempo de execução : 208097 ms
+Grafo #: 2
+Quantidade de rótulos: 22
+Tempo de execução : 126263 ms
+Grafo #: 3
+Quantidade de rótulos: 16
+Tempo de execução : 84785 ms
+Grafo #: 4
+Quantidade de rótulos: 21
+Tempo de execução : 151566 ms
+Grafo #: 5
+Quantidade de rótulos: 16
+Tempo de execução : 235324 ms
+Grafo #: 6
+Quantidade de rótulos: 14
+Tempo de execução : 75533 ms
+Grafo #: 7
+Quantidade de rótulos: 19
+Tempo de execução : 190946 ms
+Grafo #: 8
+Quantidade de rótulos: 17
+Tempo de execução : 147761 ms
+Grafo #: 9
+Quantidade de rótulos: 17
+Tempo de execução : 115099 ms
+Grafo #: 10
+Quantidade de rótulos: 18
+Tempo de execução : 106345 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 17.9
+Tempo de execução médio: 144171.9 ms
+
+Arquivo #: 32 LDGraph200_50.txt v: 200 r: 50
+Grafo #: 1
+Quantidade de rótulos: 6
+Tempo de execução : 35979 ms
+Grafo #: 2
+Quantidade de rótulos: 6
+Tempo de execução : 61592 ms
+Grafo #: 3
+Quantidade de rótulos: 5
+Tempo de execução : 13994 ms
+Grafo #: 4
+Quantidade de rótulos: 7
+Tempo de execução : 27951 ms
+Grafo #: 5
+Quantidade de rótulos: 7
+Tempo de execução : 20389 ms
+Grafo #: 6
+Quantidade de rótulos: 4
+Tempo de execução : 24275 ms
+Grafo #: 7
+Quantidade de rótulos: 6
+Tempo de execução : 26868 ms
+Grafo #: 8
+Quantidade de rótulos: 6
+Tempo de execução : 35158 ms
+Grafo #: 9
+Quantidade de rótulos: 5
+Tempo de execução : 25866 ms
+Grafo #: 10
+Quantidade de rótulos: 5
+Tempo de execução : 34331 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 5.7
+Tempo de execução médio: 30640.3 ms
+
+Arquivo #: 33 MDGraph200_100.txt v: 200 r: 100
+Grafo #: 1
+Quantidade de rótulos: 4
+Tempo de execução : 12121 ms
+Grafo #: 2
+Quantidade de rótulos: 5
+Tempo de execução : 18440 ms
+Grafo #: 3
+Quantidade de rótulos: 4
+Tempo de execução : 12677 ms
+Grafo #: 4
+Quantidade de rótulos: 5
+Tempo de execução : 19270 ms
+Grafo #: 5
+Quantidade de rótulos: 4
+Tempo de execução : 12362 ms
+Grafo #: 6
+Quantidade de rótulos: 3
+Tempo de execução : 20856 ms
+Grafo #: 7
+Quantidade de rótulos: 5
+Tempo de execução : 17450 ms
+Grafo #: 8
+Quantidade de rótulos: 4
+Tempo de execução : 12494 ms
+Grafo #: 9
+Quantidade de rótulos: 4
+Tempo de execução : 11161 ms
+Grafo #: 10
+Quantidade de rótulos: 3
+Tempo de execução : 20292 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 4.1
+Tempo de execução médio: 15712.3 ms
+
+Arquivo #: 34 MDGraph200_200.txt v: 200 r: 200
+Grafo #: 1
+Quantidade de rótulos: 7
+Tempo de execução : 68247 ms
+Grafo #: 2
+Quantidade de rótulos: 8
+Tempo de execução : 61229 ms
+Grafo #: 3
+Quantidade de rótulos: 6
+Tempo de execução : 59580 ms
+Grafo #: 4
+Quantidade de rótulos: 7
+Tempo de execução : 141640 ms
+Grafo #: 5
+Quantidade de rótulos: 7
+Tempo de execução : 74178 ms
+Grafo #: 6
+Quantidade de rótulos: 6
+Tempo de execução : 51516 ms
+Grafo #: 7
+Quantidade de rótulos: 8
+Tempo de execução : 47611 ms
+Grafo #: 8
+Quantidade de rótulos: 7
+Tempo de execução : 70482 ms
+Grafo #: 9
+Quantidade de rótulos: 6
+Tempo de execução : 49021 ms
+Grafo #: 10
+Quantidade de rótulos: 6
+Tempo de execução : 32011 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 6.8
+Tempo de execução médio: 65551.5 ms
+
+Arquivo #: 35 MDGraph200_250.txt v: 200 r: 250
+Grafo #: 1
+Quantidade de rótulos: 7
+Tempo de execução : 98037 ms
+Grafo #: 2
+Quantidade de rótulos: 9
+Tempo de execução : 148422 ms
+Grafo #: 3
+Quantidade de rótulos: 7
+Tempo de execução : 35366 ms
+Grafo #: 4
+Quantidade de rótulos: 10
+Tempo de execução : 117534 ms
+Grafo #: 5
+Quantidade de rótulos: 7
+Tempo de execução : 109256 ms
+Grafo #: 6
+Quantidade de rótulos: 7
+Tempo de execução : 118146 ms
+Grafo #: 7
+Quantidade de rótulos: 9
+Tempo de execução : 105552 ms
+Grafo #: 8
+Quantidade de rótulos: 8
+Tempo de execução : 69374 ms
+Grafo #: 9
+Quantidade de rótulos: 8
+Tempo de execução : 38571 ms
+Grafo #: 10
+Quantidade de rótulos: 8
+Tempo de execução : 93146 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 8.0
+Tempo de execução médio: 93340.4 ms
+
+Arquivo #: 36 MDGraph200_50.txt v: 200 r: 50
+Grafo #: 1
+Quantidade de rótulos: 2
+Tempo de execução : 16427 ms
+Grafo #: 2
+Quantidade de rótulos: 3
+Tempo de execução : 10607 ms
+Grafo #: 3
+Quantidade de rótulos: 2
+Tempo de execução : 7174 ms
+Grafo #: 4
+Quantidade de rótulos: 3
+Tempo de execução : 9620 ms
+Grafo #: 5
+Quantidade de rótulos: 2
+Tempo de execução : 18493 ms
+Grafo #: 6
+Quantidade de rótulos: 2
+Tempo de execução : 6329 ms
+Grafo #: 7
+Quantidade de rótulos: 3
+Tempo de execução : 10596 ms
+Grafo #: 8
+Quantidade de rótulos: 2
+Tempo de execução : 7121 ms
+Grafo #: 9
+Quantidade de rótulos: 2
+Tempo de execução : 37416 ms
+Grafo #: 10
+Quantidade de rótulos: 2
+Tempo de execução : 6772 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 2.3
+Tempo de execução médio: 13055.5 ms
+
+Arquivo #: 37 HDGraph400_100.txt v: 400 r: 100
+Grafo #: 1
+Quantidade de rótulos: 2
+Tempo de execução : 31027 ms
+Grafo #: 2
+Quantidade de rótulos: 2
+Tempo de execução : 31303 ms
+Grafo #: 3
+Quantidade de rótulos: 2
+Tempo de execução : 28545 ms
+Grafo #: 4
+Quantidade de rótulos: 2
+Tempo de execução : 30628 ms
+Grafo #: 5
+Quantidade de rótulos: 2
+Tempo de execução : 30001 ms
+Grafo #: 6
+Quantidade de rótulos: 2
+Tempo de execução : 26889 ms
+Grafo #: 7
+Quantidade de rótulos: 2
+Tempo de execução : 28707 ms
+Grafo #: 8
+Quantidade de rótulos: 2
+Tempo de execução : 29529 ms
+Grafo #: 9
+Quantidade de rótulos: 2
+Tempo de execução : 27746 ms
+Grafo #: 10
+Quantidade de rótulos: 2
+Tempo de execução : 30405 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 2.0
+Tempo de execução médio: 29478.0 ms
+
+Arquivo #: 38 HDGraph400_200.txt v: 400 r: 200
+Grafo #: 1
+Quantidade de rótulos: 3
+Tempo de execução : 50103 ms
+Grafo #: 2
+Quantidade de rótulos: 3
+Tempo de execução : 46403 ms
+Grafo #: 3
+Quantidade de rótulos: 3
+Tempo de execução : 47285 ms
+Grafo #: 4
+Quantidade de rótulos: 3
+Tempo de execução : 47333 ms
+Grafo #: 5
+Quantidade de rótulos: 3
+Tempo de execução : 46740 ms
+Grafo #: 6
+Quantidade de rótulos: 3
+Tempo de execução : 46078 ms
+Grafo #: 7
+Quantidade de rótulos: 3
+Tempo de execução : 46950 ms
+Grafo #: 8
+Quantidade de rótulos: 3
+Tempo de execução : 51171 ms
+Grafo #: 9
+Quantidade de rótulos: 3
+Tempo de execução : 46241 ms
+Grafo #: 10
+Quantidade de rótulos: 3
+Tempo de execução : 47314 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 3.0
+Tempo de execução médio: 47561.8 ms
+
+Arquivo #: 39 HDGraph400_400.txt v: 400 r: 400
+Grafo #: 1
+Quantidade de rótulos: 5
+Tempo de execução : 460637 ms
+Grafo #: 2
+Quantidade de rótulos: 5
+Tempo de execução : 764728 ms
+Grafo #: 3
+Quantidade de rótulos: 5
+Tempo de execução : 988411 ms
+Grafo #: 4
+Quantidade de rótulos: 5
+Tempo de execução : 701628 ms
+Grafo #: 5
+Quantidade de rótulos: 5
+Tempo de execução : 376322 ms
+Grafo #: 6
+Quantidade de rótulos: 5
+Tempo de execução : 82962 ms
+Grafo #: 7
+Quantidade de rótulos: 5
+Tempo de execução : 787391 ms
+Grafo #: 8
+Quantidade de rótulos: 5
+Tempo de execução : 877479 ms
+Grafo #: 9
+Quantidade de rótulos: 5
+Tempo de execução : 347329 ms
+Grafo #: 10
+Quantidade de rótulos: 5
+Tempo de execução : 354977 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 5.0
+Tempo de execução médio: 574186.4 ms
+
+Arquivo #: 40 HDGraph400_500.txt v: 400 r: 500
+Grafo #: 1
+Quantidade de rótulos: 6
+Tempo de execução : 624530 ms
+Grafo #: 2
+Quantidade de rótulos: 7
+Tempo de execução : 1086936 ms
+Grafo #: 3
+Quantidade de rótulos: 6
+Tempo de execução : 927566 ms
+Grafo #: 4
+Quantidade de rótulos: 6
+Tempo de execução : 766138 ms
+Grafo #: 5
+Quantidade de rótulos: 6
+Tempo de execução : 558476 ms
+Grafo #: 6
+Quantidade de rótulos: 6
+Tempo de execução : 91227 ms
+Grafo #: 7
+Quantidade de rótulos: 6
+Tempo de execução : 441158 ms
+Grafo #: 8
+Quantidade de rótulos: 7
+Tempo de execução : 92311 ms
+Grafo #: 9
+Quantidade de rótulos: 6
+Tempo de execução : 778865 ms
+Grafo #: 10
+Quantidade de rótulos: 6
+Tempo de execução : 749393 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 6.2
+Tempo de execução médio: 611660.0 ms
+
+Arquivo #: 41 LDGraph400_100.txt v: 400 r: 100
+Grafo #: 1
+Quantidade de rótulos: 5
+Tempo de execução : 174104 ms
+Grafo #: 2
+Quantidade de rótulos: 7
+Tempo de execução : 282176 ms
+Grafo #: 3
+Quantidade de rótulos: 6
+Tempo de execução : 302015 ms
+Grafo #: 4
+Quantidade de rótulos: 8
+Tempo de execução : 218756 ms
+Grafo #: 5
+Quantidade de rótulos: 8
+Tempo de execução : 278419 ms
+Grafo #: 6
+Quantidade de rótulos: 5
+Tempo de execução : 165568 ms
+Grafo #: 7
+Quantidade de rótulos: 5
+Tempo de execução : 306149 ms
+Grafo #: 8
+Quantidade de rótulos: 8
+Tempo de execução : 271245 ms
+Grafo #: 9
+Quantidade de rótulos: 8
+Tempo de execução : 280256 ms
+Grafo #: 10
+Quantidade de rótulos: 5
+Tempo de execução : 224449 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 6.5
+Tempo de execução médio: 250313.7 ms
+
+Arquivo #: 42 LDGraph400_200.txt v: 400 r: 200
+Grafo #: 1
+Quantidade de rótulos: 9
+Tempo de execução : 433505 ms
+Grafo #: 2
+Quantidade de rótulos: 13
+Tempo de execução : 501321 ms
+Grafo #: 3
+Quantidade de rótulos: 11
+Tempo de execução : 899804 ms
+Grafo #: 4
+Quantidade de rótulos: 14
+Tempo de execução : 616501 ms
+Grafo #: 5
+Quantidade de rótulos: 13
+Tempo de execução : 388706 ms
+Grafo #: 6
+Quantidade de rótulos: 9
+Tempo de execução : 416133 ms
+Grafo #: 7
+Quantidade de rótulos: 10
+Tempo de execução : 264968 ms
+Grafo #: 8
+Quantidade de rótulos: 13
+Tempo de execução : 386372 ms
+Grafo #: 9
+Quantidade de rótulos: 14
+Tempo de execução : 388758 ms
+Grafo #: 10
+Quantidade de rótulos: 9
+Tempo de execução : 409502 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 11.5
+Tempo de execução médio: 470557.0 ms
+
+Arquivo #: 43 LDGraph400_400.txt v: 400 r: 400
+Grafo #: 1
+Quantidade de rótulos: 16
+Tempo de execução : 883591 ms
+Grafo #: 2
+Quantidade de rótulos: 21
+Tempo de execução : 1225948 ms
+Grafo #: 3
+Quantidade de rótulos: 19
+Tempo de execução : 853339 ms
+Grafo #: 4
+Quantidade de rótulos: 21
+Tempo de execução : 1024713 ms
+Grafo #: 5
+Quantidade de rótulos: 20
+Tempo de execução : 1416203 ms
+Grafo #: 6
+Quantidade de rótulos: 16
+Tempo de execução : 582473 ms
+Grafo #: 7
+Quantidade de rótulos: 16
+Tempo de execução : 485539 ms
+Grafo #: 8
+Quantidade de rótulos: 21
+Tempo de execução : 920412 ms
+Grafo #: 9
+Quantidade de rótulos: 22
+Tempo de execução : 682734 ms
+Grafo #: 10
+Quantidade de rótulos: 17
+Tempo de execução : 439165 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 18.9
+Tempo de execução médio: 851411.7 ms
+
+Arquivo #: 44 LDGraph400_500.txt v: 400 r: 500
+Grafo #: 1
+Quantidade de rótulos: 17
+Tempo de execução : 382578 ms
+Grafo #: 2
+Quantidade de rótulos: 23
+Tempo de execução : 1784441 ms
+Grafo #: 3
+Quantidade de rótulos: 22
+Tempo de execução : 1062696 ms
+Grafo #: 4
+Quantidade de rótulos: 26
+Tempo de execução : 1453970 ms
+Grafo #: 5
+Quantidade de rótulos: 25
+Tempo de execução : 849637 ms
+Grafo #: 6
+Quantidade de rótulos: 20
+Tempo de execução : 537809 ms
+Grafo #: 7
+Quantidade de rótulos: 18
+Tempo de execução : 1101013 ms
+Grafo #: 8
+Quantidade de rótulos: 26
+Tempo de execução : 1180423 ms
+Grafo #: 9
+Quantidade de rótulos: 26
+Tempo de execução : 1003008 ms
+Grafo #: 10
+Quantidade de rótulos: 19
+Tempo de execução : 818461 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 22.2
+Tempo de execução médio: 1017403.6 ms
+
+Arquivo #: 45 MDGraph400_100.txt v: 400 r: 100
+Grafo #: 1
+Quantidade de rótulos: 2
+Tempo de execução : 237218 ms
+Grafo #: 2
+Quantidade de rótulos: 3
+Tempo de execução : 46699 ms
+Grafo #: 3
+Quantidade de rótulos: 3
+Tempo de execução : 42265 ms
+Grafo #: 4
+Quantidade de rótulos: 3
+Tempo de execução : 67869 ms
+Grafo #: 5
+Quantidade de rótulos: 3
+Tempo de execução : 42888 ms
+Grafo #: 6
+Quantidade de rótulos: 3
+Tempo de execução : 41817 ms
+Grafo #: 7
+Quantidade de rótulos: 3
+Tempo de execução : 38054 ms
+Grafo #: 8
+Quantidade de rótulos: 3
+Tempo de execução : 45020 ms
+Grafo #: 9
+Quantidade de rótulos: 3
+Tempo de execução : 66271 ms
+Grafo #: 10
+Quantidade de rótulos: 3
+Tempo de execução : 38273 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 2.9
+Tempo de execução médio: 66637.4 ms
+
+Arquivo #: 46 MDGraph400_200.txt v: 400 r: 200
+Grafo #: 1
+Quantidade de rótulos: 5
+Tempo de execução : 68009 ms
+Grafo #: 2
+Quantidade de rótulos: 5
+Tempo de execução : 79233 ms
+Grafo #: 3
+Quantidade de rótulos: 4
+Tempo de execução : 482688 ms
+Grafo #: 4
+Quantidade de rótulos: 5
+Tempo de execução : 410615 ms
+Grafo #: 5
+Quantidade de rótulos: 4
+Tempo de execução : 172192 ms
+Grafo #: 6
+Quantidade de rótulos: 4
+Tempo de execução : 246141 ms
+Grafo #: 7
+Quantidade de rótulos: 5
+Tempo de execução : 71883 ms
+Grafo #: 8
+Quantidade de rótulos: 5
+Tempo de execução : 74301 ms
+Grafo #: 9
+Quantidade de rótulos: 5
+Tempo de execução : 401680 ms
+Grafo #: 10
+Quantidade de rótulos: 4
+Tempo de execução : 112522 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 4.6
+Tempo de execução médio: 211926.4 ms
+
+Arquivo #: 47 MDGraph400_400.txt v: 400 r: 400
+Grafo #: 1
+Quantidade de rótulos: 8
+Tempo de execução : 380259 ms
+Grafo #: 2
+Quantidade de rótulos: 8
+Tempo de execução : 405637 ms
+Grafo #: 3
+Quantidade de rótulos: 7
+Tempo de execução : 893614 ms
+Grafo #: 4
+Quantidade de rótulos: 9
+Tempo de execução : 426558 ms
+Grafo #: 5
+Quantidade de rótulos: 8
+Tempo de execução : 357964 ms
+Grafo #: 6
+Quantidade de rótulos: 8
+Tempo de execução : 581076 ms
+Grafo #: 7
+Quantidade de rótulos: 7
+Tempo de execução : 557527 ms
+Grafo #: 8
+Quantidade de rótulos: 8
+Tempo de execução : 509470 ms
+Grafo #: 9
+Quantidade de rótulos: 9
+Tempo de execução : 464678 ms
+Grafo #: 10
+Quantidade de rótulos: 7
+Tempo de execução : 354896 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 7.9
+Tempo de execução médio: 493167.9 ms
+
+Arquivo #: 48 MDGraph400_500.txt v: 400 r: 500
+Grafo #: 1
+Quantidade de rótulos: 9
+Tempo de execução : 455003 ms
+Grafo #: 2
+Quantidade de rótulos: 10
+Tempo de execução : 322476 ms
+Grafo #: 3
+Quantidade de rótulos: 9
+Tempo de execução : 1462333 ms
+Grafo #: 4
+Quantidade de rótulos: 10
+Tempo de execução : 1907843 ms
+Grafo #: 5
+Quantidade de rótulos: 9
+Tempo de execução : 784079 ms
+Grafo #: 6
+Quantidade de rótulos: 8
+Tempo de execução : 421800 ms
+Grafo #: 7
+Quantidade de rótulos: 9
+Tempo de execução : 470547 ms
+Grafo #: 8
+Quantidade de rótulos: 9
+Tempo de execução : 1333416 ms
+Grafo #: 9
+Quantidade de rótulos: 11
+Tempo de execução : 942496 ms
+Grafo #: 10
+Quantidade de rótulos: 9
+Tempo de execução : 372837 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 9.3
+Tempo de execução médio: 847283.0 ms
+
+Arquivo #: 49 HDGraph50_12.txt v: 50 r: 12
+Grafo #: 1
+Quantidade de rótulos: 1
+Tempo de execução : 227 ms
+Grafo #: 2
+Quantidade de rótulos: 1
+Tempo de execução : 253 ms
+Grafo #: 3
+Quantidade de rótulos: 1
+Tempo de execução : 250 ms
+Grafo #: 4
+Quantidade de rótulos: 1
+Tempo de execução : 296 ms
+Grafo #: 5
+Quantidade de rótulos: 1
+Tempo de execução : 222 ms
+Grafo #: 6
+Quantidade de rótulos: 1
+Tempo de execução : 293 ms
+Grafo #: 7
+Quantidade de rótulos: 2
+Tempo de execução : 388 ms
+Grafo #: 8
+Quantidade de rótulos: 1
+Tempo de execução : 271 ms
+Grafo #: 9
+Quantidade de rótulos: 1
+Tempo de execução : 282 ms
+Grafo #: 10
+Quantidade de rótulos: 1
+Tempo de execução : 291 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 1.1
+Tempo de execução médio: 277.3 ms
+
+Arquivo #: 50 HDGraph50_25.txt v: 50 r: 25
+Grafo #: 1
+Quantidade de rótulos: 2
+Tempo de execução : 419 ms
+Grafo #: 2
+Quantidade de rótulos: 2
+Tempo de execução : 326 ms
+Grafo #: 3
+Quantidade de rótulos: 2
+Tempo de execução : 347 ms
+Grafo #: 4
+Quantidade de rótulos: 2
+Tempo de execução : 374 ms
+Grafo #: 5
+Quantidade de rótulos: 2
+Tempo de execução : 418 ms
+Grafo #: 6
+Quantidade de rótulos: 2
+Tempo de execução : 389 ms
+Grafo #: 7
+Quantidade de rótulos: 2
+Tempo de execução : 357 ms
+Grafo #: 8
+Quantidade de rótulos: 2
+Tempo de execução : 342 ms
+Grafo #: 9
+Quantidade de rótulos: 2
+Tempo de execução : 364 ms
+Grafo #: 10
+Quantidade de rótulos: 2
+Tempo de execução : 406 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 2.0
+Tempo de execução médio: 374.2 ms
+
+Arquivo #: 51 HDGraph50_50.txt v: 50 r: 50
+Grafo #: 1
+Quantidade de rótulos: 3
+Tempo de execução : 649 ms
+Grafo #: 2
+Quantidade de rótulos: 3
+Tempo de execução : 959 ms
+Grafo #: 3
+Quantidade de rótulos: 3
+Tempo de execução : 1630 ms
+Grafo #: 4
+Quantidade de rótulos: 3
+Tempo de execução : 1938 ms
+Grafo #: 5
+Quantidade de rótulos: 3
+Tempo de execução : 577 ms
+Grafo #: 6
+Quantidade de rótulos: 3
+Tempo de execução : 655 ms
+Grafo #: 7
+Quantidade de rótulos: 3
+Tempo de execução : 656 ms
+Grafo #: 8
+Quantidade de rótulos: 3
+Tempo de execução : 1036 ms
+Grafo #: 9
+Quantidade de rótulos: 3
+Tempo de execução : 554 ms
+Grafo #: 10
+Quantidade de rótulos: 3
+Tempo de execução : 1028 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 3.0
+Tempo de execução médio: 968.2 ms
+
+Arquivo #: 52 HDGraph50_62.txt v: 50 r: 62
+Grafo #: 1
+Quantidade de rótulos: 4
+Tempo de execução : 681 ms
+Grafo #: 2
+Quantidade de rótulos: 4
+Tempo de execução : 732 ms
+Grafo #: 3
+Quantidade de rótulos: 4
+Tempo de execução : 684 ms
+Grafo #: 4
+Quantidade de rótulos: 4
+Tempo de execução : 766 ms
+Grafo #: 5
+Quantidade de rótulos: 4
+Tempo de execução : 692 ms
+Grafo #: 6
+Quantidade de rótulos: 3
+Tempo de execução : 1689 ms
+Grafo #: 7
+Quantidade de rótulos: 3
+Tempo de execução : 1072 ms
+Grafo #: 8
+Quantidade de rótulos: 3
+Tempo de execução : 1020 ms
+Grafo #: 9
+Quantidade de rótulos: 4
+Tempo de execução : 763 ms
+Grafo #: 10
+Quantidade de rótulos: 3
+Tempo de execução : 1045 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 3.6
+Tempo de execução médio: 914.4 ms
+
+Arquivo #: 53 LDGraph50_12.txt v: 50 r: 12
+Grafo #: 1
+Quantidade de rótulos: 3
+Tempo de execução : 844 ms
+Grafo #: 2
+Quantidade de rótulos: 4
+Tempo de execução : 563 ms
+Grafo #: 3
+Quantidade de rótulos: 4
+Tempo de execução : 594 ms
+Grafo #: 4
+Quantidade de rótulos: 5
+Tempo de execução : 839 ms
+Grafo #: 5
+Quantidade de rótulos: 3
+Tempo de execução : 497 ms
+Grafo #: 6
+Quantidade de rótulos: 3
+Tempo de execução : 488 ms
+Grafo #: 7
+Quantidade de rótulos: 4
+Tempo de execução : 644 ms
+Grafo #: 8
+Quantidade de rótulos: 4
+Tempo de execução : 1236 ms
+Grafo #: 9
+Quantidade de rótulos: 4
+Tempo de execução : 535 ms
+Grafo #: 10
+Quantidade de rótulos: 4
+Tempo de execução : 1013 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 3.8
+Tempo de execução médio: 725.3 ms
+
+Arquivo #: 54 LDGraph50_25.txt v: 50 r: 25
+Grafo #: 1
+Quantidade de rótulos: 5
+Tempo de execução : 3407 ms
+Grafo #: 2
+Quantidade de rótulos: 6
+Tempo de execução : 1520 ms
+Grafo #: 3
+Quantidade de rótulos: 6
+Tempo de execução : 1598 ms
+Grafo #: 4
+Quantidade de rótulos: 6
+Tempo de execução : 2990 ms
+Grafo #: 5
+Quantidade de rótulos: 6
+Tempo de execução : 1937 ms
+Grafo #: 6
+Quantidade de rótulos: 5
+Tempo de execução : 1223 ms
+Grafo #: 7
+Quantidade de rótulos: 7
+Tempo de execução : 2274 ms
+Grafo #: 8
+Quantidade de rótulos: 6
+Tempo de execução : 2589 ms
+Grafo #: 9
+Quantidade de rótulos: 6
+Tempo de execução : 2142 ms
+Grafo #: 10
+Quantidade de rótulos: 7
+Tempo de execução : 2803 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 6.0
+Tempo de execução médio: 2248.3 ms
+
+Arquivo #: 55 LDGraph50_50.txt v: 50 r: 50
+Grafo #: 1
+Quantidade de rótulos: 8
+Tempo de execução : 3859 ms
+Grafo #: 2
+Quantidade de rótulos: 9
+Tempo de execução : 4112 ms
+Grafo #: 3
+Quantidade de rótulos: 10
+Tempo de execução : 3382 ms
+Grafo #: 4
+Quantidade de rótulos: 8
+Tempo de execução : 3003 ms
+Grafo #: 5
+Quantidade de rótulos: 8
+Tempo de execução : 2588 ms
+Grafo #: 6
+Quantidade de rótulos: 9
+Tempo de execução : 2159 ms
+Grafo #: 7
+Quantidade de rótulos: 10
+Tempo de execução : 3546 ms
+Grafo #: 8
+Quantidade de rótulos: 9
+Tempo de execução : 3297 ms
+Grafo #: 9
+Quantidade de rótulos: 8
+Tempo de execução : 2538 ms
+Grafo #: 10
+Quantidade de rótulos: 10
+Tempo de execução : 3404 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 8.9
+Tempo de execução médio: 3188.8 ms
+
+Arquivo #: 56 LDGraph50_62.txt v: 50 r: 62
+Grafo #: 1
+Quantidade de rótulos: 9
+Tempo de execução : 3131 ms
+Grafo #: 2
+Quantidade de rótulos: 10
+Tempo de execução : 3445 ms
+Grafo #: 3
+Quantidade de rótulos: 10
+Tempo de execução : 3197 ms
+Grafo #: 4
+Quantidade de rótulos: 10
+Tempo de execução : 4739 ms
+Grafo #: 5
+Quantidade de rótulos: 9
+Tempo de execução : 3175 ms
+Grafo #: 6
+Quantidade de rótulos: 8
+Tempo de execução : 2323 ms
+Grafo #: 7
+Quantidade de rótulos: 12
+Tempo de execução : 3782 ms
+Grafo #: 8
+Quantidade de rótulos: 11
+Tempo de execução : 3825 ms
+Grafo #: 9
+Quantidade de rótulos: 9
+Tempo de execução : 3416 ms
+Grafo #: 10
+Quantidade de rótulos: 10
+Tempo de execução : 4063 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 9.8
+Tempo de execução médio: 3509.6 ms
+
+Arquivo #: 57 MDGraph50_12.txt v: 50 r: 12
+Grafo #: 1
+Quantidade de rótulos: 2
+Tempo de execução : 244 ms
+Grafo #: 2
+Quantidade de rótulos: 2
+Tempo de execução : 238 ms
+Grafo #: 3
+Quantidade de rótulos: 2
+Tempo de execução : 285 ms
+Grafo #: 4
+Quantidade de rótulos: 2
+Tempo de execução : 319 ms
+Grafo #: 5
+Quantidade de rótulos: 2
+Tempo de execução : 207 ms
+Grafo #: 6
+Quantidade de rótulos: 2
+Tempo de execução : 217 ms
+Grafo #: 7
+Quantidade de rótulos: 2
+Tempo de execução : 243 ms
+Grafo #: 8
+Quantidade de rótulos: 2
+Tempo de execução : 365 ms
+Grafo #: 9
+Quantidade de rótulos: 2
+Tempo de execução : 253 ms
+Grafo #: 10
+Quantidade de rótulos: 2
+Tempo de execução : 332 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 2.0
+Tempo de execução médio: 270.3 ms
+
+Arquivo #: 58 MDGraph50_25.txt v: 50 r: 25
+Grafo #: 1
+Quantidade de rótulos: 3
+Tempo de execução : 462 ms
+Grafo #: 2
+Quantidade de rótulos: 3
+Tempo de execução : 520 ms
+Grafo #: 3
+Quantidade de rótulos: 3
+Tempo de execução : 602 ms
+Grafo #: 4
+Quantidade de rótulos: 3
+Tempo de execução : 994 ms
+Grafo #: 5
+Quantidade de rótulos: 3
+Tempo de execução : 509 ms
+Grafo #: 6
+Quantidade de rótulos: 3
+Tempo de execução : 524 ms
+Grafo #: 7
+Quantidade de rótulos: 3
+Tempo de execução : 563 ms
+Grafo #: 8
+Quantidade de rótulos: 3
+Tempo de execução : 848 ms
+Grafo #: 9
+Quantidade de rótulos: 3
+Tempo de execução : 487 ms
+Grafo #: 10
+Quantidade de rótulos: 3
+Tempo de execução : 563 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 3.0
+Tempo de execução médio: 607.2 ms
+
+Arquivo #: 59 MDGraph50_50.txt v: 50 r: 50
+Grafo #: 1
+Quantidade de rótulos: 4
+Tempo de execução : 1289 ms
+Grafo #: 2
+Quantidade de rótulos: 4
+Tempo de execução : 1280 ms
+Grafo #: 3
+Quantidade de rótulos: 5
+Tempo de execução : 1780 ms
+Grafo #: 4
+Quantidade de rótulos: 4
+Tempo de execução : 2275 ms
+Grafo #: 5
+Quantidade de rótulos: 4
+Tempo de execução : 1690 ms
+Grafo #: 6
+Quantidade de rótulos: 5
+Tempo de execução : 853 ms
+Grafo #: 7
+Quantidade de rótulos: 5
+Tempo de execução : 2018 ms
+Grafo #: 8
+Quantidade de rótulos: 4
+Tempo de execução : 1454 ms
+Grafo #: 9
+Quantidade de rótulos: 5
+Tempo de execução : 884 ms
+Grafo #: 10
+Quantidade de rótulos: 4
+Tempo de execução : 1593 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 4.4
+Tempo de execução médio: 1511.6 ms
+
+Arquivo #: 60 MDGraph50_62.txt v: 50 r: 62
+Grafo #: 1
+Quantidade de rótulos: 5
+Tempo de execução : 1765 ms
+Grafo #: 2
+Quantidade de rótulos: 5
+Tempo de execução : 1505 ms
+Grafo #: 3
+Quantidade de rótulos: 5
+Tempo de execução : 2283 ms
+Grafo #: 4
+Quantidade de rótulos: 5
+Tempo de execução : 1940 ms
+Grafo #: 5
+Quantidade de rótulos: 5
+Tempo de execução : 2619 ms
+Grafo #: 6
+Quantidade de rótulos: 4
+Tempo de execução : 1314 ms
+Grafo #: 7
+Quantidade de rótulos: 6
+Tempo de execução : 3252 ms
+Grafo #: 8
+Quantidade de rótulos: 5
+Tempo de execução : 1751 ms
+Grafo #: 9
+Quantidade de rótulos: 5
+Tempo de execução : 1442 ms
+Grafo #: 10
+Quantidade de rótulos: 5
+Tempo de execução : 1730 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 5.0
+Tempo de execução médio: 1960.1 ms
+
+Arquivo #: 61 HDGraph500_125.txt v: 500 r: 125
+Grafo #: 1
+Quantidade de rótulos: 2
+Tempo de execução : 73218 ms
+Grafo #: 2
+Quantidade de rótulos: 2
+Tempo de execução : 56818 ms
+Grafo #: 3
+Quantidade de rótulos: 2
+Tempo de execução : 53064 ms
+Grafo #: 4
+Quantidade de rótulos: 2
+Tempo de execução : 59130 ms
+Grafo #: 5
+Quantidade de rótulos: 2
+Tempo de execução : 55384 ms
+Grafo #: 6
+Quantidade de rótulos: 2
+Tempo de execução : 55637 ms
+Grafo #: 7
+Quantidade de rótulos: 2
+Tempo de execução : 56723 ms
+Grafo #: 8
+Quantidade de rótulos: 2
+Tempo de execução : 56396 ms
+Grafo #: 9
+Quantidade de rótulos: 2
+Tempo de execução : 54787 ms
+Grafo #: 10
+Quantidade de rótulos: 2
+Tempo de execução : 59697 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 2.0
+Tempo de execução médio: 58085.4 ms
+
+Arquivo #: 62 HDGraph500_250.txt v: 500 r: 250
+Grafo #: 1
+Quantidade de rótulos: 4
+Tempo de execução : 121913 ms
+Grafo #: 2
+Quantidade de rótulos: 3
+Tempo de execução : 92398 ms
+Grafo #: 3
+Quantidade de rótulos: 3
+Tempo de execução : 85497 ms
+Grafo #: 4
+Quantidade de rótulos: 3
+Tempo de execução : 1559857 ms
+Grafo #: 5
+Quantidade de rótulos: 3
+Tempo de execução : 83309 ms
+Grafo #: 6
+Quantidade de rótulos: 3
+Tempo de execução : 86112 ms
+Grafo #: 7
+Quantidade de rótulos: 3
+Tempo de execução : 80214 ms
+Grafo #: 8
+Quantidade de rótulos: 3
+Tempo de execução : 78019 ms
+Grafo #: 9
+Quantidade de rótulos: 3
+Tempo de execução : 81613 ms
+Grafo #: 10
+Quantidade de rótulos: 3
+Tempo de execução : 82718 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 3.1
+Tempo de execução médio: 235165.0 ms
+
+Arquivo #: 63 HDGraph500_500.txt v: 500 r: 500
+Grafo #: 1
+Quantidade de rótulos: 6
+Tempo de execução : 2423062 ms
+Grafo #: 2
+Quantidade de rótulos: 6
+Tempo de execução : 154945 ms
+Grafo #: 3
+Quantidade de rótulos: 5
+Tempo de execução : 988666 ms
+Grafo #: 4
+Quantidade de rótulos: 6
+Tempo de execução : 158455 ms
+Grafo #: 5
+Quantidade de rótulos: 6
+Tempo de execução : 143140 ms
+Grafo #: 6
+Quantidade de rótulos: 6
+Tempo de execução : 156423 ms
+Grafo #: 7
+Quantidade de rótulos: 6
+Tempo de execução : 767979 ms
+Grafo #: 8
+Quantidade de rótulos: 6
+Tempo de execução : 150920 ms
+Grafo #: 9
+Quantidade de rótulos: 5
+Tempo de execução : 1654555 ms
+Grafo #: 10
+Quantidade de rótulos: 6
+Tempo de execução : 153189 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 5.8
+Tempo de execução médio: 675133.4 ms
+
+Arquivo #: 64 HDGraph500_625.txt v: 500 r: 625
+Grafo #: 1
+Quantidade de rótulos: 6
+Tempo de execução : 3529055 ms
+Grafo #: 2
+Quantidade de rótulos: 7
+Tempo de execução : 1702142 ms
+Grafo #: 3
+Quantidade de rótulos: 7
+Tempo de execução : 5834949 ms
+Grafo #: 4
+Quantidade de rótulos: 7
+Tempo de execução : 195619 ms
+Grafo #: 5
+Quantidade de rótulos: 7
+Tempo de execução : 182978 ms
+Grafo #: 6
+Quantidade de rótulos: 6
+Tempo de execução : 2114555 ms
+Grafo #: 7
+Quantidade de rótulos: 7
+Tempo de execução : 1156356 ms
+Grafo #: 8
+Quantidade de rótulos: 7
+Tempo de execução : 194807 ms
+Grafo #: 9
+Quantidade de rótulos: 7
+Tempo de execução : 193525 ms
+Grafo #: 10
+Quantidade de rótulos: 6
+Tempo de execução : 3853479 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 6.7
+Tempo de execução médio: 1895746.5 ms
+
+Arquivo #: 65 LDGraph500_125.txt v: 500 r: 125
+Grafo #: 1
+Quantidade de rótulos: 9
+Tempo de execução : 442520 ms
+Grafo #: 2
+Quantidade de rótulos: 8
+Tempo de execução : 611990 ms
+Grafo #: 3
+Quantidade de rótulos: 8
+Tempo de execução : 403300 ms
+Grafo #: 4
+Quantidade de rótulos: 8
+Tempo de execução : 730594 ms
+Grafo #: 5
+Quantidade de rótulos: 6
+Tempo de execução : 125563 ms
+Grafo #: 6
+Quantidade de rótulos: 5
+Tempo de execução : 230569 ms
+Grafo #: 7
+Quantidade de rótulos: 8
+Tempo de execução : 458809 ms
+Grafo #: 8
+Quantidade de rótulos: 7
+Tempo de execução : 453835 ms
+Grafo #: 9
+Quantidade de rótulos: 7
+Tempo de execução : 507741 ms
+Grafo #: 10
+Quantidade de rótulos: 7
+Tempo de execução : 543504 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 7.3
+Tempo de execução médio: 450842.5 ms
+
+Arquivo #: 66 LDGraph500_250.txt v: 500 r: 250
+Grafo #: 1
+Quantidade de rótulos: 15
+Tempo de execução : 731456 ms
+Grafo #: 2
+Quantidade de rótulos: 15
+Tempo de execução : 794616 ms
+Grafo #: 3
+Quantidade de rótulos: 13
+Tempo de execução : 1812573 ms
+Grafo #: 4
+Quantidade de rótulos: 14
+Tempo de execução : 766048 ms
+Grafo #: 5
+Quantidade de rótulos: 10
+Tempo de execução : 594820 ms
+Grafo #: 6
+Quantidade de rótulos: 10
+Tempo de execução : 387437 ms
+Grafo #: 7
+Quantidade de rótulos: 14
+Tempo de execução : 793700 ms
+Grafo #: 8
+Quantidade de rótulos: 13
+Tempo de execução : 1508815 ms
+Grafo #: 9
+Quantidade de rótulos: 13
+Tempo de execução : 752350 ms
+Grafo #: 10
+Quantidade de rótulos: 12
+Tempo de execução : 910678 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 12.9
+Tempo de execução médio: 905249.3 ms
+
+Arquivo #: 67 LDGraph500_500.txt v: 500 r: 500
+Grafo #: 1
+Quantidade de rótulos: 25
+Tempo de execução : 2131274 ms
+Grafo #: 2
+Quantidade de rótulos: 23
+Tempo de execução : 3004599 ms
+Grafo #: 3
+Quantidade de rótulos: 23
+Tempo de execução : 1484839 ms
+Grafo #: 4
+Quantidade de rótulos: 26
+Tempo de execução : 1759139 ms
+Grafo #: 5
+Quantidade de rótulos: 17
+Tempo de execução : 823206 ms
+Grafo #: 6
+Quantidade de rótulos: 17
+Tempo de execução : 1120036 ms
+Grafo #: 7
+Quantidade de rótulos: 22
+Tempo de execução : 1809102 ms
+Grafo #: 8
+Quantidade de rótulos: 21
+Tempo de execução : 2121596 ms
+Grafo #: 9
+Quantidade de rótulos: 20
+Tempo de execução : 1295633 ms
+Grafo #: 10
+Quantidade de rótulos: 19
+Tempo de execução : 1111663 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 21.3
+Tempo de execução médio: 1666108.7 ms
+
+Arquivo #: 68 LDGraph500_625.txt v: 500 r: 625
+Grafo #: 1
+Quantidade de rótulos: 30
+Tempo de execução : 1502985 ms
+Grafo #: 2
+Quantidade de rótulos: 30
+Tempo de execução : 1592766 ms
+Grafo #: 3
+Quantidade de rótulos: 27
+Tempo de execução : 2808124 ms
+Grafo #: 4
+Quantidade de rótulos: 29
+Tempo de execução : 1745919 ms
+Grafo #: 5
+Quantidade de rótulos: 19
+Tempo de execução : 1250849 ms
+Grafo #: 6
+Quantidade de rótulos: 20
+Tempo de execução : 1021265 ms
+Grafo #: 7
+Quantidade de rótulos: 26
+Tempo de execução : 3483804 ms
+Grafo #: 8
+Quantidade de rótulos: 26
+Tempo de execução : 1651791 ms
+Grafo #: 9
+Quantidade de rótulos: 24
+Tempo de execução : 1648450 ms
+Grafo #: 10
+Quantidade de rótulos: 23
+Tempo de execução : 1604725 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 25.4
+Tempo de execução médio: 1831067.8 ms
+
+Arquivo #: 69 MDGraph500_125.txt v: 500 r: 125
+Grafo #: 1
+Quantidade de rótulos: 4
+Tempo de execução : 165348 ms
+Grafo #: 2
+Quantidade de rótulos: 3
+Tempo de execução : 113915 ms
+Grafo #: 3
+Quantidade de rótulos: 3
+Tempo de execução : 65974 ms
+Grafo #: 4
+Quantidade de rótulos: 3
+Tempo de execução : 776583 ms
+Grafo #: 5
+Quantidade de rótulos: 3
+Tempo de execução : 64474 ms
+Grafo #: 6
+Quantidade de rótulos: 3
+Tempo de execução : 65642 ms
+Grafo #: 7
+Quantidade de rótulos: 3
+Tempo de execução : 62062 ms
+Grafo #: 8
+Quantidade de rótulos: 3
+Tempo de execução : 77944 ms
+Grafo #: 9
+Quantidade de rótulos: 3
+Tempo de execução : 73781 ms
+Grafo #: 10
+Quantidade de rótulos: 3
+Tempo de execução : 69341 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 3.1
+Tempo de execução médio: 153506.4 ms
+
+Arquivo #: 70 MDGraph500_250.txt v: 500 r: 250
+Grafo #: 1
+Quantidade de rótulos: 6
+Tempo de execução : 1174045 ms
+Grafo #: 2
+Quantidade de rótulos: 5
+Tempo de execução : 1085632 ms
+Grafo #: 3
+Quantidade de rótulos: 5
+Tempo de execução : 127548 ms
+Grafo #: 4
+Quantidade de rótulos: 5
+Tempo de execução : 591233 ms
+Grafo #: 5
+Quantidade de rótulos: 4
+Tempo de execução : 1043561 ms
+Grafo #: 6
+Quantidade de rótulos: 4
+Tempo de execução : 381887 ms
+Grafo #: 7
+Quantidade de rótulos: 5
+Tempo de execução : 120612 ms
+Grafo #: 8
+Quantidade de rótulos: 5
+Tempo de execução : 1220613 ms
+Grafo #: 9
+Quantidade de rótulos: 5
+Tempo de execução : 427129 ms
+Grafo #: 10
+Quantidade de rótulos: 5
+Tempo de execução : 116812 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 4.9
+Tempo de execução médio: 628907.2 ms
+
+Arquivo #: 71 MDGraph500_500.txt v: 500 r: 500
+Grafo #: 1
+Quantidade de rótulos: 11
+Tempo de execução : 1605953 ms
+Grafo #: 2
+Quantidade de rótulos: 9
+Tempo de execução : 875184 ms
+Grafo #: 3
+Quantidade de rótulos: 8
+Tempo de execução : 1652169 ms
+Grafo #: 4
+Quantidade de rótulos: 10
+Tempo de execução : 2606850 ms
+Grafo #: 5
+Quantidade de rótulos: 8
+Tempo de execução : 1902307 ms
+Grafo #: 6
+Quantidade de rótulos: 8
+Tempo de execução : 1299023 ms
+Grafo #: 7
+Quantidade de rótulos: 8
+Tempo de execução : 1286564 ms
+Grafo #: 8
+Quantidade de rótulos: 8
+Tempo de execução : 1194501 ms
+Grafo #: 9
+Quantidade de rótulos: 9
+Tempo de execução : 1460877 ms
+Grafo #: 10
+Quantidade de rótulos: 8
+Tempo de execução : 2677173 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 8.7
+Tempo de execução médio: 1656060.1 ms
+
+Arquivo #: 72 MDGraph500_625.txt v: 500 r: 625
+Grafo #: 1
+Quantidade de rótulos: 13
+Tempo de execução : 1341308 ms
+Grafo #: 2
+Quantidade de rótulos: 11
+Tempo de execução : 1238715 ms
+Grafo #: 3
+Quantidade de rótulos: 10
+Tempo de execução : 1610306 ms
+Grafo #: 4
+Quantidade de rótulos: 11
+Tempo de execução : 1979988 ms
+Grafo #: 5
+Quantidade de rótulos: 10
+Tempo de execução : 1416424 ms
+Grafo #: 6
+Quantidade de rótulos: 10
+Tempo de execução : 1753367 ms
+Grafo #: 7
+Quantidade de rótulos: 10
+Tempo de execução : 2294499 ms
+Grafo #: 8
+Quantidade de rótulos: 11
+Tempo de execução : 1794272 ms
+Grafo #: 9
+Quantidade de rótulos: 10
+Tempo de execução : 1148817 ms
+Grafo #: 10
+Quantidade de rótulos: 9
+Tempo de execução : 3300538 ms
+Número de instâncias deste arquivo: 10
+Quantidade média de rótulos por instância: 10.5
+Tempo de execução médio: 1787823.4 ms

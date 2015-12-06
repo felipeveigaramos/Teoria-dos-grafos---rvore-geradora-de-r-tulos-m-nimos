@@ -1,6 +1,7 @@
 package br.edu.utfpr.cm.ledor;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 
 import br.edu.utfpr.cm.algoritmo.ContaComponentesConexas;
@@ -14,23 +15,49 @@ public class TesteLedorDados {
     public static void main(String[] args) {
         LedorDados ld = LedorDados.getInstance("instancias");
         ContaComponentesConexas ccc = new ContaComponentesConexas();
-        ConjuntoDados cd;
+        ConjuntoDados cd = null;
         ArrayList<Double> rotulos = new ArrayList<Double>();
         Jpso jpso = new Jpso();
         GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> gr;
+        int quantidadeDeRotulos;
+        int quantidadeDeGrafos;
+        long tempo;
+
+        long tempoInicial = new GregorianCalendar().getTimeInMillis();
+        int i = 0;
+        do {
+            quantidadeDeGrafos = 0;
+            quantidadeDeRotulos = 0;
+            tempo = 0L;
+            System.out.print("Arquivo #: " + ++i + " ");
+            for (int j = 0; j < 10; j++) {
+                cd = ld.next();
+                if (j == 0) {
+                    System.out.println(cd.getNomedoArquivoDeOrigemDosDados() + " v: " + cd.getNumeroDeVertices() + " r: " + cd.getNumeroDeRotulos());
+                }
+                System.out.println("Grafo #: " + (j+1));
+
+                ccc.setGrafo(cd.getGrafo());
+                ccc.executar();
+                if (ccc.getQuantidadeDeComponentesConexas() == 1) {
+                    quantidadeDeGrafos++;
+                    jpso.setConjuntoDados(cd);
+                    jpso.executar();
+                    System.out.println("Quantidade de rótulos: " + jpso.getRotulosResultantes().size());
+                    quantidadeDeRotulos += jpso.getRotulosResultantes().size();
+                    System.out.println("Tempo de execução : " + jpso.getTempoExecucao() + " ms");
+                    tempo += jpso.getTempoExecucao();
+                }
+            }
+            System.out.println("Número de instâncias deste arquivo: " + quantidadeDeGrafos);
+            System.out.println(
+                    "Quantidade média de rótulos por instância: " + (quantidadeDeRotulos / (double)quantidadeDeGrafos));
+            System.out.println("Tempo de execução médio: " + (tempo / (double)quantidadeDeGrafos) + " ms");
+            System.out.println();
+        } while (cd != null);
         
-        
-        for (int i = 0; i < 20; i++) {
-            System.out.println("grafo: " + i);
-            cd = ld.next();
-            ccc.setGrafo(cd.getGrafo());
-            ccc.executar();
-            System.out.println("ccc: " + ccc.getQuantidadeDeComponentesConexas());
-            jpso.setConjuntoDados(cd);
-            jpso.executar();
-            System.out.println(jpso.getRotulosResultantes());
-            System.out.println(jpso.getTempoExecucao());
-        }
+        long tempoFinal = new GregorianCalendar().getTimeInMillis() - tempoInicial;
+        System.out.println("Tempo total de execução, levando em conta parse dos arquivos: " + tempoFinal + " ms");
     }
 
     private static int contaArestas(GrafoPonderado<Vertice, ArestaPonderada<Vertice, Vertice>> gr) {
