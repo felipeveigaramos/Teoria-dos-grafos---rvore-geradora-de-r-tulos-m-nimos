@@ -47,7 +47,7 @@
 
 \documentclass{sig-alternate-05-2015}
 \usepackage[utf8]{inputenc}
-
+\usepackage{algpseudocode,algorithm}
 \begin{document}
 
 % Copyright
@@ -259,21 +259,20 @@ is available on the web page to help you with the
 \keywords{ACM proceedings; \LaTeX; text tagging}
 
 \section{Introdução}
-Este artigo tem por finalidade apresentar a atividade prática supervisionada da disciplina de Teoria dos Grafos ministrada 
-no Curso de Bacharelado em Ciências da Computação da Universidade Tecnológica Federal do Paraná. Neste o assunto principal é
-o problema da árvore geradora de rótulos mínimos (PAGRM), do inglês \textit{minimum spanning label tree} que consiste  em encontrar 
-uma árvore geradora mínima cujo peso total das arestas é o mínimo possível, tendo como base um grafo não dirigido com pesos não negativos nas arestas \cite{}.
 
-Para o estudo desse tema foi elaborado uma revisão bibliográfica para o melhor entendimento de como os estudiosos da área abordam esse assunto. Em seguida, foi implementado na linguagem de programação JAVA  o algoritmo JPSO (Do inglês,\textit{Discrete Particle Swarm optimization}) \cite{} o qual é baseado na ideia do PSO (Do inglês, \textit{Particle Swarm Optimization})  referente a inteligência coletiva ou de enxame \cite{} que promove a solução para o problema da árvore geradora de rótulos mínimos. Este foi escolhido por ser fácil quanto a sua implementação.
-	
-	 Esta executou arquivos contidos na base de dados disponibilizada para este trabalho e o resultado deste processo está disposto em forma de tabela \cite{} na qual é comparada com o resultado da execução de outros algoritmos vistos na literatura \cite{}. 
+Um dos assuntos fundamentais da área de Teoria dos grafos é o problema da árvore geradora de rótulos mínimos (PAGRM). Este pode ser formalmente definido como: ``Dado um grafo rotulado não dirigido $G = (V,E,L) $ no qual $ V $ é o conjunto $ n$ de vértices, $E$ é o conjunto de $m$ arestas e $L$ é o conjunto de $l$ rótulos, encontrar uma árvore geradora $T$ de $G$ tal que $|L_{T}|$ é minimizado. Define-se  $|L_{T}|$ como o conjunto de diferentes rótulos das arestas em uma árvore geradora $T$."
 
-Desse modo, o objetivo deste trabalho consiste em mostrar como o problema de árvore geradora de rótulos mínimos é visto na literatura e explicar os dados relativos ao algoritmo implementado e compará-los com os resultados das execuções dos algoritmos presentes na literatura. Este trabalho está organizado da seguinte forma: 
-	 
+Esse problema é utilizado para representar situações presentes no mundo real, tais como redes de comunicação, elétrica, transporte e dentre outros. Sua compreensão e estudo é fundamental para a elaboração de soluções que visam reduzir custos e ampliar eficiência. Em outras palavras, o objetivo do estudo e aplicações de algoritmos para resolver o PAGRM é gerar - a partir de um grafo não dirigido - uma árvore que contenha o menor número possível de rótulos e ao mesmo tempo cobrindo todos os seus vértices.
 
+Este trabalho tem por finalidade analisar o conjunto de instâncias  -- o mesmo conjunto utilizado em \cite{} -- através da implementação (realizada na linguagem de programação JAVA) e execução do algoritmo DPSO (\textit{Discrete Particle Swarm Optimization}) \cite{}, e dessa forma estabelecer uma comparação entre os resultados obtidos desta aplicação e aqueles provindos das heurísticas apresentadas em \cite{}. 
+
+Tal comparação levou em consideração fatores como a complexidade dos grafos (número de vértices e rótulos) , valor médio da função objetivo e o tempo computacional. Dessa forma, os resultados são comparados da mesma forma como reportado em \cite{}.
+
+	O restante deste trabalho está organizado em seções da seguinte forma: Na seção \ref{sec2} é realizada uma revisão literária, na \ref{sec3} é apresentada a proposta de algoritmo exato para solução do PAGRM (no caso o DPSO), em \ref{sec4} os resultados da implementação são mostrados, em \ref{sec5} é explicitada uma comparação entre os resultados da literatura e os obtidos neste trabalho e por último são apresentadas as conclusões em \ref{sec6}.
 
 
-\section{The {\secit Body} of The Paper}
+
+\section{Revisão Literária} \label{sec2}
 Typically, the body of a paper is organized
 into a hierarchical structure, with numbered or unnumbered
 headings for sections, subsections, sub-subsections, and even
@@ -458,15 +457,15 @@ each of these is found in the \textit{Author's Guide}.
 
 \begin{figure}
 \centering
-\includegraphics{fly}
+%\includegraphics{fly}
 \caption{A sample black and white graphic.}
 \end{figure}
 
 \begin{figure}
 \centering
-\includegraphics[height=1in, width=1in]{fly}
-\caption{A sample black and white graphic
-that has been resized with the \texttt{includegraphics} command.}
+%\includegraphics[height=1in, width=1in]{fly}
+%\caption{A sample black and white graphic
+%that has been resized with the \texttt{includegraphics} command.}
 \end{figure}
 
 
@@ -479,7 +478,7 @@ and don't forget to end the environment with
 
 \begin{figure*}
 \centering
-\includegraphics{flies}
+%\includegraphics{flies}
 \caption{A sample black and white graphic
 that needs to span two columns of text.}
 \end{figure*}
@@ -487,7 +486,7 @@ that needs to span two columns of text.}
 
 \begin{figure}
 \centering
-\includegraphics[height=1in, width=1in]{rosette}
+%\includegraphics[height=1in, width=1in]{rosette}
 \caption{A sample black and white graphic that has
 been resized with the \texttt{includegraphics} command.}
 \vskip -6pt
@@ -570,7 +569,7 @@ to other forms -- e.g. HTML. If you inadvertently omit
 some or all of the \texttt{{\char'134}def}s recompilation will
 be, to say the least, problematic.
 
-\section{Conclusions}
+\section{Proposta de Algoritmo para solução do PAGRM -- O DPSO} \label{sec3}
 This paragraph will end the body of this sample document.
 Remember that you might still have Acknowledgments or
 Appendices; brief samples of these
@@ -580,6 +579,11 @@ of the reference to the \LaTeX\ book, the citations in
 this paper are to articles which have nothing to
 do with the present subject and are used as
 examples only.
+\section*{Resultado da execução - O Algoritmo e ua Ação sobre as Instâncias} \label{sec4}
+
+\section{Comparação de Resultados} \label{sec5}
+
+\section{Conclusão} \label{sec6}
 %\end{document}  % This is where a 'short' article might terminate
 
 %ACKNOWLEDGMENTS are optional
