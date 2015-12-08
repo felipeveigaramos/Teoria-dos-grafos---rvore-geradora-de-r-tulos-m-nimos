@@ -39,8 +39,19 @@ public class VerticeBuscaLargura extends Vertice {
         this.pai = pai;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Object#toString()
+     */
     @Override
     public String toString() {
-        return this.getId();
+        String s = this.getId() + "(";
+        if (getPai() != null) {
+            s += getPai().getId();
+        }
+        s += "):" + getDistancia();
+
+        return s;
     }
 }

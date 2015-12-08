@@ -1,6 +1,6 @@
 package br.edu.utfpr.cm.grafo;
 
-public class Vertice {
+public class Vertice implements Comparable<Vertice> {
     private String id;
 
     public Vertice() {
@@ -68,4 +68,10 @@ public class Vertice {
         }
         return true;
     }
+
+    @Override
+    public int compareTo(Vertice o) {
+        return this.id.compareTo(o.getId());
+    }
+
 }

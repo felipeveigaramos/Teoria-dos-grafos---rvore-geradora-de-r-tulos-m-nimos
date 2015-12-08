@@ -144,4 +144,13 @@ public class GrafoPonderadoListaAdjacencia implements GrafoPonderado<Vertice, Ar
             }
         }
     }
+
+    public ArestaPonderada<Vertice, Vertice> getAresta(Vertice u, Vertice v) {
+        if (this.grafo.containsKey(u)) {
+            if (this.grafo.get(u).containsKey(v)) {
+                return new ArestaPonderada<Vertice, Vertice>(u, v, this.grafo.get(u).get(v));
+            }
+        }
+        return null;
+    }
 }
