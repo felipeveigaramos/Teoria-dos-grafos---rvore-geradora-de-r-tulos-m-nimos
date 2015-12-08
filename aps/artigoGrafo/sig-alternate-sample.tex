@@ -47,6 +47,7 @@
 
 \documentclass{sig-alternate-05-2015}
 \usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel} 
 \usepackage{algpseudocode,algorithm}
 % Declaracoes em Português
 \algrenewcommand\algorithmicend{\textbf{fim}}
@@ -81,29 +82,17 @@
 %\setcopyright{cagovmixed}
 
 
-% DOI
-\doi{10.475/123_4}
-
-% ISBN
-\isbn{123-4567-24-567/08/06}
-
-%Conference
-\conferenceinfo{PLDI '13}{June 16--19, 2013, Seattle, WA, USA}
-
-\acmPrice{\$15.00}
-
 %
-% --- Author Metadata here ---
-\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
-%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
-%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+%\doi{10.475/123_4}
+
+%% ISBN
+
 % --- End of Author Metadata ---
 
-\title{Alternate {\ttlit ACM} SIG Proceedings Paper in LaTeX
-Format\titlenote{(Produces the permission block, and
-copyright information). For use with
+\title{Estudo do Problema de Árvores Geradoras de Rótulos Mínimos\titlenote{(Produces the permission block, and
+copyright information). For use 
 SIG-ALTERNATE.CLS. Supported by ACM.}}
-\subtitle{[Extended Abstract]
+\subtitle{[Implementação e análise de instâncias usando JPSO]
 \titlenote{A full version of this paper is available as
 \textit{Author's Guide to Preparing ACM SIG Proceedings Using
 \LaTeX$2_\epsilon$\ and BibTeX} at
@@ -133,7 +122,7 @@ SIG-ALTERNATE.CLS. Supported by ACM.}}
 % without further effort on your part as the last section in
 % the body of your article BEFORE References or any Appendices.
 
-\numberofauthors{8} %  in this sample file, there are a *total*
+\numberofauthors{2} %  in this sample file, there are a *total*
 % of EIGHT authors. SIX appear on the 'first-page' (for formatting
 % reasons) and the remaining two appear in the \additionalauthors section.
 %
@@ -150,82 +139,34 @@ SIG-ALTERNATE.CLS. Supported by ACM.}}
 %
 % 1st. author
 \alignauthor
-Ben Trovato\titlenote{Dr.~Trovato insisted his name be first.}\\
-       \affaddr{Institute for Clarity in Documentation}\\
-       \affaddr{1932 Wallamaloo Lane}\\
-       \affaddr{Wallamaloo, New Zealand}\\
-       \email{trovato@corporation.com}
+ Paulo Batista da Costa\\
+       \affaddr{Universidade Tecnológica Federal do Paraná}\\
+       \affaddr{2015 Campo Mourão}\\
+       \affaddr{Campo Mourão, Brasil}\\
+       \email{pauloc@alunos.utfpr.edu.br}
 % 2nd. author
 \alignauthor
-G.K.M. Tobin\titlenote{The secretary disavows
-any knowledge of this author's actions.}\\
-       \affaddr{Institute for Clarity in Documentation}\\
-       \affaddr{P.O. Box 1212}\\
-       \affaddr{Dublin, Ohio 43017-6221}\\
-       \email{webmaster@marysville-ohio.com}
-% 3rd. author
-\alignauthor Lars Th{\o}rv{\"a}ld\titlenote{This author is the
-one who did all the really hard work.}\\
-       \affaddr{The Th{\o}rv{\"a}ld Group}\\
-       \affaddr{1 Th{\o}rv{\"a}ld Circle}\\
-       \affaddr{Hekla, Iceland}\\
-       \email{larst@affiliation.org}
-\and  % use '\and' if you need 'another row' of author names
-% 4th. author
-\alignauthor Lawrence P. Leipuner\\
-       \affaddr{Brookhaven Laboratories}\\
-       \affaddr{Brookhaven National Lab}\\
-       \affaddr{P.O. Box 5000}\\
-       \email{lleipuner@researchlabs.org}
-% 5th. author
-\alignauthor Sean Fogarty\\
-       \affaddr{NASA Ames Research Center}\\
-       \affaddr{Moffett Field}\\
-       \affaddr{California 94035}\\
-       \email{fogartys@amesres.org}
-% 6th. author
-\alignauthor Charles Palmer\\
-       \affaddr{Palmer Research Laboratories}\\
-       \affaddr{8600 Datapoint Drive}\\
-       \affaddr{San Antonio, Texas 78229}\\
-       \email{cpalmer@prl.com}
+		Felipe Veiga Ramos\\
+       \affaddr{Universidade Tecnológica Federal do Paraná}\\
+       \affaddr{2015 Campo Mourão}\\
+       \affaddr{Peabiru, Brasil}\\
+       \email{fveigaramos@gmail.com}
 }
 % There's nothing stopping you putting the seventh, eighth, etc.
 % author on the opening page (as the 'third row') but we ask,
 % for aesthetic reasons that you place these 'additional authors'
 % in the \additional authors block, viz.
-\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
-email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
-(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
-\date{30 July 1999}
+%\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
+%email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
+%(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
+%\date{30 July 1999}
 % Just remember to make sure that the TOTAL number of authors
 % is the number that will appear on the first page PLUS the
 % number that will appear in the \additionalauthors section.
 
 \maketitle
 \begin{abstract}
-This paper provides a sample of a \LaTeX\ document which conforms,
-somewhat loosely, to the formatting guidelines for
-ACM SIG Proceedings. It is an {\em alternate} style which produces
-a {\em tighter-looking} paper and was designed in response to
-concerns expressed, by authors, over page-budgets.
-It complements the document \textit{Author's (Alternate) Guide to
-Preparing ACM SIG Proceedings Using \LaTeX$2_\epsilon$\ and Bib\TeX}.
-This source file has been written with the intention of being
-compiled under \LaTeX$2_\epsilon$\ and BibTeX.
-
-The developers have tried to include every imaginable sort
-of ``bells and whistles", such as a subtitle, footnotes on
-title, subtitle and authors, as well as in the text, and
-every optional component (e.g. Acknowledgments, Additional
-Authors, Appendices), not to mention examples of
-equations, theorems, tables and figures.
-
-To make best use of this sample document, run it through \LaTeX\
-and BibTeX, and compare this source code with the printed
-output produced by the dvi file. A compiled PDF version
-is available on the web page to help you with the
-`look and feel'.
+Um dos assuntos fundamentais da área da Teoria dos grafos são as árvores geradoras de rótulos mínimos. Elas tem por objetivo encontrar o menor número possível de rótulos de um grafo não dirigido em conexo que cubram todos os vértices possíveis. Os problemas de árvores geradoras de rótulos mínimos ou PAGRM são de grande importância para áreas que projetam redes de comunicação, elétrica, transporte e dentre outros. Desse modo, para estudar e ampliar os conhecimentos na área este trabalho foi proposto. Ele  consiste na implementação de um algoritmo -- no caso o JPSO -- e na sua comparação com demais algoritmos propostos pela literatura de acordo com uma base comum. Assim, este trabalho é uma oportunidade de compreender e estudar na prática conteúdos que envolvem teoria dos grafos.
 \end{abstract}
 
 
@@ -419,8 +360,28 @@ A aplicação do JPSO para PAGRM (que é um problema NP completo \cite{}) sobre 
 	\label{tab4}
 \end{table}
 \section{Comparação de Resultados} \label{sec5}
+Dentre as tarefas necessárias para a realização deste trabalho está a realização da comparação entre os algoritmos presentes em \cite{} e o escolhido para a realização de implementação. Em \cite{} os algoritmos discutidos e executados sobre a mesma base de dados utilizada neste trabalho são: EXACT, PILOT, MGA, GRASP e VNS. Assim, como os algoritmos são aplicados em uma base comum a deste trabalho, é possível estabelecer uma comparação plausível. 
 
+Tal comparação está divida em 3 grupos, baseados nas características de suas instâncias: grupo 1 é referente a instâncias pequenas que possuem número de vértices iguais ao número de rótulos, o grupo 2 considera instâncias maiores com o número de rótulos definidos por $0,25 * n$, onde $n$ é o número de vértices e os rótulos varia de 25 a 125. Por último, o grupo 3 são as maiores instâncias presentes na base, pois é composta por parâmetros como número de vértices igual a 200 e número de rótulos que variam de 50 a 250 como visto na tabela \ref{tab3} e número de vértices igual a 500 com número de rótulos variando de 125 a 625 como visto na tabela \ref{tab4}.
+\subsection{Comparações no grupo 1}
+No grupo 1 (120 instâncias), dentre os algoritmos apresentados em \cite{} os algoritmos MGA e PILOT são antagônicos: O segundo é mais rápido que o primeiro, entretanto provendo respostas piores. Enquanto isso, o segundo é mais demorado quanto a execução, mas gera soluções melhores. Por sua vez, GRASP e VNS são os mais rápidos e promovem a solução exata. Estes são excelente para essas instâncias. Comparando o JPSO implementado é perceptível que este é mais rápido que MGA (em função do tempo de execução) e mais lento que os demais. Além disso, o JPSO não promove a certeza de que a solução obtida é a exata (ótima). 
+
+O MGA é o mais lento por ser o que mais diversifica as possíveis soluções (no objetivo de encontrar a melhor), porém retornando uma resposta melhor que o PILOT que
+diversifica pouco, mas apresenta uma resposta pior. Assim, o JPSO é mais executa mais rápido do que o algoritmo mais lento apresentado em \cite{} , levando em considerações as instâncias do grupo 1 (cujas características podem ser vistas na tabela \ref{tab1}).
+
+
+
+\subsection{Comparações no grupo 2}
+	No grupo 2, instâncias com número de vértices igual a 100 (360 instâncias), a melhor performance é tida pelo algoritmo VNS. Isto, pois apresenta como solução a melhor resposta (exata) e no menor tempo dentre os algoritmos apresentados. GRASP por sua vez também pode ser enquadrado como um algoritmo bom e obtém a mesma solução que o VNS. Aqui PILOT apresenta o segundo maior tempo de execução, tendo respostas piores que os demais. MGA continua sendo aquele de maior tempo. Aqui é possível perceber que ao aumentar o número de instâncias, o PILOT passa a perder aquilo que ele tinha de vantagem em relação aos demais que é a rapidez de execução. O JPSO aqui implementado possui um tempo de maior e ainda não produz uma resposta com a garantia que seja a solução ótima. Portanto a melhor opção para resolver um PAGRM é o uso do VNS.
+
+\subsection{Comparações no grupo 3}
+Para instâncias maiores, como as que compõem o grupo 3 (referente à tabela \ref{tab3} e \ref{tab4}) as heurísticas referentes ao VNS e ao GRASP se mantiveram superiores nos quesitos qualidade da resposta e tempo de execução. O GRASP passa a ter menor tempo de execução em relação ao VNS quão maior for o PGRM em questão. Em relação ao JPSO, é perceptível através da tabela \ref{tab3} que em instâncias com o número de vértices igual a 200 possui um tempo de execução melhor apenas que o MGA. já em instâncias com o número de vértices igual a 500 (as maiores instâncias) é notável que ele apresenta o maior tempo de execução sem garantir o resultado ótimo.
+
+ 
 \section{Conclusão} \label{sec6}
+Em nosso trabalho implementamos o algoritmo JPSO para fim de execução da base de dados disponibilizada. Esta é a mesma aplicada em \cite{} e este fato permitiu que fossem comparados os resultados obtidos pela implementação aqui discutida e aqueles apresentados por demais soluções. O objetivos deste trabalho foi ampliar os conhecimentos a respeito do PAGRM que é o foco dos algoritmos apresentados. 
+
+Nota-se que para instâncias maiores os algoritmos VNS e GRASP são os mais compensativos, levando em consideração aspectos como tempo de execução e garantia de solução ótima. O JPSO implementado possui um baixo rendimento para resolver um JPSO quando comparado às duas melhores heurísticas, pois não garante a obtenção da solução exata e ainda tem um tempo de execução maior, sendo compensativo em alguns casos em relação ao MGA e ao PILOT.  Acredita-se que o motivo do execução do JPSO implementado está atrelado ao critério de parada do laço de repetição contido no algoritmo: A execução continuará até que a melhor solução global não se altere por até 100 iterações, assim a redução desse critério influencia no tempo de execução. Além disso, foi possível notar que dependendo do objetivo e das condições apresentadas em mundo real, uma solução rápida de ser executada pode gerar uma resposta que não compensa -- caso do PILOT em um conjunto de instâncias pequenas. Este trabalho foi fundamental para ampliar a visão a respeito do PAGRM e a forma como especialistas da área de grafos estudam heurísticas candidatas a serem boas alternativas de resolução.
 %\end{document}  % This is where a 'short' article might terminate
 
 .
@@ -440,7 +401,7 @@ A aplicação do JPSO para PAGRM (que é um problema NP completo \cite{}) sobre 
 %
 %APPENDICES are optional
 %\balancecolumns
-\appendix
+%\appendix
 %Appendix A
 
 
