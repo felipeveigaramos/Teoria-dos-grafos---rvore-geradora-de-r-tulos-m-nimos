@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.4)  6 DEC 2015 23:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.4)  8 DEC 2015 01:21
 entering extended mode
 **sig-alternate-sample.tex
 (sig-alternate-sample.tex
@@ -456,6 +456,25 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2015/08/03 3.9m The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\babel-portuges\portuges.ldf"
+Language: portuges 2008/03/18 v1.2q Portuguese support from the babel system
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2015/08/03 3.9m Babel common definitions
+\babel@savecnt=\count111
+\U@D=\dimen123
+)
+Package babel Info: Making " an active character on input line 145.
+))
 ("C:\Program Files\MiKTeX 2.9\tex\latex\algorithmicx\algpseudocode.sty"
 Package: algpseudocode 
 
@@ -466,15 +485,15 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count111
-\c@ALG@rem=\count112
-\c@ALG@nested=\count113
+\c@ALG@line=\count112
+\c@ALG@rem=\count113
+\c@ALG@nested=\count114
 \ALG@tlm=\skip44
 \ALG@thistlm=\skip45
-\c@ALG@Lnr=\count114
-\c@ALG@blocknr=\count115
-\c@ALG@storecount=\count116
-\c@ALG@tmpcounter=\count117
+\c@ALG@Lnr=\count115
+\c@ALG@blocknr=\count116
+\c@ALG@storecount=\count117
+\c@ALG@tmpcounter=\count118
 \ALG@tmplength=\skip46
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
@@ -484,174 +503,149 @@ nment
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count118
+\c@float@type=\count119
 \float@exts=\toks40
 \float@box=\box30
 \@float@everytoks=\toks41
 \@floatcapt=\box31
 )
 \@float@every@algorithm=\toks42
-\c@algorithm=\count119
+\c@algorithm=\count120
 )
 (sig-alternate-sample.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count120
-\scratchdimen=\dimen123
+\scratchcounter=\count121
+\scratchdimen=\dimen124
 \scratchbox=\box32
-\nofMPsegments=\count121
-\nofMParguments=\count122
+\nofMPsegments=\count122
+\nofMParguments=\count123
 \everyMPshowfont=\toks43
-\MPscratchCnt=\count123
-\MPscratchDim=\dimen124
-\MPnumerator=\count124
-\makeMPintoPDFobject=\count125
+\MPscratchCnt=\count124
+\MPscratchDim=\dimen125
+\MPnumerator=\count125
+\makeMPintoPDFobject=\count126
 \everyMPtoPDFconversion=\toks44
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 184.
+LaTeX Font Info:    Try loading font information for U+msa on input line 167.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 184.
+LaTeX Font Info:    Try loading font information for U+msb on input line 167.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 184.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 167.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Overfull \hbox (10.71048pt too wide) in paragraph at lines 184--184
- []\eaddfnt lleipuner@researchlabs.org| 
- []
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 167.
 
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 184.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 184.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 167.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <7> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 184.
-LaTeX Font Info:    Try loading font information for T1+aett on input line 185.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 167.
+LaTeX Font Info:    Try loading font information for T1+aett on input line 168.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-Overfull \hbox (1.0793pt too wide) in paragraph at lines 186--195
-\T1/aer/m/it/9 Prepar-ing ACM SIG Pro-ceed-ings Us-ing L[]T[]X$\OT1/cmr/m/n/9 2
-[]$ \T1/aer/m/it/9 and BibT[]X\T1/aer/m/n/9 .
- []
-
 Excluding 'CCSXML' comment.
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 254.
+LaTeX Font Info:    Try loading font information for OMS+aer on input line 216.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\omsaer.fd"
 File: omsaer.fd 1999/12/27
 )
 LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 254.
-
-Overfull \hbox (1.9338pt too wide) in paragraph at lines 263--264
-[]\T1/aer/m/n/9 Um dos as-sun-tos fun-da-men-tais da área de Teo-ria dos grafos
-
- []
-
-
-Overfull \hbox (8.33757pt too wide) in paragraph at lines 265--266
-\T1/aer/m/n/9 sentes no mundo real, tais como re-des de co-mu-ni-cação, elétric
-a,
- []
-
-[1{C:/Users/Paulo/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 216.
+ [1{C:/Users/Paulo/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
-Overfull \hbox (3.74239pt too wide) in paragraph at lines 271--272
-\T1/aer/m/n/9 na 3[] é ap-re-sen-tada a pro-posta de al-go-ritmo ex-ato para so
-lução
+Overfull \hbox (3.83191pt too wide) in paragraph at lines 252--253
+\T1/aer/m/n/9 gua-gem de pro-gra-ma-ção JAVA e está de acordo com o pseudo-
  []
+
+
+Overfull \hbox (1.76225pt too wide) in paragraph at lines 260--261
+[]\T1/aer/m/n/9 As ten-ta-ti-vas de mo-di-fi-ca-ções de cada par-tí-cu-las são 
+randô-
+ []
+
+
+Underfull \vbox (badness 1558) has occurred while \output is active []
+
+
+Overfull \hbox (2.87749pt too wide) in paragraph at lines 264--264
+[]\secfnt Resultado da exe-cu-ção - O Al-go-ritmo e sua Ação
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [2]
+Underfull \vbox (badness 5022) has occurred while \output is active []
 
-LaTeX Font Warning: Font shape `T1/aett/bx/n' undefined
-(Font)              using `T1/aett/m/n' instead on input line 491.
-
-\c@theorem=\count126
-\c@definition=\count127
-
-Overfull \hbox (15.60826pt too wide) detected at line 545
-\OML/cmm/m/it/9 l \OT1/cmr/m/n/9 = [] \OML/cmm/m/it/9 f\OT1/cmr/m/n/9 (\OML/cmm
-/m/it/9 x\OT1/cmr/m/n/9 ) = [] [] = [] \OML/cmm/m/it/9 g\OT1/cmr/m/n/9 (\OML/cm
-m/m/it/9 x\OT1/cmr/m/n/9 ) \OMS/cmsy/m/n/9  [] [] \OT1/cmr/m/n/9 = 0 \OMS/cmsy
-/m/n/9  \OML/cmm/m/it/9 L \OT1/cmr/m/n/9 = 0\OML/cmm/m/it/9 ;
- []
+ [3]
+Underfull \vbox (badness 2726) has occurred while \output is active []
 
 
-Overfull \hbox (39.25928pt too wide) in paragraph at lines 572--572
-[]\secfnt PROPOSTA DE AL-GO-RITMO PARA SOLUÇÃO
- []
-
-(sig-alternate-sample.bbl [3]
-Overfull \hbox (21.02989pt too wide) in paragraph at lines 1--1
-\T1/aer/m/n/9 (The Kumquat Con-sor-tium, email: \T1/aett/bx/n/9 jp-kumquat@cons
-ortium.net\T1/aer/m/n/9 ). 
- []
-
-) [4] (sig-alternate-sample.aux)
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
- ) 
+(sig-alternate-sample.bbl) [4] (sig-alternate-sample.aux) ) 
 Here is how much of TeX's memory you used:
- 3755 strings out of 493636
- 46061 string characters out of 3143756
- 121317 words of memory out of 3000000
- 7007 multiletter control sequences out of 15000+200000
- 69653 words of font info for 98 fonts, out of 3000000 for 9000
+ 4171 strings out of 493636
+ 51466 string characters out of 3143756
+ 142576 words of memory out of 3000000
+ 7419 multiletter control sequences out of 15000+200000
+ 61093 words of font info for 88 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 41i,12n,34p,566b,474s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cmextra/cmex9.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8
-.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/P
-rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmti9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmtt9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8
-a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvbo8a.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiK
-TeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utm
-r8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on sig-alternate-sample.pdf (4 pages, 271268 bytes).
+ 41i,10n,34p,1248b,477s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/Mi
+KTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/typ
+e1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
+/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmti9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmtt9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/urw/times/utmr8a.pfb>
+Output written on sig-alternate-sample.pdf (4 pages, 195871 bytes).
 PDF statistics:
- 100 PDF objects out of 1000 (max. 8388607)
+ 76 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

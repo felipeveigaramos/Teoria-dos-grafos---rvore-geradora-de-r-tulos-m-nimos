@@ -47,7 +47,29 @@
 
 \documentclass{sig-alternate-05-2015}
 \usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel} 
 \usepackage{algpseudocode,algorithm}
+% Declaracoes em Português
+\algrenewcommand\algorithmicend{\textbf{fim}}
+\algrenewcommand\algorithmicdo{\textbf{faça}}
+\algrenewcommand\algorithmicwhile{\textbf{enquanto}}
+\algrenewcommand\algorithmicfor{\textbf{para}}
+\algrenewcommand\algorithmicif{\textbf{se}}
+\algrenewcommand\algorithmicthen{\textbf{então}}
+\algrenewcommand\algorithmicelse{\textbf{senão}}
+\algrenewcommand\algorithmicreturn{\textbf{devolve}}
+\algrenewcommand\algorithmicfunction{\textbf{função}}
+
+% Rearranja os finais de cada estrutura
+\algrenewtext{EndWhile}{\algorithmicend\ \algorithmicwhile}
+\algrenewtext{EndFor}{\algorithmicend\ \algorithmicfor}
+\algrenewtext{EndIf}{\algorithmicend\ \algorithmicif}
+\algrenewtext{EndFunction}{\algorithmicend\ \algorithmicfunction}
+
+% O comando For, a seguir, retorna 'para #1 -- #2 até #3 faça'
+\algnewcommand\algorithmicto{\textbf{até}}
+\algrenewtext{For}[3]%
+{\algorithmicfor\ #1 $\gets$ #2 \algorithmicto\ #3 \algorithmicdo}
 \begin{document}
 
 % Copyright
@@ -60,29 +82,17 @@
 %\setcopyright{cagovmixed}
 
 
-% DOI
-\doi{10.475/123_4}
-
-% ISBN
-\isbn{123-4567-24-567/08/06}
-
-%Conference
-\conferenceinfo{PLDI '13}{June 16--19, 2013, Seattle, WA, USA}
-
-\acmPrice{\$15.00}
-
 %
-% --- Author Metadata here ---
-\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
-%\CopyrightYear{2007} % Allows default copyright year (20XX) to be over-ridden - IF NEED BE.
-%\crdata{0-12345-67-8/90/01}  % Allows default copyright data (0-89791-88-6/97/05) to be over-ridden - IF NEED BE.
+%\doi{10.475/123_4}
+
+%% ISBN
+
 % --- End of Author Metadata ---
 
-\title{Alternate {\ttlit ACM} SIG Proceedings Paper in LaTeX
-Format\titlenote{(Produces the permission block, and
-copyright information). For use with
+\title{Estudo do Problema de Árvores Geradoras de Rótulos Mínimos\titlenote{(Produces the permission block, and
+copyright information). For use 
 SIG-ALTERNATE.CLS. Supported by ACM.}}
-\subtitle{[Extended Abstract]
+\subtitle{[Implementação e análise de instâncias usando JPSO]
 \titlenote{A full version of this paper is available as
 \textit{Author's Guide to Preparing ACM SIG Proceedings Using
 \LaTeX$2_\epsilon$\ and BibTeX} at
@@ -112,7 +122,7 @@ SIG-ALTERNATE.CLS. Supported by ACM.}}
 % without further effort on your part as the last section in
 % the body of your article BEFORE References or any Appendices.
 
-\numberofauthors{8} %  in this sample file, there are a *total*
+\numberofauthors{2} %  in this sample file, there are a *total*
 % of EIGHT authors. SIX appear on the 'first-page' (for formatting
 % reasons) and the remaining two appear in the \additionalauthors section.
 %
@@ -129,82 +139,34 @@ SIG-ALTERNATE.CLS. Supported by ACM.}}
 %
 % 1st. author
 \alignauthor
-Ben Trovato\titlenote{Dr.~Trovato insisted his name be first.}\\
-       \affaddr{Institute for Clarity in Documentation}\\
-       \affaddr{1932 Wallamaloo Lane}\\
-       \affaddr{Wallamaloo, New Zealand}\\
-       \email{trovato@corporation.com}
+ Paulo Batista da Costa\\
+       \affaddr{Universidade Tecnológica Federal do Paraná}\\
+       \affaddr{2015 Campo Mourão}\\
+       \affaddr{Campo Mourão, Brasil}\\
+       \email{pauloc@alunos.utfpr.edu.br}
 % 2nd. author
 \alignauthor
-G.K.M. Tobin\titlenote{The secretary disavows
-any knowledge of this author's actions.}\\
-       \affaddr{Institute for Clarity in Documentation}\\
-       \affaddr{P.O. Box 1212}\\
-       \affaddr{Dublin, Ohio 43017-6221}\\
-       \email{webmaster@marysville-ohio.com}
-% 3rd. author
-\alignauthor Lars Th{\o}rv{\"a}ld\titlenote{This author is the
-one who did all the really hard work.}\\
-       \affaddr{The Th{\o}rv{\"a}ld Group}\\
-       \affaddr{1 Th{\o}rv{\"a}ld Circle}\\
-       \affaddr{Hekla, Iceland}\\
-       \email{larst@affiliation.org}
-\and  % use '\and' if you need 'another row' of author names
-% 4th. author
-\alignauthor Lawrence P. Leipuner\\
-       \affaddr{Brookhaven Laboratories}\\
-       \affaddr{Brookhaven National Lab}\\
-       \affaddr{P.O. Box 5000}\\
-       \email{lleipuner@researchlabs.org}
-% 5th. author
-\alignauthor Sean Fogarty\\
-       \affaddr{NASA Ames Research Center}\\
-       \affaddr{Moffett Field}\\
-       \affaddr{California 94035}\\
-       \email{fogartys@amesres.org}
-% 6th. author
-\alignauthor Charles Palmer\\
-       \affaddr{Palmer Research Laboratories}\\
-       \affaddr{8600 Datapoint Drive}\\
-       \affaddr{San Antonio, Texas 78229}\\
-       \email{cpalmer@prl.com}
+		Felipe Veiga Ramos\\
+       \affaddr{Universidade Tecnológica Federal do Paraná}\\
+       \affaddr{2015 Campo Mourão}\\
+       \affaddr{Peabiru, Brasil}\\
+       \email{fveigaramos@gmail.com}
 }
 % There's nothing stopping you putting the seventh, eighth, etc.
 % author on the opening page (as the 'third row') but we ask,
 % for aesthetic reasons that you place these 'additional authors'
 % in the \additional authors block, viz.
-\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
-email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
-(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
-\date{30 July 1999}
+%\additionalauthors{Additional authors: John Smith (The Th{\o}rv{\"a}ld Group,
+%email: {\texttt{jsmith@affiliation.org}}) and Julius P.~Kumquat
+%(The Kumquat Consortium, email: {\texttt{jpkumquat@consortium.net}}).}
+%\date{30 July 1999}
 % Just remember to make sure that the TOTAL number of authors
 % is the number that will appear on the first page PLUS the
 % number that will appear in the \additionalauthors section.
 
 \maketitle
 \begin{abstract}
-This paper provides a sample of a \LaTeX\ document which conforms,
-somewhat loosely, to the formatting guidelines for
-ACM SIG Proceedings. It is an {\em alternate} style which produces
-a {\em tighter-looking} paper and was designed in response to
-concerns expressed, by authors, over page-budgets.
-It complements the document \textit{Author's (Alternate) Guide to
-Preparing ACM SIG Proceedings Using \LaTeX$2_\epsilon$\ and Bib\TeX}.
-This source file has been written with the intention of being
-compiled under \LaTeX$2_\epsilon$\ and BibTeX.
-
-The developers have tried to include every imaginable sort
-of ``bells and whistles", such as a subtitle, footnotes on
-title, subtitle and authors, as well as in the text, and
-every optional component (e.g. Acknowledgments, Additional
-Authors, Appendices), not to mention examples of
-equations, theorems, tables and figures.
-
-To make best use of this sample document, run it through \LaTeX\
-and BibTeX, and compare this source code with the printed
-output produced by the dvi file. A compiled PDF version
-is available on the web page to help you with the
-`look and feel'.
+Um dos assuntos fundamentais da área da Teoria dos grafos são as árvores geradoras de rótulos mínimos. Elas tem por objetivo encontrar o menor número possível de rótulos de um grafo não dirigido em conexo que cubram todos os vértices possíveis. Os problemas de árvores geradoras de rótulos mínimos ou PAGRM são de grande importância para áreas que projetam redes de comunicação, elétrica, transporte e dentre outros. Desse modo, para estudar e ampliar os conhecimentos na área este trabalho foi proposto. Ele  consiste na implementação de um algoritmo -- no caso o JPSO -- e na sua comparação com demais algoritmos propostos pela literatura de acordo com uma base comum. Assim, este trabalho é uma oportunidade de compreender e estudar na prática conteúdos que envolvem teoria dos grafos.
 \end{abstract}
 
 
@@ -260,343 +222,172 @@ is available on the web page to help you with the
 
 \section{Introdução}
 
-Um dos assuntos fundamentais da área de Teoria dos grafos é o problema da árvore geradora de rótulos mínimos (PAGRM). Este pode ser formalmente definido como: ``Dado um grafo rotulado não dirigido $G = (V,E,L) $ no qual $ V $ é o conjunto $ n$ de vértices, $E$ é o conjunto de $m$ arestas e $L$ é o conjunto de $l$ rótulos, encontrar uma árvore geradora $T$ de $G$ tal que $|L_{T}|$ é minimizado. Define-se  $|L_{T}|$ como o conjunto de diferentes rótulos das arestas em uma árvore geradora $T$."
+Um dos assuntos fundamentais da área de Teoria dos grafos são as árvores geradoras de rótulos mínimos. Esta pode ser entendida como uma árvore geradora obtida através de um grafo conectado não direcionado \cite{}. Os Problemas das árvores geradoras de rótulos mínimos (PAGRM)  podem ser formalmente definidos como: ``Dado um grafo rotulado não dirigido $G = (V,E,L) $ no qual $ V $ é o conjunto $ n$ de vértices, $E$ é o conjunto de $m$ arestas e $L$ é o conjunto de $l$ rótulos, encontrar uma árvore geradora $T$ de $G$ tal que $|L_{T}|$ é minimizado. Define-se  $|L_{T}|$ como o conjunto de diferentes rótulos das arestas em uma árvore geradora $T$."
 
-Esse problema é utilizado para representar situações presentes no mundo real, tais como redes de comunicação, elétrica, transporte e dentre outros. Sua compreensão e estudo é fundamental para a elaboração de soluções que visam reduzir custos e ampliar eficiência. Em outras palavras, o objetivo do estudo e aplicações de algoritmos para resolver o PAGRM é gerar - a partir de um grafo não dirigido - uma árvore que contenha o menor número possível de rótulos e ao mesmo tempo cobrindo todos os seus vértices.
+Tal é utilizado para representar situações presentes no mundo real como redes de comunicação, elétrica, transporte e dentre outros. Sua compreensão e estudo é fundamental para a elaboração de soluções que visam reduzir custos e ampliar eficiência. Em outras palavras, o objetivo do estudo e aplicações de algoritmos para resolver o PAGRM é gerar - a partir de um grafo não dirigido - uma árvore que contenha o menor número possível de rótulos e ao mesmo tempo cobrindo todos os seus vértices.
 
-Este trabalho tem por finalidade analisar o conjunto de instâncias  -- o mesmo conjunto utilizado em \cite{} -- através da implementação (realizada na linguagem de programação JAVA) e execução do algoritmo DPSO (\textit{Discrete Particle Swarm Optimization}) \cite{}, e dessa forma estabelecer uma comparação entre os resultados obtidos desta aplicação e aqueles provindos das heurísticas apresentadas em \cite{}. 
+Este trabalho tem por finalidade analisar o conjunto de instâncias  -- o mesmo conjunto utilizado em \cite{} -- através da implementação (realizada na linguagem de programação JAVA) e execução do algoritmo JPSO (\textit{Jumping Particle Swarm Optimization}) \cite{}, e dessa forma estabelecer uma comparação entre os resultados obtidos desta aplicação e aqueles provindos das heurísticas apresentadas em \cite{}. 
 
 Tal comparação levou em consideração fatores como a complexidade dos grafos (número de vértices e rótulos) , valor médio da função objetivo e o tempo computacional. Dessa forma, os resultados são comparados da mesma forma como reportado em \cite{}.
 
-	O restante deste trabalho está organizado em seções da seguinte forma: Na seção \ref{sec2} é realizada uma revisão literária, na \ref{sec3} é apresentada a proposta de algoritmo exato para solução do PAGRM (no caso o DPSO), em \ref{sec4} os resultados da implementação são mostrados, em \ref{sec5} é explicitada uma comparação entre os resultados da literatura e os obtidos neste trabalho e por último são apresentadas as conclusões em \ref{sec6}.
+O restante deste trabalho está organizado em seções da seguinte forma: Na seção \ref{sec2} é realizada uma revisão literária, na \ref{sec3} é apresentada a proposta de algoritmo exato para solução do PAGRM (no caso o JPSO), em \ref{sec4} os resultados da implementação são mostrados, em \ref{sec5} é explicitada uma comparação entre os resultados da literatura e os obtidos neste trabalho e por último são apresentadas as conclusões em \ref{sec6}.
 
 
 
 \section{Revisão Literária} \label{sec2}
-Typically, the body of a paper is organized
-into a hierarchical structure, with numbered or unnumbered
-headings for sections, subsections, sub-subsections, and even
-smaller sections.  The command \texttt{{\char'134}section} that
-precedes this paragraph is part of such a
-hierarchy.\footnote{This is the second footnote.  It
-starts a series of three footnotes that add nothing
-informational, but just give an idea of how footnotes work
-and look. It is a wordy one, just so you see
-how a longish one plays out.} \LaTeX\ handles the numbering
-and placement of these headings for you, when you use
-the appropriate heading commands around the titles
-of the headings.  If you want a sub-subsection or
-smaller part to be unnumbered in your output, simply append an
-asterisk to the command name.  Examples of both
-numbered and unnumbered headings will appear throughout the
-balance of this sample document.
 
-Because the entire article is contained in
-the \textbf{document} environment, you can indicate the
-start of a new paragraph with a blank line in your
-input file; that is why this sentence forms a separate paragraph.
 
-\subsection{Type Changes and {\subsecit Special} Characters}
-We have already seen several typeface changes in this sample.  You
-can indicate italicized words or phrases in your text with
-the command \texttt{{\char'134}textit}; emboldening with the
-command \texttt{{\char'134}textbf}
-and typewriter-style (for instance, for computer code) with
-\texttt{{\char'134}texttt}.  But remember, you do not
-have to indicate typestyle changes when such changes are
-part of the \textit{structural} elements of your
-article; for instance, the heading of this subsection will
-be in a sans serif\footnote{A third footnote, here.
-Let's make this a rather short one to
-see how it looks.} typeface, but that is handled by the
-document class file. Take care with the use
-of\footnote{A fourth, and last, footnote.}
-the curly braces in typeface changes; they mark
-the beginning and end of
-the text that is to be in the different typeface.
+\section{Proposta de Algoritmo -- O JPSO} \label{sec3}
 
-You can use whatever symbols, accented characters, or
-non-English characters you need anywhere in your document;
-you can find a complete list of what is
-available in the \textit{\LaTeX\
-User's Guide}\cite{Lamport:LaTeX}.
+\subsection{Heurística - A ideia do JPSO}
 
-\subsection{Math Equations}
-You may want to display math equations in three distinct styles:
-inline, numbered or non-numbered display.  Each of
-the three are discussed in the next sections.
+O PSO (Do inglês \textit{Particle Swarm Optmization}) é um algoritmo que simula o comportamento de revoada de indivíduos na natureza. Cada solução do problema  é tido como um indivíduo que pode voar dentro do espaço de soluções. A melhoria das posições, ou seja, as melhores respostas são obtidas através da continua movimentação das partículas que constituem tal revoada. É um algoritmo proposto por \cite{} que utiliza o conceito de inteligência coletiva e é capaz de auxiliar na busca por respostas em problemas de PAGRM. Entretanto, esse algoritmo é formulado para resolver problemas contínuos, o que contradiz o uso para tal. Isto pois, um PAGRM constitui um cenário de resolução discreta.
 
-\subsubsection{Inline (In-text) Equations}
-A formula that appears in the running text is called an
-inline or in-text formula.  It is produced by the
-\textbf{math} environment, which can be
-invoked with the usual \texttt{{\char'134}begin. . .{\char'134}end}
-construction or with the short form \texttt{\$. . .\$}. You
-can use any of the symbols and structures,
-from $\alpha$ to $\omega$, available in
-\LaTeX\cite{Lamport:LaTeX}; this section will simply show a
-few examples of in-text equations in context. Notice how
-this equation: \begin{math}\lim_{n\rightarrow \infty}x=0\end{math},
-set here in in-line math style, looks slightly different when
-set in display style.  (See next section).
 
-\subsubsection{Display Equations}
-A numbered display equation -- one set off by vertical space
-from the text and centered horizontally -- is produced
-by the \textbf{equation} environment. An unnumbered display
-equation is produced by the \textbf{displaymath} environment.
+Portanto, para a utilização da ideia provinda do PSO  é necessário que o algoritmo foque problemas discretos. Assim, uma adaptação é utilizada: O JPSO (\textit{Jumping Particle Swarm Optimization}).
+O JPSO  é um DPSO (Do inglês,\textit{Discrete Particle Swarm Optimization}) \cite{} , ou seja, possui 
+a mesma essência da heurística aplicada pelo PSO com a diferença de ser voltado para problemas discretos. A ideia é que a cada iteração as possíveis resposta estejam mais próximas do que seria considerado como ótimo. 
 
-Again, in either environment, you can use any of the symbols
-and structures available in \LaTeX; this section will just
-give a couple of examples of display equations in context.
-First, consider the equation, shown as an inline equation above:
-\begin{equation}\lim_{n\rightarrow \infty}x=0\end{equation}
-Notice how it is formatted somewhat differently in
-the \textbf{displaymath}
-environment.  Now, we'll enter an unnumbered equation:
-\begin{displaymath}\sum_{i=0}^{\infty} x + 1\end{displaymath}
-and follow it with another numbered equation:
-\begin{equation}\sum_{i=0}^{\infty}x_i=\int_{0}^{\pi+2} f\end{equation}
-just to demonstrate \LaTeX's able handling of numbering.
+\subsection{Explicações da implementação do JPSO}
+A implementação para este trabalho está disposta na linguagem de programação JAVA  e está de acordo com o pseudo-código descrito em \cite{}. Assim, a entrada para o JPSO é um grafo não dirigido e conexo $G = (V,E,L)$, com $n$ vértices, 	$m$ arestas, $l$ rótulos e $Q \subseteq V$ nós. Além disto, tem como saída uma árvore geradora a qual objetiva ser mínima, ou seja, conter o menor número de rótulos possível e ao mesmo tempo cobrir todos os vértices do grafo. 
 
-\subsection{Citations}
-Citations to articles \cite{bowman:reasoning,
-clark:pct, braams:babel, herlihy:methodology},
-conference proceedings \cite{clark:pct} or
-books \cite{salas:calculus, Lamport:LaTeX} listed
-in the Bibliography section of your
-article will occur throughout the text of your article.
-You should use BibTeX to automatically produce this bibliography;
-you simply need to insert one of several citation commands with
-a key of the item cited in the proper location in
-the \texttt{.tex} file \cite{Lamport:LaTeX}.
-The key is a short reference you invent to uniquely
-identify each work; in this sample document, the key is
-the first author's surname and a
-word from the title.  This identifying key is included
-with each item in the \texttt{.bib} file for your article.
+Inicialmente foram carregadas as instâncias presentes nos arquivos disponibilizados em ambiente virtual referente aos grafos sobre os quais a análise foi aplicada e que são as  mesmas utilizadas por \cite{}. Estas foram carregadas em estruturas as quais retornam um grafo não dirigido e conexo provindo da base de dados. 
+	
+Em seguida, a partir de cada grafo abstraído da base de dados foram geradas 100 partículas. Estas partículas são a representação das possíveis soluções e são inicialmente formadas de forma randômica: Para cada partícula é induzido um grafo aleatoriamente a partir dos rótulos do grafo original.
 
-The details of the construction of the \texttt{.bib} file
-are beyond the scope of this sample document, but more
-information can be found in the \textit{Author's Guide},
-and exhaustive details in the \textit{\LaTeX\ User's
-Guide}\cite{Lamport:LaTeX}.
+A partir desse momento iniciam-se as iterações que buscam a melhor resposta, elas são caracterizadas pelos seguintes passos: 1. atualiza-se a melhor resposta (componente conexa com menor número de rótulos) para cada partícula , 2. atualiza-se a melhor resposta global já obtida, 3. Para cada partícula há a tentativa de reduzir o número de rótulos mantendo as propriedades necessárias, 4. tentativa de combinar duas soluções gerando um grafo com menor número de rótulos.
 
-This article shows only the plainest form
-of the citation command, using \texttt{{\char'134}cite}.
-This is what is stipulated in the SIGS style specifications.
-No other citation format is endorsed or supported.
+As tentativas de modificações de cada partículas são randômicas. Além disso é importante ressaltar que a cada iteração as respostas possíveis nunca apresentarão maior número de rótulos do que na iteração anterior, pois toda vez que ocorrer aumento no número de rótulos há o descarte da solução mantendo a anterior. Outro ponto importante é o critério de parada para o algoritmo:É finalizado a partir do momento em que se completam 100 iterações sem modificação no melhor resultado global.
 
-\subsection{Tables}
-Because tables cannot be split across pages, the best
-placement for them is typically the top of the page
-nearest their initial cite.  To
-ensure this proper ``floating'' placement of tables, use the
-environment \textbf{table} to enclose the table's contents and
-the table caption.  The contents of the table itself must go
-in the \textbf{tabular} environment, to
-be aligned properly in rows and columns, with the desired
-horizontal and vertical rules.  Again, detailed instructions
-on \textbf{tabular} material
-is found in the \textit{\LaTeX\ User's Guide}.
+Assim, o JPSO deve retornar a melhor resposta obtida durante sua execução. Apesar de garantir o retorno da melhor solução, não garante que esta seja a solução ótima. Em outras palavras, não retorna necessariamente a arvore com menor rótulos possível de ser formada. Isto devido ao fato de basear-se na aleatoriedade inicial das soluções, o que também implica que execuções distintas sobre a mesma base de dados retorne uma soluções diferentes.
 
-Immediately following this sentence is the point at which
-Table 1 is included in the input file; compare the
-placement of the table here with the table in the printed
-dvi output of this document.
+\section*{Resultado da execução - O Algoritmo e sua Ação sobre as Instâncias} \label{sec4}
+A aplicação do JPSO para PAGRM (que é um problema NP completo \cite{}) sobre a base disponibilizada gerou dados de saída que foram organizados em um arquivo texto em formato \textit{txt}. Eles podem ser verificados de forma organizada nas tabelas a seguir em \ref{tab1}, \ref{tab2}, \ref{tab3} e \ref{tab4} e posteriormente são comparados aos resultados dos algoritmos exibidos em \cite{}, estes sobre a mesma base de dados. 
+\begin{table}[!h]
+	
 
-\begin{table}
-\centering
-\caption{Frequency of Special Characters}
-\begin{tabular}{|c|c|l|} \hline
-Non-English or Math&Frequency&Comments\\ \hline
-\O & 1 in 1,000& For Swedish names\\ \hline
-$\pi$ & 1 in 5& Common in math\\ \hline
-\$ & 4 in 5 & Used in business\\ \hline
-$\Psi^2_1$ & 1 in 40,000& Unexplained usage\\
-\hline\end{tabular}
+\begin{tabular}{ccccc}
+
+	\hline \rule[-2ex]{0pt}{5.5ex} N & L & D & F. Objetiva & Tempo (ms) \\ 
+	\hline \rule[-2ex]{0pt}{5.5ex} 20 & 20 & 0.8 & 2.4 & 1002 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 3.1 & 1543 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 6.8 & 2156 \\ 
+	 \rule[-2ex]{0pt}{5.5ex} 30 & 30 & 0.8 & 2.8 & 1890 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 3.7 & 4291 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 7.5 & 6191 \\ 
+	 \rule[-2ex]{0pt}{5.5ex} 40 & 40 & 0.8 & 2.9 & 3021 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 3.7 & 8018 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 7.7 & 14583 \\ 
+	 \rule[-2ex]{0pt}{5.5ex} 50 & 50 & 0.8 & 3.0 & 6729 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 4.5 & 15001 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 8.8 & 3113 \\ 
+	\hline \rule[-2ex]{0pt}{5.5ex}  &  & Total & 56.9 & 67538 \\ 
+	\hline 
+\end{tabular} 
+
+\caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra o tempo de execução de cada}
+\label{tab1}
+\end{table}
+\begin{table}[!h]
+
+
+\begin{tabular}{ccccc}
+	\hline \rule[-2ex]{0pt}{5.5ex} N & L & D & F. Objetiva & Tempo (ms) \\ 
+	 \hline\rule[-2ex]{0pt}{5.5ex} 100 & 25 & 0.8 & 1.8 & 11440 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 2.0 & 16664 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 4.6 & 46836 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  & 50 & 0.8 & 2.0 & 31146 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 3.0 & 34667 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 6.9 & 107502 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  & 100 & 0.8 & 3.8 & 37138 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 5.3 & 96218 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 11.3 & 192166 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  & 125 & 0.8 & 4.1 & 60090 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 6.2 & 113139 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 13.1 & 239019 \\ 
+	 \hline\rule[-2ex]{0pt}{5.5ex}  & Total -- &  & 64.1 & 986025 \\ 
+	\hline 
+\end{tabular} 
+\caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra o tempo de execução de cada}
+\label{tab2}
 \end{table}
 
-To set a wider table, which takes up the whole width of
-the page's live area, use the environment
-\textbf{table*} to enclose the table's contents and
-the table caption.  As with a single-column table, this wide
-table will ``float" to a location deemed more desirable.
-Immediately following this sentence is the point at which
-Table 2 is included in the input file; again, it is
-instructive to compare the placement of the
-table here with the table in the printed dvi
-output of this document.
 
 
-\begin{table*}
-\centering
-\caption{Some Typical Commands}
-\begin{tabular}{|c|c|l|} \hline
-Command&A Number&Comments\\ \hline
-\texttt{{\char'134}alignauthor} & 100& Author alignment\\ \hline
-\texttt{{\char'134}numberofauthors}& 200& Author enumeration\\ \hline
-\texttt{{\char'134}table}& 300 & For tables\\ \hline
-\texttt{{\char'134}table*}& 400& For wider tables\\ \hline\end{tabular}
-\end{table*}
-% end the environment with {table*}, NOTE not {table}!
-
-\subsection{Figures}
-Like tables, figures cannot be split across pages; the
-best placement for them
-is typically the top or the bottom of the page nearest
-their initial cite.  To ensure this proper ``floating'' placement
-of figures, use the environment
-\textbf{figure} to enclose the figure and its caption.
-
-This sample document contains examples of \textbf{.eps} files to be
-displayable with \LaTeX.  If you work with pdf\LaTeX, use files in the
-\textbf{.pdf} format.  Note that most modern \TeX\ system will convert
-\textbf{.eps} to \textbf{.pdf} for you on the fly.  More details on
-each of these is found in the \textit{Author's Guide}.
-
-\begin{figure}
-\centering
-%\includegraphics{fly}
-\caption{A sample black and white graphic.}
-\end{figure}
-
-\begin{figure}
-\centering
-%\includegraphics[height=1in, width=1in]{fly}
-%\caption{A sample black and white graphic
-%that has been resized with the \texttt{includegraphics} command.}
-\end{figure}
+\begin{table}[!h]
 
 
-As was the case with tables, you may want a figure
-that spans two columns.  To do this, and still to
-ensure proper ``floating'' placement of tables, use the environment
-\textbf{figure*} to enclose the figure and its caption.
-and don't forget to end the environment with
-{figure*}, not {figure}!
+\begin{tabular}{ccccc}
+	\hline \rule[-2ex]{0pt}{5.5ex} N & L & D  & F. Objetiva & Tempo (ms) \\ 
+	\hline \rule[-2ex]{0pt}{5.5ex} 200 & 50 & 0.8 & 2.0 & 53185 \\ 
+	\rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 2.3 & 130555 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 5.7 & 306403 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  & 100 & 0.8 & 2.9 & 99256 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 4.1 & 157123 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 9.4 & 574387 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  & 200 & 0.8 & 4.6 & 254051 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 6.8 & 655515 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 15.3 & 1184675 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  & 250 & 0.8 & 5.1 & 566244 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 8.0 & 933404 \\ 
+	 \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 17.9 & 1441719 \\ 
+	\hline \rule[-2ex]{0pt}{5.5ex}  &  & Total --  & 84.1 & 6856514 \\ 
+	\hline 
+\end{tabular} 
+\caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra o tempo de execução de cada}
+\label{tab3}
+\end{table}
 
-\begin{figure*}
-\centering
-%\includegraphics{flies}
-\caption{A sample black and white graphic
-that needs to span two columns of text.}
-\end{figure*}
-
-
-\begin{figure}
-\centering
-%\includegraphics[height=1in, width=1in]{rosette}
-\caption{A sample black and white graphic that has
-been resized with the \texttt{includegraphics} command.}
-\vskip -6pt
-\end{figure}
-
-\subsection{Theorem-like Constructs}
-Other common constructs that may occur in your article are
-the forms for logical constructs like theorems, axioms,
-corollaries and proofs.  There are
-two forms, one produced by the
-command \texttt{{\char'134}newtheorem} and the
-other by the command \texttt{{\char'134}newdef}; perhaps
-the clearest and easiest way to distinguish them is
-to compare the two in the output of this sample document:
-
-This uses the \textbf{theorem} environment, created by
-the\linebreak\texttt{{\char'134}newtheorem} command:
-\newtheorem{theorem}{Theorem}
-\begin{theorem}
-Let $f$ be continuous on $[a,b]$.  If $G$ is
-an antiderivative for $f$ on $[a,b]$, then
-\begin{displaymath}\int^b_af(t)dt = G(b) - G(a).\end{displaymath}
-\end{theorem}
-
-The other uses the \textbf{definition} environment, created
-by the \texttt{{\char'134}newdef} command:
-\newdef{definition}{Definition}
-\begin{definition}
-If $z$ is irrational, then by $e^z$ we mean the
-unique number which has
-logarithm $z$: \begin{displaymath}{\log e^z = z}\end{displaymath}
-\end{definition}
-
-Two lists of constructs that use one of these
-forms is given in the
-\textit{Author's  Guidelines}.
- 
-There is one other similar construct environment, which is
-already set up
-for you; i.e. you must \textit{not} use
-a \texttt{{\char'134}newdef} command to
-create it: the \textbf{proof} environment.  Here
-is a example of its use:
-\begin{proof}
-Suppose on the contrary there exists a real number $L$ such that
-\begin{displaymath}
-\lim_{x\rightarrow\infty} \frac{f(x)}{g(x)} = L.
-\end{displaymath}
-Then
-\begin{displaymath}
-l=\lim_{x\rightarrow c} f(x)
-= \lim_{x\rightarrow c}
-\left[ g{x} \cdot \frac{f(x)}{g(x)} \right ]
-= \lim_{x\rightarrow c} g(x) \cdot \lim_{x\rightarrow c}
-\frac{f(x)}{g(x)} = 0\cdot L = 0,
-\end{displaymath}
-which contradicts our assumption that $l\neq 0$.
-\end{proof}
-
-Complete rules about using these environments and using the
-two different creation commands are in the
-\textit{Author's Guide}; please consult it for more
-detailed instructions.  If you need to use another construct,
-not listed therein, which you want to have the same
-formatting as the Theorem
-or the Definition\cite{salas:calculus} shown above,
-use the \texttt{{\char'134}newtheorem} or the
-\texttt{{\char'134}newdef} command,
-respectively, to create it.
-
-\subsection*{A {\secit Caveat} for the \TeX\ Expert}
-Because you have just been given permission to
-use the \texttt{{\char'134}newdef} command to create a
-new form, you might think you can
-use \TeX's \texttt{{\char'134}def} to create a
-new command: \textit{Please refrain from doing this!}
-Remember that your \LaTeX\ source code is primarily intended
-to create camera-ready copy, but may be converted
-to other forms -- e.g. HTML. If you inadvertently omit
-some or all of the \texttt{{\char'134}def}s recompilation will
-be, to say the least, problematic.
-
-\section{Proposta de Algoritmo para solução do PAGRM -- O DPSO} \label{sec3}
-This paragraph will end the body of this sample document.
-Remember that you might still have Acknowledgments or
-Appendices; brief samples of these
-follow.  There is still the Bibliography to deal with; and
-we will make a disclaimer about that here: with the exception
-of the reference to the \LaTeX\ book, the citations in
-this paper are to articles which have nothing to
-do with the present subject and are used as
-examples only.
-\section*{Resultado da execução - O Algoritmo e ua Ação sobre as Instâncias} \label{sec4}
-
+\begin{table}[!h]
+	\begin{tabular}{ccccc}
+		\hline \rule[-2ex]{0pt}{5.5ex} N & L & D  & F. Objetiva & Tempo (ms) \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex} 500 & 125 & 0.8 & 2.0 & 580854 \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 3.1 & 1535064 \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 7.3 & 4508425 \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  & 250 & 0.8 & 3.1 & 2351650 \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 4.9 & 6289072 \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 12.9 & 9052493 \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  & 500 & 0.8 & 5.8 & 6751334 \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 8.7 & 16560601 \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 21.3 & 16661087 \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  & 625 & 0.8 & 6.7 & 18957465 \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 10.5 & 17878234 \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 25.4 & 18310678 \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & Total -- &  &  \\ 
+		\hline 
+	\end{tabular}  
+	\caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra o tempo de execução de cada}
+	\label{tab4}
+\end{table}
 \section{Comparação de Resultados} \label{sec5}
+Dentre as tarefas necessárias para a realização deste trabalho está a realização da comparação entre os algoritmos presentes em \cite{} e o escolhido para a realização de implementação. Em \cite{} os algoritmos discutidos e executados sobre a mesma base de dados utilizada neste trabalho são: EXACT, PILOT, MGA, GRASP e VNS. Assim, como os algoritmos são aplicados em uma base comum a deste trabalho, é possível estabelecer uma comparação plausível. 
 
+Tal comparação está divida em 3 grupos, baseados nas características de suas instâncias: grupo 1 é referente a instâncias pequenas que possuem número de vértices iguais ao número de rótulos, o grupo 2 considera instâncias maiores com o número de rótulos definidos por $0,25 * n$, onde $n$ é o número de vértices e os rótulos varia de 25 a 125. Por último, o grupo 3 são as maiores instâncias presentes na base, pois é composta por parâmetros como número de vértices igual a 200 e número de rótulos que variam de 50 a 250 como visto na tabela \ref{tab3} e número de vértices igual a 500 com número de rótulos variando de 125 a 625 como visto na tabela \ref{tab4}.
+\subsection{Comparações no grupo 1}
+No grupo 1 (120 instâncias), dentre os algoritmos apresentados em \cite{} os algoritmos MGA e PILOT são antagônicos: O segundo é mais rápido que o primeiro, entretanto provendo respostas piores. Enquanto isso, o segundo é mais demorado quanto a execução, mas gera soluções melhores. Por sua vez, GRASP e VNS são os mais rápidos e promovem a solução exata. Estes são excelente para essas instâncias. Comparando o JPSO implementado é perceptível que este é mais rápido que MGA (em função do tempo de execução) e mais lento que os demais. Além disso, o JPSO não promove a certeza de que a solução obtida é a exata (ótima). 
+
+O MGA é o mais lento por ser o que mais diversifica as possíveis soluções (no objetivo de encontrar a melhor), porém retornando uma resposta melhor que o PILOT que
+diversifica pouco, mas apresenta uma resposta pior. Assim, o JPSO é mais executa mais rápido do que o algoritmo mais lento apresentado em \cite{} , levando em considerações as instâncias do grupo 1 (cujas características podem ser vistas na tabela \ref{tab1}).
+
+
+
+\subsection{Comparações no grupo 2}
+	No grupo 2, instâncias com número de vértices igual a 100 (360 instâncias), a melhor performance é tida pelo algoritmo VNS. Isto, pois apresenta como solução a melhor resposta (exata) e no menor tempo dentre os algoritmos apresentados. GRASP por sua vez também pode ser enquadrado como um algoritmo bom e obtém a mesma solução que o VNS. Aqui PILOT apresenta o segundo maior tempo de execução, tendo respostas piores que os demais. MGA continua sendo aquele de maior tempo. Aqui é possível perceber que ao aumentar o número de instâncias, o PILOT passa a perder aquilo que ele tinha de vantagem em relação aos demais que é a rapidez de execução. O JPSO aqui implementado possui um tempo de maior e ainda não produz uma resposta com a garantia que seja a solução ótima. Portanto a melhor opção para resolver um PAGRM é o uso do VNS.
+
+\subsection{Comparações no grupo 3}
+Para instâncias maiores, como as que compõem o grupo 3 (referente à tabela \ref{tab3} e \ref{tab4}) as heurísticas referentes ao VNS e ao GRASP se mantiveram superiores nos quesitos qualidade da resposta e tempo de execução. O GRASP passa a ter menor tempo de execução em relação ao VNS quão maior for o PGRM em questão. Em relação ao JPSO, é perceptível através da tabela \ref{tab3} que em instâncias com o número de vértices igual a 200 possui um tempo de execução melhor apenas que o MGA. já em instâncias com o número de vértices igual a 500 (as maiores instâncias) é notável que ele apresenta o maior tempo de execução sem garantir o resultado ótimo.
+
+ 
 \section{Conclusão} \label{sec6}
+Em nosso trabalho implementamos o algoritmo JPSO para fim de execução da base de dados disponibilizada. Esta é a mesma aplicada em \cite{} e este fato permitiu que fossem comparados os resultados obtidos pela implementação aqui discutida e aqueles apresentados por demais soluções. O objetivos deste trabalho foi ampliar os conhecimentos a respeito do PAGRM que é o foco dos algoritmos apresentados. 
+
+Nota-se que para instâncias maiores os algoritmos VNS e GRASP são os mais compensativos, levando em consideração aspectos como tempo de execução e garantia de solução ótima. O JPSO implementado possui um baixo rendimento para resolver um JPSO quando comparado às duas melhores heurísticas, pois não garante a obtenção da solução exata e ainda tem um tempo de execução maior, sendo compensativo em alguns casos em relação ao MGA e ao PILOT.  Acredita-se que o motivo do execução do JPSO implementado está atrelado ao critério de parada do laço de repetição contido no algoritmo: A execução continuará até que a melhor solução global não se altere por até 100 iterações, assim a redução desse critério influencia no tempo de execução. Além disso, foi possível notar que dependendo do objetivo e das condições apresentadas em mundo real, uma solução rápida de ser executada pode gerar uma resposta que não compensa -- caso do PILOT em um conjunto de instâncias pequenas. Este trabalho foi fundamental para ampliar a visão a respeito do PAGRM e a forma como especialistas da área de grafos estudam heurísticas candidatas a serem boas alternativas de resolução.
 %\end{document}  % This is where a 'short' article might terminate
 
-%ACKNOWLEDGMENTS are optional
-\section{Acknowledgments}
-This section is optional; it is a location for you
-to acknowledge grants, funding, editing assistance and
-what have you.  In the present case, for example, the
-authors would like to thank Gerald Murray of ACM for
-his help in codifying this \textit{Author's Guide}
-and the \textbf{.cls} and \textbf{.tex} files that it describes.
+.
 
 %
-% The following two commands are all you need in the
+% The following two commands are all you need in thee
 % initial runs of your .tex file to
 % produce the bibliography for the citations in your paper.
 \bibliographystyle{abbrv}
@@ -610,51 +401,8 @@ and the \textbf{.cls} and \textbf{.tex} files that it describes.
 %
 %APPENDICES are optional
 %\balancecolumns
-\appendix
+%\appendix
 %Appendix A
-\section{Headings in Appendices}
-The rules about hierarchical headings discussed above for
-the body of the article are different in the appendices.
-In the \textbf{appendix} environment, the command
-\textbf{section} is used to
-indicate the start of each Appendix, with alphabetic order
-designation (i.e. the first is A, the second B, etc.) and
-a title (if you include one).  So, if you need
-hierarchical structure
-\textit{within} an Appendix, start with \textbf{subsection} as the
-highest level. Here is an outline of the body of this
-document in Appendix-appropriate form:
-\subsection{Introduction}
-\subsection{The Body of the Paper}
-\subsubsection{Type Changes and  Special Characters}
-\subsubsection{Math Equations}
-\paragraph{Inline (In-text) Equations}
-\paragraph{Display Equations}
-\subsubsection{Citations}
-\subsubsection{Tables}
-\subsubsection{Figures}
-\subsubsection{Theorem-like Constructs}
-\subsubsection*{A Caveat for the \TeX\ Expert}
-\subsection{Conclusions}
-\subsection{Acknowledgments}
-\subsection{Additional Authors}
-This section is inserted by \LaTeX; you do not insert it.
-You just add the names and information in the
-\texttt{{\char'134}additionalauthors} command at the start
-of the document.
-\subsection{References}
-Generated by bibtex from your ~.bib file.  Run latex,
-then bibtex, then latex twice (to resolve references)
-to create the ~.bbl file.  Insert that ~.bbl file into
-the .tex source file and comment out
-the command \texttt{{\char'134}thebibliography}.
-% This next section command marks the start of
-% Appendix B, and does not continue the present hierarchy
-\section{More Help for the Hardy}
-The sig-alternate.cls file itself is chock-full of succinct
-and helpful comments.  If you consider yourself a moderately
-experienced to expert user of \LaTeX, you may find reading
-it useful but please remember not to change it.
-%\balancecolumns % GM June 2007
-% That's all folks!
+
+
 \end{document}
