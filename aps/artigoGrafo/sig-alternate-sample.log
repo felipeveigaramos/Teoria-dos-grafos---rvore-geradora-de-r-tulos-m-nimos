@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.4)  8 DEC 2015 11:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.4)  8 DEC 2015 11:55
 entering extended mode
 **sig-alternate-sample.tex
 (sig-alternate-sample.tex
@@ -605,14 +605,14 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[2] [3] (sig-alternate-sample.bbl) [4] [5
+[2] [3] (sig-alternate-sample.bbl [4]) [5
 
 ] (sig-alternate-sample.aux) ) 
 Here is how much of TeX's memory you used:
- 4157 strings out of 493636
- 51310 string characters out of 3143756
- 145612 words of memory out of 3000000
- 7411 multiletter control sequences out of 15000+200000
+ 4158 strings out of 493636
+ 51328 string characters out of 3143756
+ 145617 words of memory out of 3000000
+ 7412 multiletter control sequences out of 15000+200000
  58940 words of font info for 85 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  41i,10n,34p,1248b,477s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -630,7 +630,7 @@ C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Fil
 es/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/t
 imes/utmr8a.pfb>
-Output written on sig-alternate-sample.pdf (5 pages, 193384 bytes).
+Output written on sig-alternate-sample.pdf (5 pages, 193750 bytes).
 PDF statistics:
  75 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

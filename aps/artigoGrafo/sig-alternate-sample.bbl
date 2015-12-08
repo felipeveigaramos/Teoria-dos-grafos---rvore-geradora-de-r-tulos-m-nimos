@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{cerulli2005metaheuristics}
 R.~Cerulli, A.~Fink, M.~Gentili, and S.~Vo{\ss}.
@@ -6,6 +6,11 @@ R.~Cerulli, A.~Fink, M.~Gentili, and S.~Vo{\ss}.
   problem.
 \newblock In {\em The Next Wave in Computing, Optimization, and Decision
   Technologies}, pages 93--106. Springer, 2005.
+
+\bibitem{chang1997minimum}
+R.-S. Chang and L.~Shing-Jiuan.
+\newblock The minimum labeling spanning trees.
+\newblock {\em Information Processing Letters}, 63(5):277--282, 1997.
 
 \bibitem{consoli2009greedy}
 S.~Consoli, K.~Darby-Dowman, N.~Mladenovi{\'c}, and J.~M. P{\'e}rez.
