@@ -1,11 +1,7 @@
 package br.edu.utfpr.cm.ledor;
 
-import java.util.Iterator;
-
 import br.edu.utfpr.cm.algoritmo.Dijkstra;
 import br.edu.utfpr.cm.algoritmo.entidades.VerticeBuscaLargura;
-import br.edu.utfpr.cm.factory.GrafoFactory;
-import br.edu.utfpr.cm.factory.Representacao;
 import br.edu.utfpr.cm.grafo.ArestaPonderada;
 import br.edu.utfpr.cm.grafo.GrafoPonderado;
 
@@ -20,9 +16,9 @@ public class TesteLedorDadosTrabalho {
         dijkstra.executar();
         System.out.println(dijkstra.getTempoFinalizacao() + " ms");
 
-        Iterator<VerticeBuscaLargura> vertices = grafo.getVertices();
-        while (vertices.hasNext()) {
-            System.out.println(vertices.next());
-        }
+        /*
+         * Iterator<VerticeBuscaLargura> vertices = grafo.getVertices(); while
+         * (vertices.hasNext()) { System.out.println(vertices.next()); }
+         */
     }
 }

@@ -2,7 +2,7 @@ package br.edu.utfpr.cm.algoritmo.entidades;
 
 import br.edu.utfpr.cm.grafo.Vertice;
 
-public class VerticeBuscaLargura extends Vertice {
+public class VerticeBuscaLargura extends Vertice implements Comparable<VerticeBuscaLargura> {
     private CorVertice cor = new CorVertice(Cor.Branco);
     private int distancia = (int) Float.POSITIVE_INFINITY;
     private VerticeBuscaLargura pai = null;
@@ -53,5 +53,10 @@ public class VerticeBuscaLargura extends Vertice {
         s += "):" + getDistancia();
 
         return s;
+    }
+
+    @Override
+    public int compareTo(VerticeBuscaLargura arg0) {
+return Integer.compare(getDistancia(), arg0.getDistancia());
     }
 }

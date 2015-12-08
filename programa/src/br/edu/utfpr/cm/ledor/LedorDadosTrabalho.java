@@ -23,15 +23,18 @@ public class LedorDadosTrabalho {
         try {
             reader = new FileReader(new File(fileName));
             buffer = new BufferedReader(reader);
-            System.out.println("Arquivo pronto: " + buffer.ready());
 
             grafo = (GrafoPonderado<VerticeBuscaLargura, ArestaPonderada<VerticeBuscaLargura, VerticeBuscaLargura>>) GrafoFactory
                     .constroiGrafo(Representacao.PONDERADO_LISTA_ADJACENCIA);
             String linha = buffer.readLine();
 
             int i = 0;
-            while (linha != "" && i <=1000) {
-                System.out.println(++i + ": " + linha);
+            int j = 2000000;
+            while (linha != "" && i <=j) {
+                i++;
+                if (i % (j/100) == 0) {
+                System.out.println("#: " + i);
+                }
                 if (linha.charAt(0) == '#') {
                     linha = buffer.readLine();
                     continue;
@@ -42,7 +45,6 @@ public class LedorDadosTrabalho {
                 VerticeBuscaLargura v = new VerticeBuscaLargura(colunas[1]);
                 ArestaPonderada<VerticeBuscaLargura, VerticeBuscaLargura> a = new ArestaPonderada<VerticeBuscaLargura, VerticeBuscaLargura>(
                         u, v, Math.abs(Double.parseDouble(colunas[1]) - Double.parseDouble(colunas[0])));
-                System.out.println(a);
                 grafo.adicionaAresta(a);
                 linha = buffer.readLine();
             }
