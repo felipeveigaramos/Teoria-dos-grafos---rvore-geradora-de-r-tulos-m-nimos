@@ -200,10 +200,10 @@ Um dos assuntos fundamentais da área da Teoria dos grafos são as árvores gera
 </ccs2012>  
 \end{CCSXML}
 
-\ccsdesc[500]{Computer systems organization~Embedded systems}
-\ccsdesc[300]{Computer systems organization~Redundancy}
-\ccsdesc{Computer systems organization~Robotics}
-\ccsdesc[100]{Networks~Network reliability}
+%\ccsdesc[500]{Computer systems organization~Embedded systems}%
+%\ccsdesc[300]{Computer systems organization~Redundanc}
+%\ccsdesc{Computer systems organization~Robotics}
+%\ccsdesc[100]{Networks~Network reliability}
 
 
 %
@@ -218,30 +218,32 @@ Um dos assuntos fundamentais da área da Teoria dos grafos são as árvores gera
 % We no longer use \terms command
 %\terms{Theory}
 
-\keywords{ACM proceedings; \LaTeX; text tagging}
+\keywords{PAGRM; Rótulos mínimos; Teoria dos Grafos; JPSO; }
 
 \section{Introdução}
 
-Um dos assuntos fundamentais da área de Teoria dos grafos são as árvores geradoras de rótulos mínimos. Esta pode ser entendida como uma árvore geradora obtida através de um grafo conectado não direcionado \cite{}. Os Problemas das árvores geradoras de rótulos mínimos (PAGRM)  podem ser formalmente definidos como: ``Dado um grafo rotulado não dirigido $G = (V,E,L) $ no qual $ V $ é o conjunto $ n$ de vértices, $E$ é o conjunto de $m$ arestas e $L$ é o conjunto de $l$ rótulos, encontrar uma árvore geradora $T$ de $G$ tal que $|L_{T}|$ é minimizado. Define-se  $|L_{T}|$ como o conjunto de diferentes rótulos das arestas em uma árvore geradora $T$."
+Um dos assuntos fundamentais da área de Teoria dos grafos são as árvores geradoras de rótulos mínimos. Esta pode ser entendida como uma árvore geradora obtida através de um grafo conectado não direcionado . Os Problemas das árvores geradoras de rótulos mínimos (PAGRM)  podem ser formalmente definidos como: Dado um grafo rotulado não dirigido $G = (V,E,L) $ no qual $ V $ é o conjunto $ n$ de vértices, $E$ é o conjunto de $m$ arestas e $L$ é o conjunto de $l$ rótulos, encontrar uma árvore geradora $T$ de $G$ tal que $|L_{T}|$ é minimizado. Define-se  $|L_{T}|$ como o conjunto de diferentes rótulos das arestas em uma árvore geradora $T$. \cite{Pettie:2002:OMS:505241.505243}
 
 Tal é utilizado para representar situações presentes no mundo real como redes de comunicação, elétrica, transporte e dentre outros. Sua compreensão e estudo é fundamental para a elaboração de soluções que visam reduzir custos e ampliar eficiência. Em outras palavras, o objetivo do estudo e aplicações de algoritmos para resolver o PAGRM é gerar - a partir de um grafo não dirigido - uma árvore que contenha o menor número possível de rótulos e ao mesmo tempo cobrindo todos os seus vértices.
 
-Este trabalho tem por finalidade analisar o conjunto de instâncias  -- o mesmo conjunto utilizado em \cite{} -- através da implementação (realizada na linguagem de programação JAVA) e execução do algoritmo JPSO (\textit{Jumping Particle Swarm Optimization}) \cite{}, e dessa forma estabelecer uma comparação entre os resultados obtidos desta aplicação e aqueles provindos das heurísticas apresentadas em \cite{}. 
+Este trabalho tem por finalidade analisar o conjunto de instâncias  -- o mesmo conjunto utilizado em \cite{consoli2009greedy} -- através da implementação (realizada na linguagem de programação JAVA) e execução do algoritmo JPSO (\textit{Jumping Particle Swarm Optimization}) \cite{consoli2008discrete}, e dessa forma estabelecer uma comparação entre os resultados obtidos desta aplicação e aqueles provindos das heurísticas apresentadas em \cite{consoli2009greedy}. 
 
-Tal comparação levou em consideração fatores como a complexidade dos grafos (número de vértices e rótulos) , valor médio da função objetivo e o tempo computacional. Dessa forma, os resultados são comparados da mesma forma como reportado em \cite{}.
+Tal comparação levou em consideração fatores como a complexidade dos grafos (número de vértices e rótulos) , valor médio da função objetivo e o tempo computacional. Dessa forma, os resultados são comparados da mesma forma como reportado em \cite{consoli2009greedy}.
 
 O restante deste trabalho está organizado em seções da seguinte forma: Na seção \ref{sec2} é realizada uma revisão literária, na \ref{sec3} é apresentada a proposta de algoritmo exato para solução do PAGRM (no caso o JPSO), em \ref{sec4} os resultados da implementação são mostrados, em \ref{sec5} é explicitada uma comparação entre os resultados da literatura e os obtidos neste trabalho e por último são apresentadas as conclusões em \ref{sec6}.
 
 
 
 \section{Revisão Literária} \label{sec2}
-
-
+Algoritmos propostos para cobrir o máximo número de vértices, do inglês \textit{Maximum vertez covering algorithm -- MVCA}, tem sua origem da necessidade de criar sistemas em rede com menor custo e maior eficiência. Em 1997, Chang and Leu (1997) introduziram tal assunto e hoje este é conhecido como problema de árvore geradora de rótulos mínimos (PAGRM).
+Eles introduziram discussões sobre PAGRM expõem  sua primeira solução e provam ser um problema NP completo \cite{Ladner:1975:SPT:321864.321877}, ou seja, que é um problema cuja resolução pode ser determinada em um tempo polinomial. Eles propõem inicialmente a seguinte heurística: Começa-se com um grafo vazio e adicione sempre arestas que cubram o maior número de vértices não visitados. Tal solução gera uma árvore geradora de rótulos mínimos. Entretanto, a solução inicial apresentou falhas -- gerando grafos não conexos -- e posteriormente sofreu modificações.
+No ano seguinte, Krumke e Wirth \cite{krumke1998minimum} propuseram a correção que gerava apenas grafos conexos que minizava o nímero de componentes. Essa correção alcançou complexidade $(1 + 2 \log{n})$ . Entretanto,o trabalho mais recente \cite{wan2002note} melhorou tal complexidade para $ ( 1 + \log {(n + 1)}) $.
+Em \cite{xiong2005one}, os autores utilizaram outra aproximação para resolução: Algotimos Genéticos que utilizam conceitos provindos da biologia para resolver PAGRM. Em seguida, Cerulli et al em \cite{cerulli2005metaheuristics} aplicaram o \textit{Pilot Method} e tal foi testado em conjuntos de instâncias obtendo a melhor resposta na maioria dos casos. Por sua vez, em 2006 Xiong et al em \cite{xiong2006improved} implementou versões simplificadas do \textit{Pilot Method} com modificações  de algoritmos genéticos (MGA) e obteve uma performance melhor quanto a obtenção de respostas (capacidade de diversificação). 
 \section{Proposta de Algoritmo -- O JPSO} \label{sec3}
 
 \subsection{Heurística - A ideia do JPSO}
 
-O PSO (Do inglês \textit{Particle Swarm Optmization}) é um algoritmo que simula o comportamento de revoada de indivíduos na natureza. Cada solução do problema  é tido como um indivíduo que pode voar dentro do espaço de soluções. A melhoria das posições, ou seja, as melhores respostas são obtidas através da continua movimentação das partículas que constituem tal revoada. É um algoritmo proposto por \cite{} que utiliza o conceito de inteligência coletiva e é capaz de auxiliar na busca por respostas em problemas de PAGRM. Entretanto, esse algoritmo é formulado para resolver problemas contínuos, o que contradiz o uso para tal. Isto pois, um PAGRM constitui um cenário de resolução discreta.
+O PSO (Do inglês \textit{Particle Swarm Optmization}) é um algoritmo que simula o comportamento de revoada de indivíduos na natureza. Cada solução do problema  é tido como um indivíduo que pode voar dentro do espaço de soluções. A melhoria das posições, ou seja, as melhores respostas são obtidas através da continua movimentação das partículas que constituem tal revoada. É um algoritmo proposto por \cite{consoli2008discrete} que utiliza o conceito de inteligência coletiva e é capaz de auxiliar na busca por respostas em problemas de PAGRM. Entretanto, esse algoritmo é formulado para resolver problemas contínuos, o que contradiz o uso para tal. Isto pois, um PAGRM constitui um cenário de resolução discreta.
 
 
 Portanto, para a utilização da ideia provinda do PSO  é necessário que o algoritmo foque problemas discretos. Assim, uma adaptação é utilizada: O JPSO (\textit{Jumping Particle Swarm Optimization}).
@@ -251,7 +253,7 @@ a mesma essência da heurística aplicada pelo PSO com a diferença de ser volta
 \subsection{Explicações da implementação do JPSO}
 A implementação para este trabalho está disposta na linguagem de programação JAVA  e está de acordo com o pseudo-código descrito em \cite{}. Assim, a entrada para o JPSO é um grafo não dirigido e conexo $G = (V,E,L)$, com $n$ vértices, 	$m$ arestas, $l$ rótulos e $Q \subseteq V$ nós. Além disto, tem como saída uma árvore geradora a qual objetiva ser mínima, ou seja, conter o menor número de rótulos possível e ao mesmo tempo cobrir todos os vértices do grafo. 
 
-Inicialmente foram carregadas as instâncias presentes nos arquivos disponibilizados em ambiente virtual referente aos grafos sobre os quais a análise foi aplicada e que são as  mesmas utilizadas por \cite{}. Estas foram carregadas em estruturas as quais retornam um grafo não dirigido e conexo provindo da base de dados. 
+Inicialmente foram carregadas as instâncias presentes nos arquivos disponibilizados em ambiente virtual referente aos grafos sobre os quais a análise foi aplicada e que são as  mesmas utilizadas por \cite{consoli2009greedy}. Estas foram carregadas em estruturas as quais retornam um grafo não dirigido e conexo provindo da base de dados. 
 	
 Em seguida, a partir de cada grafo abstraído da base de dados foram geradas 100 partículas. Estas partículas são a representação das possíveis soluções e são inicialmente formadas de forma randômica: Para cada partícula é induzido um grafo aleatoriamente a partir dos rótulos do grafo original.
 
@@ -262,7 +264,7 @@ As tentativas de modificações de cada partículas são randômicas. Além diss
 Assim, o JPSO deve retornar a melhor resposta obtida durante sua execução. Apesar de garantir o retorno da melhor solução, não garante que esta seja a solução ótima. Em outras palavras, não retorna necessariamente a arvore com menor rótulos possível de ser formada. Isto devido ao fato de basear-se na aleatoriedade inicial das soluções, o que também implica que execuções distintas sobre a mesma base de dados retorne uma soluções diferentes.
 
 \section*{Resultado da execução - O Algoritmo e sua Ação sobre as Instâncias} \label{sec4}
-A aplicação do JPSO para PAGRM (que é um problema NP completo \cite{}) sobre a base disponibilizada gerou dados de saída que foram organizados em um arquivo texto em formato \textit{txt}. Eles podem ser verificados de forma organizada nas tabelas a seguir em \ref{tab1}, \ref{tab2}, \ref{tab3} e \ref{tab4} e posteriormente são comparados aos resultados dos algoritmos exibidos em \cite{}, estes sobre a mesma base de dados. 
+A aplicação do JPSO para PAGRM (que é um problema NP completo \cite{Ladner:1975:SPT:321864.321877}) sobre a base disponibilizada gerou dados de saída que foram organizados em um arquivo texto em formato \textit{txt}. Eles podem ser verificados de forma organizada nas tabelas a seguir em \ref{tab1}, \ref{tab2}, \ref{tab3} e \ref{tab4} e posteriormente são comparados aos resultados dos algoritmos exibidos em \cite{consoli2009greedy}, estes sobre a mesma base de dados. 
 \begin{table}[!h]
 	
 
@@ -360,14 +362,14 @@ A aplicação do JPSO para PAGRM (que é um problema NP completo \cite{}) sobre 
 	\label{tab4}
 \end{table}
 \section{Comparação de Resultados} \label{sec5}
-Dentre as tarefas necessárias para a realização deste trabalho está a realização da comparação entre os algoritmos presentes em \cite{} e o escolhido para a realização de implementação. Em \cite{} os algoritmos discutidos e executados sobre a mesma base de dados utilizada neste trabalho são: EXACT, PILOT, MGA, GRASP e VNS. Assim, como os algoritmos são aplicados em uma base comum a deste trabalho, é possível estabelecer uma comparação plausível. 
+Dentre as tarefas necessárias para a realização deste trabalho está a realização da comparação entre os algoritmos presentes em \cite{consoli2009greedy} e o escolhido para a realização de implementação. Em \cite{consoli2009greedy} os algoritmos discutidos e executados sobre a mesma base de dados utilizada neste trabalho são: PILOT, MGA, GRASP e VNS. Assim, como os algoritmos são aplicados em uma base comum a deste trabalho, é possível estabelecer uma comparação plausível. 
 
 Tal comparação está divida em 3 grupos, baseados nas características de suas instâncias: grupo 1 é referente a instâncias pequenas que possuem número de vértices iguais ao número de rótulos, o grupo 2 considera instâncias maiores com o número de rótulos definidos por $0,25 * n$, onde $n$ é o número de vértices e os rótulos varia de 25 a 125. Por último, o grupo 3 são as maiores instâncias presentes na base, pois é composta por parâmetros como número de vértices igual a 200 e número de rótulos que variam de 50 a 250 como visto na tabela \ref{tab3} e número de vértices igual a 500 com número de rótulos variando de 125 a 625 como visto na tabela \ref{tab4}.
 \subsection{Comparações no grupo 1}
-No grupo 1 (120 instâncias), dentre os algoritmos apresentados em \cite{} os algoritmos MGA e PILOT são antagônicos: O segundo é mais rápido que o primeiro, entretanto provendo respostas piores. Enquanto isso, o segundo é mais demorado quanto a execução, mas gera soluções melhores. Por sua vez, GRASP e VNS são os mais rápidos e promovem a solução exata. Estes são excelente para essas instâncias. Comparando o JPSO implementado é perceptível que este é mais rápido que MGA (em função do tempo de execução) e mais lento que os demais. Além disso, o JPSO não promove a certeza de que a solução obtida é a exata (ótima). 
+No grupo 1 (120 instâncias), dentre os algoritmos apresentados em \cite{consoli2009greedy} os algoritmos MGA e PILOT são antagônicos: O segundo é mais rápido que o primeiro, entretanto provendo respostas piores. Enquanto isso, o segundo é mais demorado quanto a execução, mas gera soluções melhores. Por sua vez, GRASP e VNS são os mais rápidos e promovem a solução exata. Estes são excelente para essas instâncias. Comparando o JPSO implementado é perceptível que este é mais rápido que MGA (em função do tempo de execução) e mais lento que os demais. Além disso, o JPSO não promove a certeza de que a solução obtida é a exata (ótima). 
 
 O MGA é o mais lento por ser o que mais diversifica as possíveis soluções (no objetivo de encontrar a melhor), porém retornando uma resposta melhor que o PILOT que
-diversifica pouco, mas apresenta uma resposta pior. Assim, o JPSO é mais executa mais rápido do que o algoritmo mais lento apresentado em \cite{} , levando em considerações as instâncias do grupo 1 (cujas características podem ser vistas na tabela \ref{tab1}).
+diversifica pouco, mas apresenta uma resposta pior. Assim, o JPSO é mais executa mais rápido do que o algoritmo mais lento apresentado em \cite{consoli2009greedy} , levando em considerações as instâncias do grupo 1 (cujas características podem ser vistas na tabela \ref{tab1}).
 
 
 
@@ -379,7 +381,7 @@ Para instâncias maiores, como as que compõem o grupo 3 (referente à tabela \r
 
  
 \section{Conclusão} \label{sec6}
-Em nosso trabalho implementamos o algoritmo JPSO para fim de execução da base de dados disponibilizada. Esta é a mesma aplicada em \cite{} e este fato permitiu que fossem comparados os resultados obtidos pela implementação aqui discutida e aqueles apresentados por demais soluções. O objetivos deste trabalho foi ampliar os conhecimentos a respeito do PAGRM que é o foco dos algoritmos apresentados. 
+Em nosso trabalho implementamos o algoritmo JPSO para fim de execução da base de dados disponibilizada. Esta é a mesma aplicada em \cite{consoli2009greedy} e este fato permitiu que fossem comparados os resultados obtidos pela implementação aqui discutida e aqueles apresentados por demais soluções. O objetivos deste trabalho foi ampliar os conhecimentos a respeito do PAGRM que é o foco dos algoritmos apresentados. 
 
 Nota-se que para instâncias maiores os algoritmos VNS e GRASP são os mais compensativos, levando em consideração aspectos como tempo de execução e garantia de solução ótima. O JPSO implementado possui um baixo rendimento para resolver um JPSO quando comparado às duas melhores heurísticas, pois não garante a obtenção da solução exata e ainda tem um tempo de execução maior, sendo compensativo em alguns casos em relação ao MGA e ao PILOT.  Acredita-se que o motivo do execução do JPSO implementado está atrelado ao critério de parada do laço de repetição contido no algoritmo: A execução continuará até que a melhor solução global não se altere por até 100 iterações, assim a redução desse critério influencia no tempo de execução. Além disso, foi possível notar que dependendo do objetivo e das condições apresentadas em mundo real, uma solução rápida de ser executada pode gerar uma resposta que não compensa -- caso do PILOT em um conjunto de instâncias pequenas. Este trabalho foi fundamental para ampliar a visão a respeito do PAGRM e a forma como especialistas da área de grafos estudam heurísticas candidatas a serem boas alternativas de resolução.
 %\end{document}  % This is where a 'short' article might terminate

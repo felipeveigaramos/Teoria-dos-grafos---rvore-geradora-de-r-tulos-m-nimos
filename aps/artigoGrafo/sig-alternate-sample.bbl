@@ -1,3 +1,57 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{cerulli2005metaheuristics}
+R.~Cerulli, A.~Fink, M.~Gentili, and S.~Vo{\ss}.
+\newblock Metaheuristics comparison for the minimum labelling spanning tree
+  problem.
+\newblock In {\em The Next Wave in Computing, Optimization, and Decision
+  Technologies}, pages 93--106. Springer, 2005.
+
+\bibitem{consoli2009greedy}
+S.~Consoli, K.~Darby-Dowman, N.~Mladenovi{\'c}, and J.~M. P{\'e}rez.
+\newblock Greedy randomized adaptive search and variable neighbourhood search
+  for the minimum labelling spanning tree problem.
+\newblock {\em European Journal of Operational Research}, 196(2):440--449,
+  2009.
+
+\bibitem{consoli2008discrete}
+S.~Consoli, J.~M. P{\'e}rez, K.~Darby-Dowman, and N.~Mladenovi{\'c}.
+\newblock Discrete particle swarm optimization for the minimum labelling
+  steiner tree problem.
+\newblock In {\em Nature inspired cooperative strategies for optimization
+  (NICSO 2007)}, pages 313--322. Springer, 2008.
+
+\bibitem{krumke1998minimum}
+S.~O. Krumke and H.-C. Wirth.
+\newblock On the minimum label spanning tree problem.
+\newblock {\em Information Processing Letters}, 66(2):81--85, 1998.
+
+\bibitem{Ladner:1975:SPT:321864.321877}
+R.~E. Ladner.
+\newblock On the structure of polynomial time reducibility.
+\newblock {\em J. ACM}, 22(1):155--171, Jan. 1975.
+
+\bibitem{Pettie:2002:OMS:505241.505243}
+S.~Pettie and V.~Ramachandran.
+\newblock An optimal minimum spanning tree algorithm.
+\newblock {\em J. ACM}, 49(1):16--34, Jan. 2002.
+
+\bibitem{wan2002note}
+Y.~Wan, G.~Chen, and Y.~Xu.
+\newblock A note on the minimum label spanning tree.
+\newblock {\em Information Processing Letters}, 84(2):99--101, 2002.
+
+\bibitem{xiong2005one}
+Y.~Xiong, B.~Golden, and E.~Wasil.
+\newblock A one-parameter genetic algorithm for the minimum labeling spanning
+  tree problem.
+\newblock {\em Evolutionary Computation, IEEE Transactions on}, 9(1):55--60,
+  2005.
+
+\bibitem{xiong2006improved}
+Y.~Xiong, B.~Golden, and E.~Wasil.
+\newblock Improved heuristics for the minimum label spanning tree problem.
+\newblock {\em Evolutionary Computation, IEEE Transactions on}, 10(6):700--703,
+  2006.
 
 \end{thebibliography}

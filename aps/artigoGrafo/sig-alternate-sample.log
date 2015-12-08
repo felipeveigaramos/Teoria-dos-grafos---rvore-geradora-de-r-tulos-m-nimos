@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.4)  8 DEC 2015 01:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.12.4)  8 DEC 2015 11:08
 entering extended mode
 **sig-alternate-sample.tex
 (sig-alternate-sample.tex
@@ -573,33 +573,23 @@ LaTeX Font Info:    Try loading font information for T1+aett on input line 168.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 )
-Excluding 'CCSXML' comment.
-LaTeX Font Info:    Try loading font information for OMS+aer on input line 216.
-
- ("C:\Program Files\MiKTeX 2.9\tex\latex\ae\omsaer.fd"
-File: omsaer.fd 1999/12/27
-)
-LaTeX Font Info:    Font shape `OMS/aer/m/n' in size <9> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 216.
- [1{C:/Users/Paulo/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
+Excluding 'CCSXML' comment. [1{C:/Users/Paulo/AppData/Local/MiKTeX/2.9/pdftex/c
+onfig/pdftex.map}
 
 
 ]
-Overfull \hbox (3.83191pt too wide) in paragraph at lines 252--253
+Overfull \hbox (3.83191pt too wide) in paragraph at lines 254--255
 \T1/aer/m/n/9 gua-gem de pro-gra-ma-ção JAVA e está de acordo com o pseudo-
  []
 
 
-Overfull \hbox (1.76225pt too wide) in paragraph at lines 260--261
+Overfull \hbox (1.76225pt too wide) in paragraph at lines 262--263
 []\T1/aer/m/n/9 As ten-ta-ti-vas de mo-di-fi-ca-ções de cada par-tí-cu-las são 
 randô-
  []
 
 
-Underfull \vbox (badness 1558) has occurred while \output is active []
-
-
-Overfull \hbox (2.87749pt too wide) in paragraph at lines 264--264
+Overfull \hbox (2.87749pt too wide) in paragraph at lines 266--266
 []\secfnt Resultado da exe-cu-ção - O Al-go-ritmo e sua Ação
  []
 
@@ -612,40 +602,37 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[2]
-Underfull \vbox (badness 5022) has occurred while \output is active []
 
- [3]
-Underfull \vbox (badness 2726) has occurred while \output is active []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
+[2] [3] (sig-alternate-sample.bbl) [4] [5
 
-(sig-alternate-sample.bbl) [4] (sig-alternate-sample.aux) ) 
+] (sig-alternate-sample.aux) ) 
 Here is how much of TeX's memory you used:
- 4171 strings out of 493636
- 51466 string characters out of 3143756
- 142576 words of memory out of 3000000
- 7419 multiletter control sequences out of 15000+200000
- 61093 words of font info for 88 fonts, out of 3000000 for 9000
+ 4157 strings out of 493636
+ 51310 string characters out of 3143756
+ 145612 words of memory out of 3000000
+ 7411 multiletter control sequences out of 15000+200000
+ 58940 words of font info for 85 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
  41i,10n,34p,1248b,477s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/Mi
-KTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public
-/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmmi9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 
-2.9/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmti9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmtt9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.
-9/fonts/type1/urw/times/utmr8a.pfb>
-Output written on sig-alternate-sample.pdf (4 pages, 195871 bytes).
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/font
+name/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.p
+fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Pr
+ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/
+type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmti7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+ti9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt9.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/t
+imes/utmr8a.pfb>
+Output written on sig-alternate-sample.pdf (5 pages, 193384 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
+ 75 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
