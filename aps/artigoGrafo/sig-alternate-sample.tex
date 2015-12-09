@@ -48,7 +48,9 @@
 \documentclass{sig-alternate-05-2015}
 \usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel} 
-\usepackage{algpseudocode,algorithm}
+\usepackage{algpseudocode,algorithm,float}
+\usepackage{hyperref}
+\usepackage[dvipsnames]{xcolor}
 % Declaracoes em Português
 \algrenewcommand\algorithmicend{\textbf{fim}}
 \algrenewcommand\algorithmicdo{\textbf{faça}}
@@ -230,20 +232,14 @@ literatura de acordo com uma base comum. Assim, este trabalho é uma oportunidad
 Um dos assuntos fundamentais da área de Teoria dos grafos são as árvores geradoras de rótulos mínimos. Esta pode ser entendida como uma árvore geradora obtida
 através de um grafo conectado não direcionado . Os Problemas das árvores geradoras de rótulos mínimos (PAGRM)  podem ser formalmente definidos como: Dado um
 grafo rotulado não dirigido $G = (V,E,L) $ no qual $ V $ é o conjunto $ n$ de vértices, $E$ é o conjunto de $m$ arestas e $L$ é o conjunto de $l$ rótulos,
-encontrar uma árvore geradora $T$ de $G$ tal que $|L_{T}|$ é minimizado. Define-se  $|L_{T}|$ como o conjunto de diferentes rótulos das arestas em uma árvore
-geradora $T$. \cite{Pettie:2002:OMS:505241.505243}
+encontrar uma árvore geradora $T$ de $G$ tal que $|L_{T}|$ é minimizado. Define-se  $|L_{T}|$ como o conjunto de diferentes rótulos das arestas em uma árvore geradora $T$. \cite{Pettie:2002:OMS:505241.505243}
 
 Tal é utilizado para representar situações presentes no mundo real como redes de comunicação, elétrica, transporte dentre outros. Sua compreensão e estudo
-é fundamental para a elaboração de soluções que visam reduzir custos e ampliar eficiência. Em outras palavras, o objetivo do estudo e aplicações de algoritmos
-para resolver o PAGRM é gerar - a partir de um grafo não dirigido - uma árvore que contenha o menor número possível de rótulos e ao mesmo tempo cobrindo todos
-os seus vértices.
+é fundamental para a elaboração de soluções que visam reduzir custos e ampliar eficiência. Em outras palavras, o objetivo do estudo e aplicações de algoritmos para resolver o PAGRM é gerar - a partir de um grafo não dirigido - uma árvore que contenha o menor número possível de rótulos e ao mesmo tempo cobrindo todos os seus vértices.
 
-Este trabalho tem por finalidade analisar o conjunto de instâncias  -- o mesmo conjunto utilizado em \cite{consoli2009greedy} -- através da implementação (realizada
-na linguagem de programação JAVA) e execução do algoritmo JPSO (\textit{Jumping Particle Swarm Optimization}) \cite{consoli2008discrete}, e dessa forma estabelecer
-uma comparação entre os resultados obtidos desta aplicação e aqueles provindos das heurísticas apresentadas em \cite{consoli2009greedy}.
+Este trabalho tem por finalidade analisar o conjunto de instâncias  -- o mesmo conjunto utilizado em \cite{consoli2009greedy} -- através da implementação (realizada na linguagem de programação JAVA) e execução do algoritmo JPSO (\textit{Jumping Particle Swarm Optimization}) \cite{consoli2008discrete}, e dessa forma estabelecer uma comparação entre os resultados obtidos desta aplicação e aqueles provindos das heurísticas e pseudo-código apresentados em \cite{consoli2009greedy}. Para mais informações sobre implementações e pseudocódigos, o material está disponível neste \href{https://github.com/felipeveigaramos/Teoria-dos-grafos--arvore-geradora-de-rotulos-minimos}{\color{Blue}\underline{link}} .
 
-Tal comparação levou em consideração fatores como a complexidade dos grafos (número de vértices e rótulos) , valor médio da função objetivo e o tempo computacional.
-Dessa forma, os resultados são comparados da mesma forma como reportado em \cite{consoli2009greedy}.
+Tal comparação levou em consideração fatores como a complexidade dos grafos (número de vértices e rótulos) , valor médio da função objetivo e o tempo computacional. Dessa forma, os resultados são comparados da mesma forma como reportado em \cite{consoli2009greedy}.
 
 O restante deste trabalho está organizado em seções da seguinte forma: Na seção \ref{sec2} é realizada uma revisão literária, na \ref{sec3} é apresentada
 a proposta de algoritmo exato para solução do PAGRM (no caso o JPSO), em \ref{sec4} os resultados da implementação são mostrados, em \ref{sec5} é explicitada
@@ -267,148 +263,222 @@ PAGRM. Em seguida, Cerulli et al em \cite{cerulli2005metaheuristics} aplicaram o
 resposta na maioria dos casos. Por sua vez, em 2006 Xiong et al em \cite{xiong2006improved} implementou versões simplificadas do \textit{Pilot Method} com modificações
 de algoritmos genéticos (MGA) e obteve uma performance melhor quanto a obtenção de respostas (capacidade de diversificação).
 
+Em trabalho datado mais recente \cite{consoli2008discrete} -- em 2009 --  há a apresentação de Consoli et Al na qual a solução dada ao PGRM é abordada através de um algoritmo baseado em comportamento de seres presentes em ambiente natural. Especificamente esse trabalho trata de derivações do PSO (\textit{Particle Swarm Optimization}) para resolver problemas de natureza discreta, como é o caso do problema em questão. A ideia de sua proposta é que as partículas (soluções) iterem de forma a combinarem entre si a cada iteração e aproximarem continuamente da resposta tida como a melhor possível. Assim, partículas tendem a convergir a melhor resposta. Tal heurística pode ser analogamente dita como uma estratégia de inteligência coletiva e deriva conceitos presentes na área de inteligência artificial. Esta solução foi a eleita para caso de estudo, pelo fato de ser fácil quanto a sua implementação. 
+
 \section{Proposta de Algoritmo -- O JPSO} \label{sec3}
 
 \subsection{Heurística - A ideia do JPSO}
 
-O PSO (Do inglês \textit{Particle Swarm Optmization}) é um algoritmo que simula o comportamento de revoada de indivíduos na natureza. Cada solução do problema
-é tido como um indivíduo que pode voar dentro do espaço de soluções. A melhoria das posições, ou seja, as melhores respostas são obtidas através da continua
-movimentação das partículas que constituem tal revoada. É um algoritmo proposto por \cite{consoli2008discrete} que utiliza o conceito de inteligência coletiva
-e é capaz de auxiliar na busca por respostas em problemas de PAGRM. Entretanto, esse algoritmo é formulado para resolver problemas contínuos, o que contradiz
-o uso para tal. Isto pois, um PAGRM constitui um cenário de resolução discreta.
+O PSO (Do inglês \textit{Particle Swarm Optmization}) é um algoritmo que simula o comportamento de revoada de indivíduos na natureza. Cada solução do problema é tido como um indivíduo que pode voar dentro do espaço de soluções. A melhoria das posições, ou seja, as melhores respostas são obtidas através da continua movimentação das partículas que constituem tal revoada. É um algoritmo proposto por \cite{consoli2008discrete} que utiliza o conceito de inteligência coletiva, no qual as partículas tendem a convergir rumo a uma solução que esteja mais próxima do ótimo desejado e é capaz de auxiliar na busca por respostas em problemas de PAGRM. Entretanto, esse algoritmo é formulado para resolver problemas contínuos, o que contradiz o uso para tal. Isto pois, um PAGRM constitui um cenário de resolução discreta.
 
 
-Portanto, para a utilização da ideia provinda do PSO  é necessário que o algoritmo foque problemas discretos. Assim, uma adaptação é utilizada: O JPSO (\textit{Jumping 
-Particle Swarm Optimization}).
-O JPSO  é um DPSO (Do inglês,\textit{Discrete Particle Swarm Optimization}) \cite{} , ou seja, possui 
-a mesma essência da heurística aplicada pelo PSO com a diferença de ser voltado para problemas discretos. A ideia é que a cada iteração as possíveis resposta 
-estejam mais próximas do que seria considerado como ótimo. 
+Portanto, para a utilização da ideia provinda do PSO  é necessário que o algoritmo foque problemas discretos. Assim, uma adaptação é utilizada: O JPSO (\textit{Jumping Particle Swarm Optimization}).O JPSO  é um DPSO (Do inglês,\textit{Discrete Particle Swarm Optimization}) \cite{} , ou seja, possui 
+a mesma essência da heurística aplicada pelo PSO com a diferença de ser voltado para problemas discretos. A ideia é que a cada iteração as possíveis resposta estejam mais próximas do que seria considerado como ótimo. 
 
 \subsection{Explicações da implementação do JPSO}
-A implementação para este trabalho está disposta na linguagem de programação JAVA  e está de acordo com o pseudo-código descrito em \cite{}. Assim, a entrada 
-para o JPSO é um grafo não dirigido e conexo $G = (V,E,L)$, com $n$ vértices,         $m$ arestas, $l$ rótulos e $Q \subseteq V$ nós. Além disto, tem como 
+A implementação para este trabalho está disposta na linguagem de programação JAVA  e está de acordo com o pseudo-código descrito em \cite{consoli2008discrete}, ou seja, o código gerado neste trabalho é representado pelo que está presente naquele trabalho. Para mais detalhes o artigo, bem como, toda a estrutura (artigos, referências para implementação , pseudo-código são encontradas na neste  -- \href{https://github.com/felipeveigaramos/Teoria-dos-grafos--arvore-geradora-de-rotulos-minimos}{\color{Blue}\underline{link}}-- referente ao controle de versionamento utilizado. Assim, a entrada 
+para o JPSO é um grafo não dirigido e conexo $G = (V,E,L)$, com $n$ vértices, $m$ arestas, $l$ rótulos e $Q \subseteq V$ nós. Além disto, tem como 
 saída uma árvore geradora a qual objetiva ser mínima, ou seja, conter o menor número de rótulos possível e ao mesmo tempo cobrir todos os vértices do grafo. 
 
-Inicialmente foram carregadas as instâncias presentes nos arquivos disponibilizados em ambiente virtual referente aos grafos sobre os quais a análise foi aplicada 
-e que são as  mesmas utilizadas por \cite{consoli2009greedy}. Estas foram carregadas em estruturas as quais retornam um grafo não dirigido e conexo provindo da 
-base de dados. 
+Inicialmente foram carregadas as instâncias presentes nos arquivos disponibilizados em ambiente virtual referente aos grafos sobre os quais a análise foi aplicada e que são as  mesmas utilizadas por \cite{consoli2009greedy}. Estas foram carregadas em estruturas as quais retornam um grafo não dirigido e conexo provindo da base de dados. 
         
 Em seguida, a partir de cada grafo abstraído da base de dados foram geradas 100 partículas. Estas partículas são a representação das possíveis soluções 
-e são inicialmente formadas de forma randômica: Para cada partícula é induzido um grafo aleatoriamente a partir dos rótulos do grafo original.
+e são inicialmente formadas de forma randômica: Para cada partícula é induzido um grafo aleatoriamente a partir dos rótulos do grafo original. A partir desse momento iniciam-se as iterações que buscam a melhor resposta, elas são caracterizadas pelos seguintes passos: 1. atualiza-se a melhor resposta (componente conexa com menor número de rótulos) para cada partícula , 2. atualiza-se a melhor resposta global já obtida, 3. Para cada partícula há a tentativa de reduzir o número de rótulos mantendo as propriedades necessárias, 4. tentativa de combinar duas soluções gerando um grafo com menor número de rótulos.
 
-A partir desse momento iniciam-se as iterações que buscam a melhor resposta, elas são caracterizadas pelos seguintes passos: 1. atualiza-se a melhor resposta 
-(componente conexa com menor número de rótulos) para cada partícula , 2. atualiza-se a melhor resposta global já obtida, 3. Para cada partícula há a tentativa 
-de reduzir o número de rótulos mantendo as propriedades necessárias, 4. tentativa de combinar duas soluções gerando um grafo com menor número de rótulos.
+As tentativas de modificações de cada partículas são randômicas. Além disso é importante ressaltar que a cada iteração as melhores respostas possíveis nunca apresentarão maior número de rótulos do que na iteração anterior, pois toda vez que ocorrer aumento no número de rótulos há o descarte da solução mantendo a anterior. Outro ponto importante é o critério de parada para o algoritmo:É finalizado a partir do momento em que se completam 100 iterações sem modificação no melhor resultado global.
 
-As tentativas de modificações de cada partículas são randômicas. Além disso é importante ressaltar que a cada iteração as
-melhores respostas possíveis nunca apresentarão
-maior número de rótulos do que na iteração anterior, pois toda vez que ocorrer aumento no número de rótulos há o descarte da solução mantendo a anterior.
-Outro ponto importante é o critério de parada para o algoritmo:É finalizado a partir do momento em que se completam 100 iterações sem modificação no melhor
-resultado global.
-
-Assim, o JPSO deve retornar a melhor resposta obtida durante sua execução. Apesar de garantir o retorno da melhor solução, não garante que esta seja a solução 
-ótima. Em outras palavras, não retorna necessariamente a arvore com menor rótulos possível de ser formada. Isto devido ao fato de basear-se na aleatoriedade 
-inicial das soluções, o que também implica que execuções distintas sobre a mesma base de dados retorne uma soluções diferentes.
+Assim, o JPSO deve retornar a melhor resposta obtida durante sua execução. Apesar de garantir o retorno da melhor solução, não garante que esta seja a solução ótima. Em outras palavras, não retorna necessariamente a arvore com menor rótulos possível de ser formada. Isto devido ao fato de basear-se na aleatoriedade inicial das soluções, o que também implica que execuções distintas sobre a mesma base de dados retorne uma soluções diferentes.
 
 \section*{Resultado da execução - O Algoritmo e sua Ação sobre as Instâncias} \label{sec4}
-A aplicação do JPSO para PAGRM (que é um problema NP completo \cite{Ladner:1975:SPT:321864.321877}) sobre a base disponibilizada gerou dados de saída que foram 
-organizados em um arquivo texto em formato \textit{txt}. Eles podem ser verificados de forma organizada nas tabelas a seguir em \ref{tab1}, \ref{tab2}, \ref{tab3} 
-e \ref{tab4} e posteriormente são comparados aos resultados dos algoritmos exibidos em \cite{consoli2009greedy}, estes sobre a mesma base de dados. 
-\begin{table}[!h]
+A aplicação do JPSO para PAGRM (que é um problema NP completo \cite{Ladner:1975:SPT:321864.321877}) sobre a base disponibilizada gerou dados de saída que foram organizados em um arquivo texto em formato \textit{txt}. Eles podem ser verificados de forma organizada nas tabelas  \ref{tab1} \ref{tab2} \ref{tab3} \ref{tab4} \ref{tab5} \ref{tab6} \ref{tab7} e \ref{tab8} e posteriormente são comparados aos resultados dos algoritmos exibidos em \cite{consoli2009greedy}, estes sobre a mesma base de dados. 
+\begin{table}
         
 
 \begin{tabular}{ccccc}
 
-        \hline \rule[-2ex]{0pt}{5.5ex} N & L & D & F. Objetiva & Tempo (ms) \\ 
-        \hline \rule[-2ex]{0pt}{5.5ex} 20 & 20 & 0.8 & 2.4 & 1002 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 3.1 & 1543 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 6.8 & 2156 \\ 
-         \rule[-2ex]{0pt}{5.5ex} 30 & 30 & 0.8 & 2.8 & 1890 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 3.7 & 4291 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 7.5 & 6191 \\ 
-         \rule[-2ex]{0pt}{5.5ex} 40 & 40 & 0.8 & 2.9 & 3021 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 3.7 & 8018 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 7.7 & 14583 \\
-         \rule[-2ex]{0pt}{5.5ex} 50 & 50 & 0.8 & 3.0 & 6729 \\
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 4.5 & 15001 \\
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 8.8 & 3113 \\
-        \hline \rule[-2ex]{0pt}{5.5ex}  &  & Total & 56.9 & 67538 \\
+        \hline \rule[-2ex]{0pt}{5.5ex} N & L & D & F. O. JPSO & F. O. VNS \\ 
+        \hline \rule[-2ex]{0pt}{5.5ex} 20 & 20 & 0.8 & 2.4 & 2.4 \\ 
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 3.1 & 3.1\\ 
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 6.8 & 6.7\\
+         \rule[-2ex]{0pt}{5.5ex} 30 & 30 & 0.8 & 2.8 & 2.8\\ 
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 3.7 & 3.7\\
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 7.5 & 7.4\\
+         \rule[-2ex]{0pt}{5.5ex} 40 & 40 & 0.8 & 2.9 & 2.9\\ 
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 3.7 & 3.7\\  
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 7.7 & 7.4\\
+         \rule[-2ex]{0pt}{5.5ex} 50 & 50 & 0.8 & 3.0 & 3\\
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 4.5 & 4\\
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 8.8 & 8.6\\
+        \hline \rule[-2ex]{0pt}{5.5ex}  &  & Total & 56.9 &  55.7 \\
         \hline
+        
 \end{tabular}
 
-\caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra o tempo de execução de cada}
+
+
+\caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra a função objetido do PSO (F. O. JPSO) e a do VNS (F. O. VNS)}
 \label{tab1}
 \end{table}
-\begin{table}[!h]
 
-
-\begin{tabular}{ccccc}
-        \hline \rule[-2ex]{0pt}{5.5ex} N & L & D & F. Objetiva & Tempo (ms) \\
-         \hline\rule[-2ex]{0pt}{5.5ex} 100 & 25 & 0.8 & 1.8 & 11440 \\
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 2.0 & 16664 \\
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 4.6 & 46836 \\
-         \rule[-2ex]{0pt}{5.5ex}  & 50 & 0.8 & 2.0 & 31146 \\
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 3.0 & 34667 \\
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 6.9 & 107502 \\
-         \rule[-2ex]{0pt}{5.5ex}  & 100 & 0.8 & 3.8 & 37138 \\
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 5.3 & 96218 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 11.3 & 192166 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  & 125 & 0.8 & 4.1 & 60090 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 6.2 & 113139 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 13.1 & 239019 \\ 
-         \hline\rule[-2ex]{0pt}{5.5ex}  & Total -- &  & 64.1 & 986025 \\ 
-        \hline 
-\end{tabular} 
-\caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra o tempo de execução de cada}
-\label{tab2}
+\begin{table}
+	
+	\begin{tabular}{ccccc}
+		
+		\hline \rule[-2ex]{0pt}{5.5ex} N & L & D & Tempo JPSO& Tempo VNS  \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex} 20 & 20 & 0.8 & 1002 & 0\\ 
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 1.543 &  0\\ 
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 2.156 & 1,6\\
+		\rule[-2ex]{0pt}{5.5ex} 30 & 30 & 0.8 & 1.890 & 0\\ 
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 4.291 & 0\\
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 6.191 & 5.2\\
+		\rule[-2ex]{0pt}{5.5ex} 40 & 40 & 0.8 & 3.021 & 0\\ 
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 8.018 & 3.100\\  
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 14.583 & 9.600\\
+		\rule[-2ex]{0pt}{5.5ex} 50 & 50 & 0.8 & 6.729 & 0\\
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 15.001 & 4.100\\
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 3.113 & 11.900\\
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & Total & 67.538 & 35.500\\
+		\hline
+	\end{tabular}
+	\caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra o tempo de execução de cada -- JPSO e VNS -- em milissegundos}
+	\label{tab2}
 \end{table}
-
-
-
-\begin{table}[!h]
-
+\begin{table}
 
 \begin{tabular}{ccccc}
-        \hline \rule[-2ex]{0pt}{5.5ex} N & L & D  & F. Objetiva & Tempo (ms) \\ 
-        \hline \rule[-2ex]{0pt}{5.5ex} 200 & 50 & 0.8 & 2.0 & 53185 \\ 
-        \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 2.3 & 130555 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 5.7 & 306403 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  & 100 & 0.8 & 2.9 & 99256 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 4.1 & 157123 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 9.4 & 574387 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  & 200 & 0.8 & 4.6 & 254051 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 6.8 & 655515 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 15.3 & 1184675 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  & 250 & 0.8 & 5.1 & 566244 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 8.0 & 933404 \\ 
-         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 17.9 & 1441719 \\ 
-        \hline \rule[-2ex]{0pt}{5.5ex}  &  & Total --  & 84.1 & 6856514 \\ 
+        \hline \rule[-2ex]{0pt}{5.5ex} N & L & D & F. O. JPSO &  F.O. VNS\\
+         \hline\rule[-2ex]{0pt}{5.5ex} 100 & 25 & 0.8 & 1.8 & 1.8 \\
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 2.0 & 2.0\\
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 4.6 & 4.5\\
+         \rule[-2ex]{0pt}{5.5ex}  & 50 & 0.8 & 2.0 & 2\\
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 3.0 & 3\\
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 6.9  & 6.7\\
+         \rule[-2ex]{0pt}{5.5ex}  & 100 & 0.8 & 3.8 & 3\\
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 5.3 & 4.7\\
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 11.3 & 9.7\\ 
+         \rule[-2ex]{0pt}{5.5ex}  & 125 & 0.8 & 4.1 & 4\\ 
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 6.2 & 5.2\\ 
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 13.1& 11\\ 
+         \hline\rule[-2ex]{0pt}{5.5ex}  & Total -- &  & 64.1 & 57.6\\ 
         \hline 
 \end{tabular} 
-\caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra o tempo de execução de cada}
+\caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra a função objetido do PSO (F. O. JPSO) e a do VNS (F. O. VNS)}
 \label{tab3}
 \end{table}
 
-\begin{table}[!h]
+\begin{table}
+	
+	\begin{tabular}{ccccc}
+		\hline \rule[-2ex]{0pt}{5.5ex} N & L & D & Tempo JPSO& T. VNS   \\
+		\hline\rule[-2ex]{0pt}{5.5ex} 100 & 25 & 0.8 &11440 & 0\\
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 16.664 & 0\\
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 46.836 & 3.100\\
+		\rule[-2ex]{0pt}{5.5ex}  & 50 & 0.8 & 31.146 & 7.700\\
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 34.667 & 4.240\\
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 107.502 & 4.970\\
+		\rule[-2ex]{0pt}{5.5ex}  & 100 & 0.8 & 37.138 & 215.000\\
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 96.218 & 114.700\\
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 192.166 & 414.800\\ 
+		\rule[-2ex]{0pt}{5.5ex}  & 125 & 0.8 & 60.090 & 10.100\\ 
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 113.139 & 551.100\\ 
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 239.019 & 420.400\\ 
+		\hline\rule[-2ex]{0pt}{5.5ex}  & Total -- &  & 986.025 & 1800.000\\ 
+		\hline 
+	\end{tabular} 
+	\caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra o tempo de execução de cada -- JPSO e VNS -- em milissegundos}
+	\label{tab4}
+\end{table}
+
+\begin{table}
+
+
+\begin{tabular}{ccccc}
+        \hline \rule[-2ex]{0pt}{5.5ex} N & L & D  & F. O. JPSO & F. O. VNS \\ 
+        \hline \rule[-2ex]{0pt}{5.5ex} 200 & 50 & 0.8 & 2.0 & 2\\ 
+        \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 2.3 & 2.2\\ 
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 5.7 &5.2\\ 
+         \rule[-2ex]{0pt}{5.5ex}  & 100 & 0.8 & 2.9 &2.6 \\ 
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 4.1 &3.4\\ 
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 9.4 & 7.9\\ 
+         \rule[-2ex]{0pt}{5.5ex}  & 200 & 0.8 & 4.6 & 4\\ 
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 6.8 & 5.4\\ 
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 15.3 & 12\\ 
+         \rule[-2ex]{0pt}{5.5ex}  & 250 & 0.8 & 5.1 & 4\\ 
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 8.0 & 6.3\\ 
+         \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 17.9 & 13.9\\ 
+        \hline \rule[-2ex]{0pt}{5.5ex}  &  & Total --  & 84.1 & 68.9\\ 
+        \hline 
+\end{tabular} 
+\caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra a função objetido do PSO (F. O. JPSO) e a do VNS (F. O. VNS)}
+\label{tab5}
+\end{table}
+
+\begin{table}
+	
+	
+	\begin{tabular}{ccccc}
+		\hline \rule[-2ex]{0pt}{5.5ex} N & L & D  & Tempo JPSO & Tempo VNS  \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex} 200 & 50 & 0.8 & 53185 & 0 \\ 
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.5 &  130.555 &17.200\\ 
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.2 &  306.403 &241.300\\ 
+		\rule[-2ex]{0pt}{5.5ex}  & 100 & 0.8 &99.256 &123.200\\ 
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.5 &157.123 & 151.100\\ 
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 574.387 &1700.000\\ 
+		\rule[-2ex]{0pt}{5.5ex}  & 200 & 0.8 & 254.051 &32.000\\ 
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 655.515 &971.900\\ 
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 1184.675 &12800.000\\ 
+		\rule[-2ex]{0pt}{5.5ex}  & 250 & 0.8 & 566.244 &1100.000\\ 
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 933.404 &3400.000\\ 
+		\rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 1441.719 &3200.000\\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & Total --  & 6856.514 & 23700.000\\ 
+		\hline 
+	\end{tabular} 
+	\caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra o tempo de execução de cada -- JPSO e VNS -- em milissegundos}
+	\label{tab6}
+\end{table}
+
+\begin{table}
         \begin{tabular}{ccccc}
-                \hline \rule[-2ex]{0pt}{5.5ex} N & L & D  & F. Objetiva & Tempo (ms) \\ 
-                \hline \rule[-2ex]{0pt}{5.5ex} 500 & 125 & 0.8 & 2.0 & 580854 \\ 
-                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 3.1 & 1535064 \\ 
-                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 7.3 & 4508425 \\ 
-                \hline \rule[-2ex]{0pt}{5.5ex}  & 250 & 0.8 & 3.1 & 2351650 \\ 
-                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 4.9 & 6289072 \\ 
-                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 12.9 & 9052493 \\ 
-                \hline \rule[-2ex]{0pt}{5.5ex}  & 500 & 0.8 & 5.8 & 6751334 \\ 
-                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 8.7 & 16560601 \\ 
-                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 21.3 & 16661087 \\ 
-                \hline \rule[-2ex]{0pt}{5.5ex}  & 625 & 0.8 & 6.7 & 18957465 \\ 
-                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 10.5 & 17878234 \\ 
-                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 25.4 & 18310678 \\ 
-                \hline \rule[-2ex]{0pt}{5.5ex}  &  & Total -- &  &  \\ 
+                \hline \rule[-2ex]{0pt}{5.5ex} N & L & D  & F. O. JPSO & F. O. VNS \\ 
+                \hline \rule[-2ex]{0pt}{5.5ex} 500 & 125 & 0.8 & 2.0 & 2.0\\ 
+                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 3.1 & 2.6\\ 
+                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 7.3 & 6.2\\ 
+                \hline \rule[-2ex]{0pt}{5.5ex}  & 250 & 0.8 & 3.1 & 3 \\ 
+                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 4.9 & 4.1\\ 
+                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 12.9 & 9.9\\ 
+                \hline \rule[-2ex]{0pt}{5.5ex}  & 500 & 0.8 & 5.8 & 4.7\\ 
+                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 8.7 &  6.5\\ 
+                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 21.3 &  15.8\\ 
+                \hline \rule[-2ex]{0pt}{5.5ex}  & 625 & 0.8 & 6.7 & 5.1\\ 
+                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 10.5 & 7.9\\ 
+                \hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 25.4 &  18.3\\ 
+                \hline \rule[-2ex]{0pt}{5.5ex}  &  & Total -- & 111.7 &  86.1\\ 
                 \hline 
         \end{tabular}  
-        \caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra o tempo de execução de cada}
-        \label{tab4}
+        \caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra a função objetido do PSO (F. O. JPSO) e a do VNS (F. O. VNS)}
+        \label{tab7}
+\end{table}
+
+\begin{table}[H]%pareiAqui
+	\begin{tabular}{ccccc}
+		\hline \rule[-2ex]{0pt}{5.5ex} N & L & D  & Tempo JPSO & Tempo VNS  \\ 
+		\hline \rule[-2ex]{0pt}{5.5ex} 500 & 125 & 0.8 & 580854 & 17.100\\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 &  1535.064 &1100.000\\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 4508.425  &3900.000\\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  & 250 & 0.8 & 2351.650 & 14.200\\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 6289.072 &84000.000\\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 9052.493 &5100.000\\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  & 500 & 0.8 & 6751.334 &22300.000\\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 16560.601 &32300.000\\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 16661.087 &139700.000\\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  & 625 & 0.8 & 18957.465 &16100.000\\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.5 & 17878.234 &44700.000\\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & 0.2 & 18310.678 &155500.000\\ 
+		\hline \rule[-2ex]{0pt}{5.5ex}  &  & Total -- & 119436.957 &  504900.000\\ 
+		\hline 
+	\end{tabular}  
+	\caption{N é o número de nós, L é o número de rótulos e D é a densidade.  A tabela mostra o tempo de execução de cada -- JPSO e VNS -- em milissegundos}
+	\label{tab8}
 \end{table}
 \section{Comparação de Resultados} \label{sec5}
 Dentre as tarefas necessárias para a realização deste trabalho está a realização da comparação entre os algoritmos presentes em \cite{consoli2009greedy} 
@@ -422,7 +492,7 @@ igual a 200 e número de rótulos que variam de 50 a 250 como visto na tabela \r
 a 625 como visto na tabela \ref{tab4}.
 \subsection{Comparações no grupo 1}
 No grupo 1 (120 instâncias), dentre os algoritmos apresentados em \cite{consoli2009greedy} os algoritmos MGA e PILOT são antagônicos: O segundo é mais rápido
-que o primeiro, entretanto provendo respostas piores. Enquanto isso, o segundo é mais demorado quanto a execução, mas gera soluções melhores. Por sua vez, GRASP
+que o primeiro, entretanto provendo respostas piores. Enquanto isso, o segundo é mais demorado quanto a execução, mas gera soluções melhores. Para concluir se a resposta de uma heurística é melhor do que outra é necessário comparar suas funções objetivas, ou seja, a taxa referente a média de rótulos por instância. Por sua vez, GRASP
 e VNS são os mais rápidos e promovem a solução exata. Estes são excelente para essas instâncias. Comparando o JPSO implementado é perceptível que este é
 mais rápido que MGA (em função do tempo de execução) e mais lento que os demais. Além disso, o JPSO não promove a certeza de que a solução obtida é a exata
 (ótima).
@@ -430,23 +500,24 @@ mais rápido que MGA (em função do tempo de execução) e mais lento que os de
 O MGA é o mais lento por ser o que mais diversifica as possíveis soluções (no objetivo de encontrar a melhor), porém retornando uma resposta melhor que o PILOT
 que
 diversifica pouco, mas apresenta uma resposta pior. Assim, o JPSO é mais executa mais rápido do que o algoritmo mais lento apresentado em \cite{consoli2009greedy}
-, levando em considerações as instâncias do grupo 1 (cujas características podem ser vistas na tabela \ref{tab1}).
+, levando em considerações as instâncias do grupo 1 (cujas características podem ser vistas na tabela \ref{tab2}). 
+Ao comparar o algoritmo implementado com o melhor caso considerado para comparação, vê-se que além  do JPSO ter maior tempo de execução ainda tem uma função objetiva maior do que o VNS. Isto implica que em seu resultado há um número maior por instâncias. Em outras palavras, a qualidade das soluções geradas pelo JPSO possuem uma qualidade inferior ao VNS. Além disso, é importante constatar que a implementação aqui realizada gerou neste grupo a maior função objetivo. Para maiores referências ver tabelas \ref{tab1} e \ref{tab2}
 
 
 
 \subsection{Comparações no grupo 2}
         No grupo 2, instâncias com número de vértices igual a 100 (360 instâncias), a melhor performance é tida pelo algoritmo VNS. Isto, pois apresenta como
 solução a melhor resposta (exata) e no menor tempo dentre os algoritmos apresentados. GRASP por sua vez também pode ser enquadrado como um algoritmo bom e obtém
-a mesma solução que o VNS. Aqui PILOT apresenta o segundo maior tempo de execução, tendo respostas piores que os demais. MGA continua sendo aquele de maior tempo.
+a mesma solução que o VNS (diferença mínima ao ser verificado o valor de suas funções objetivo). Aqui PILOT apresenta o segundo maior tempo de execução, tendo respostas piores que os demais. MGA continua sendo aquele de maior tempo.
 Aqui é possível perceber que ao aumentar o número de instâncias, o PILOT passa a perder aquilo que ele tinha de vantagem em relação aos demais que é a rapidez
-de execução. O JPSO aqui implementado possui um tempo de maior e ainda não produz uma resposta com a garantia que seja a solução ótima. Portanto a melhor opção
-para resolver um PAGRM é o uso do VNS.
+de execução. O JPSO aqui implementado possui um tempo de maior e ainda não produz uma resposta com a garantia que seja a solução ótima, além disso pode ser verificado que o JPSO gerou uma média maior quanto ao número de rótulos por instância (o que pesa negativamente para o valor de sua solução gerada) \ref{tab3}. Portanto a melhor opção
+para resolver um PAGRM é o uso do VNS. Para referência deste grupo ver tabelas \ref{tab3} e \ref{tab4}
 
 \subsection{Comparações no grupo 3}
-Para instâncias maiores, como as que compõem o grupo 3 (referente à tabela \ref{tab3} e \ref{tab4}) as heurísticas referentes ao VNS e ao GRASP se mantiveram
+Para instâncias maiores, como as que compõem o grupo 3 (referente à tabela \ref{tab5}, \ref{tab6}, \ref{tab7} e \ref{tab8}) as heurísticas referentes ao VNS e ao GRASP se mantiveram
 superiores nos quesitos qualidade da resposta e tempo de execução. O GRASP passa a ter menor tempo de execução em relação ao VNS quão maior for o PGRM em
-questão. Em relação ao JPSO, é perceptível através da tabela \ref{tab3} que em instâncias com o número de vértices igual a 200 possui um tempo de execução
-melhor apenas que o MGA. já em instâncias com o número de vértices igual a 500 (as maiores instâncias) é notável que ele apresenta o maior tempo de execução
+questão. Em relação ao JPSO, é perceptível através da tabela \ref{tab6} que em instâncias com o número de vértices igual a 200 possui um tempo de execução
+melhor apenas que o MGA. Segundo a tabela \ref{tab5} é possível também notar que JPSO continua gerando mais rótulos por instância.Já em instâncias com o número de vértices igual a 500 (as maiores instâncias) é notável que ele apresenta o maior tempo de execução
 sem garantir o resultado ótimo.
 
 
@@ -459,7 +530,7 @@ Nota-se que para instâncias maiores os algoritmos VNS e GRASP são os mais comp
 de solução ótima. O JPSO implementado possui um baixo rendimento para resolver um JPSO quando comparado às duas melhores heurísticas, pois não garante a obtenção
 da solução exata e ainda tem um tempo de execução maior, sendo compensativo em alguns casos em relação ao MGA e ao PILOT.  Acredita-se que o motivo do execução
 do JPSO implementado está atrelado ao critério de parada do laço de repetição contido no algoritmo: A execução continuará até que a melhor solução global
-não se altere por até 100 iterações, assim a redução desse critério influencia no tempo de execução. Além disso, foi possível notar que dependendo do
+não se altere por até 100 iterações, assim a redução desse critério influencia no tempo de execução. Outro fator que é negativo para o JPSO implementado é o fato de gerar mais número de rótulos por instância do que a média geral apresentada por demais heurísticas. Além disso, foi possível notar que dependendo do
 objetivo e das condições apresentadas em mundo real, uma solução rápida de ser executada pode gerar uma resposta que não compensa -- caso do PILOT em um conjunto
 de instâncias pequenas. Este trabalho foi fundamental para ampliar a visão a respeito do PAGRM e a forma como especialistas da área de grafos estudam heurísticas
 candidatas a serem boas alternativas de resolução.
