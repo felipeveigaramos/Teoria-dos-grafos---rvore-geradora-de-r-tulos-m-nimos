@@ -1,6 +1,5 @@
 package br.edu.utfpr.cm.ledor;
 
-import java.util.Iterator;
 import java.util.Scanner;
 
 import br.edu.utfpr.cm.algoritmo.Dijkstra;

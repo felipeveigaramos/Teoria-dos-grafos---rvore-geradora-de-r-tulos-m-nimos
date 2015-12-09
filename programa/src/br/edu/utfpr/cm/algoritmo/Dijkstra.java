@@ -83,15 +83,14 @@ public class Dijkstra implements Algoritmo {
     }
 
     private void relaxaAresta(VerticeBuscaLargura v1, VerticeBuscaLargura v2) {
-        VerticeBuscaLargura u = grafo.getVertice(v1.getId());
-        VerticeBuscaLargura v = grafo.getVertice(v2.getId());
-        ArestaPonderada<VerticeBuscaLargura, VerticeBuscaLargura> aresta = grafo.getAresta(u, v);
+        ArestaPonderada<VerticeBuscaLargura, VerticeBuscaLargura> aresta =
+grafo.getAresta(v1, v2);
         if (aresta == null) {
             throw new IllegalArgumentException("Aresta nulas: " + v1.getId() + ", " + v2.getId());
         }
-        if (v.getDistancia() > (u.getDistancia() + aresta.getPeso())) {
-            v.setDistancia(((int) u.getDistancia() + (int) aresta.getPeso()));
-            v.setPai(u);
+        if (v2.getDistancia() > (v1.getDistancia() + aresta.getPeso())) {
+            v2.setDistancia(((int) v1.getDistancia() + (int) aresta.getPeso()));
+            v2.setPai(v1);
         }
     }
 
