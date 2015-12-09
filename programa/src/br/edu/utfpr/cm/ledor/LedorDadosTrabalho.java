@@ -29,10 +29,10 @@ public class LedorDadosTrabalho {
             String linha = buffer.readLine();
 
             int i = 0;
-            int j = 2000000;
+            int j = 5000;
             while (linha != "" && i <=j) {
                 i++;
-                if (i % (j/100) == 0) {
+                if (i % 10000 == 0) {
                 System.out.println("#: " + i);
                 }
                 if (linha.charAt(0) == '#') {

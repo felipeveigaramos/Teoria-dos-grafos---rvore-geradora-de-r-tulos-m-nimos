@@ -47,7 +47,8 @@ public class Dijkstra implements Algoritmo {
     }
 
     /**
-     * @param verticeInicial the verticeInicial to set
+     * @param verticeInicial
+     *            the verticeInicial to set
      */
     public void setVerticeInicial(VerticeBuscaLargura verticeInicial) {
         this.verticeInicial = verticeInicial;
@@ -61,7 +62,7 @@ public class Dijkstra implements Algoritmo {
     }
 
     @Override
-    public void executar() {
+    public void executar() throws IllegalArgumentException {
         long tempoInicial = new GregorianCalendar().getTimeInMillis();
         PriorityQueue<VerticeBuscaLargura> fila = initializeSingleSource();
         ArrayList<VerticeBuscaLargura> vertices = new ArrayList<VerticeBuscaLargura>();
@@ -71,21 +72,27 @@ public class Dijkstra implements Algoritmo {
             v1 = fila.poll();
             vertices.add(v1);
             Iterator<VerticeBuscaLargura> verticesAdjacentes = grafo.getVerticesAdjacentes(v1);
-            while (verticesAdjacentes.hasNext()) {
-                v2 = verticesAdjacentes.next();
-                relaxaAresta(v1, v2);
+            if (verticesAdjacentes != null) {
+                while (verticesAdjacentes.hasNext()) {
+                    v2 = verticesAdjacentes.next();
+                    relaxaAresta(v1, v2);
+                }
             }
         } while (!fila.isEmpty());
-this.tempoFinalizacao = new GregorianCalendar().getTimeInMillis() - tempoInicial;
+        this.tempoFinalizacao = new GregorianCalendar().getTimeInMillis() - tempoInicial;
     }
 
     private void relaxaAresta(VerticeBuscaLargura v1, VerticeBuscaLargura v2) {
+        System.out.println("#di-ga:" + v1 + " " + v2);
         ArestaPonderada<VerticeBuscaLargura, VerticeBuscaLargura> aresta = grafo.getAresta(v1, v2);
-        if (v2.getDistancia() > (v1.getDistancia()+aresta.getPeso())) {
-            v2.setDistancia(((int)v1.getDistancia()+(int)aresta.getPeso()));
+        System.out.println(aresta);
+        if (aresta == null) {
+            throw new IllegalArgumentException("Aresta nulas: " + v1.getId() + ", " + v2.getId());
+        }
+        if (v2.getDistancia() > (v1.getDistancia() + aresta.getPeso())) {
+            v2.setDistancia(((int) v1.getDistancia() + (int) aresta.getPeso()));
             v2.setPai(v1);
         }
-
     }
 
     private PriorityQueue<VerticeBuscaLargura> initializeSingleSource() {
