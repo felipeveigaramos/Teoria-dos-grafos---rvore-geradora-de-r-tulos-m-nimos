@@ -28,28 +28,26 @@ public class TesteLedorDadosTrabalho {
                 break;
             }
             v1 = grafo.getVertice(v1s);
-            v2 =grafo.getVertice(v2s);
+            v2 = grafo.getVertice(v2s);
             if (v1 == null || v2 == null) {
                 System.out.println("Vértices nulos encontrados.");
             }
-            System.out.println(v1+" "+v2+"\n"+grafo.getAresta(v1, v2));
             dijkstra = new Dijkstra(grafo, v1);
             try {
                 dijkstra.executar();
-                System.out.println(dijkstra.getTempoFinalizacao() + " ms");
+                System.out.println("Tempo de execução: " + dijkstra.getTempoFinalizacao() + " ms");
+                if (v2.getDistancia() != (int)Double.POSITIVE_INFINITY) {
                 System.out.println("Distância: " + v2.getDistancia());
                 imprimeCaminho(v1, v2);
+                } else {
+                    System.out.println("Não há caminho entre estes vértices.");
+                }
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
                 e.printStackTrace();
             }
         }
         input.close();
-
-        Iterator<VerticeBuscaLargura> vertices = grafo.getVertices();
-        while (vertices.hasNext()) {
-            System.out.println(vertices.next());
-        }
     }
 
     private static void imprimeCaminho(VerticeBuscaLargura v1, VerticeBuscaLargura v2) {
@@ -58,6 +56,8 @@ public class TesteLedorDadosTrabalho {
             s = v2.getId() + "->";
             v2 = v2.getPai();
         }
+        s = v2.getId() + "->" + s;
+        s = s.substring(0, s.length()-2);
         System.out.println(s);
     }
 }
